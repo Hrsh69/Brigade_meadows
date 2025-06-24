@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brigade Meadows - Events</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles_1.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f8fafc;
+      color: #222;
+  }
+  .navbar {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5em 2em;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+  }
+  .logo {
+      font-weight: 700;
+      font-size: 1.5em;
+      color: #0077b6;
+      text-decoration: none;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+  }
+  .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2em;
+      margin: 0;
+  }
+  .nav-links li a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 500;
+      transition: color 0.2s;
+      padding: 0.3em 0.5em;
+      border-radius: 4px;
+  }
+  .nav-links li a:hover, .nav-links li a:focus {
+      color: #fff;
+      background: #0077b6;
+      outline: none;
+  }
+  .mobile-menu {
+      display: none;
+      font-size: 2em;
+      color: #0077b6;
+      background: none;
+      border: none;
+      cursor: pointer;
+  }
+  .hero-section {
+      background: linear-gradient(120deg, #f0fcfd 0%, #e2f8fa 100%);
+      color: #0077b6;
+      padding: 1.2em 1em 1em 1em;  /* Less vertical space */
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid #e0e0e0;
+      min-height: 40vh; /* Ensures it's visible but not too tall */
+  }
+  
+  .hero-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.2); /* Softer overlay */
+      z-index: 0;
+  }
+  .hero-section > * {
+      position: relative;
+      z-index: 1;
+  }
+  .hero-section h1 {
+      font-size: 1.1em;
+      margin-bottom: 0.15em;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      justify-content: center;
+  }
+  .hero-section p {
+      font-size: 0.95em;
+      margin-bottom: 0.5em;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+    .events-section {
+      max-width: 900px;
+      margin: 2.5em auto;
+      padding: 0 1.5em;
+    }
+    .section-heading {
+      color: #0077b6;
+      font-size: 1.35em;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      border-left: 4px solid #00b4d8;
+      padding-left: 0.7em;
+      margin-bottom: 1em;
+      background: none;
+      text-align: left;
+      margin-top: 2em;
+      font-weight: 600;
+    }
+    .events-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .events-list li {
+      background: #fff;
+      border-radius: 0.7em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-bottom: 1.5em;
+      padding: 1.2em 1.5em;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2em;
+    }
+    .events-list li i {
+      color: #00b4d8;
+      font-size: 1.7em;
+      margin-top: 0.2em;
+    }
+    .event-details {
+      flex: 1;
+    }
+    .event-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #0077b6;
+      margin-bottom: 0.2em;
+    }
+    .event-date {
+      font-size: 0.98em;
+      color: #555;
+      margin-bottom: 0.5em;
+    }
+    .event-desc {
+      font-size: 0.98em;
+      color: #444;
+    }
+    .no-events {
+      color: #888;
+      text-align: center;
+      margin: 2em 0;
+    }
+    .site-footer {
+      background: #fff;
+      color: #222;
+      text-align: center;
+      padding: 2em 1em 1em 1em;
+      margin-top: 3em;
+      border-top: 1px solid #e0e0e0;
+      font-size: 1em;
+    }
+    .footer-links {
+      margin-bottom: 1em;
+    }
+    .footer-links a {
+      color: #0077b6;
+      margin: 0 1em;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover, .footer-links a:focus {
+      color: #023e8a;
+      text-decoration: underline;
+      outline: none;
+    }
+    .footer-social {
+      margin-bottom: 1em;
+    }
+    .footer-social a {
+      color: #0077b6;
+      margin: 0 0.5em;
+      font-size: 1.3em;
+      transition: color 0.2s;
+    }
+    .footer-social a:hover, .footer-social a:focus {
+      color: #023e8a;
+      outline: none;
+    }
+    @media (max-width: 900px) {
+      .events-section {
+        max-width: 100%;
+        padding: 0 0.5em;
+      }
+    }
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5em 1em;
+      }
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        gap: 1em;
+        margin-top: 1em;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .mobile-menu {
+        display: block;
+        position: absolute;
+        right: 1em;
+        top: 1em;
+      }
+      .hero-section {
+        padding: 0.7em 0.5em 0.5em 0.5em;
+      }
+      .hero-flex {
+        flex-direction: column;
+        gap: 1em;
+        text-align: center;
+      }
+      .hero-img {
+        margin: 0 auto;
+      }
+    }
+  </style>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <nav class="navbar" data-aos="fade-down">
+    <a href="index.html" class="logo"><i class="fa-solid fa-building"></i> BRIGADE MEADOWS</a>
+    <button class="mobile-menu" id="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="amenities.html">Amenities</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="pet.html">Pet Policy</a></li>
+      <li><a href="admin/" id="admin-link" style="display: none;">Admin</a></li>
+    </ul>
+  </nav>
+  <header class="hero-section" data-aos="fade-up">
+    <h1><i class="fa-solid fa-calendar-days"></i> Community Events</h1>
+    <p>
+        Stay updated with the latest happenings, workshops, and celebrations at Brigade Meadows.<br>
+        Join us and be a part of our vibrant community!
+    </p>
+  </header>
+  <main class="events-section">
+    <div class="section-heading"><i class="fa-solid fa-bullhorn"></i> Upcoming Events</div>
+    <ul class="events-list">
+      <li data-aos="fade-right">
+        <i class="fa-solid fa-person-praying"></i>
+        <div class="event-details">
+          <div class="event-title">Yoga Class</div>
+          <div class="event-date">25 Jan 2025</div>
+          <div class="event-desc">Start your day with a refreshing yoga session in the community hall. Open to all residents.</div>
+        </div>
+      </li>
+      <li data-aos="fade-right">
+        <i class="fa-solid fa-dog"></i>
+        <div class="event-details">
+          <div class="event-title">Pet Policy Awareness</div>
+          <div class="event-date">Monthly</div>
+          <div class="event-desc">Learn about our pet-friendly rules and how to be a responsible pet owner. Q&A with the committee.</div>
+        </div>
+      </li>
+      <li data-aos="fade-right">
+        <i class="fa-solid fa-bullhorn"></i>
+        <div class="event-details">
+          <div class="event-title">Move-in Restrictions</div>
+          <div class="event-date">20 Jan 2025</div>
+          <div class="event-desc">Please check the latest guidelines for move-ins and logistics. Contact the estate office for details.</div>
+        </div>
+      </li>
+    </ul>
+    <div class="section-heading"><i class="fa-solid fa-clock-rotate-left"></i> Past Events</div>
+    <ul class="events-list">
+      <li data-aos="fade-left">
+        <i class="fa-solid fa-people-group"></i>
+        <div class="event-details">
+          <div class="event-title">Annual Community Day</div>
+          <div class="event-date">10 Dec 2024</div>
+          <div class="event-desc">A day of fun, games, and celebration for all residents. Thank you for making it a success!</div>
+        </div>
+      </li>
+      <li data-aos="fade-left">
+        <i class="fa-solid fa-tree"></i>
+        <div class="event-details">
+          <div class="event-title">Green Drive</div>
+          <div class="event-date">15 Nov 2024</div>
+          <div class="event-desc">Residents joined hands to plant 200+ saplings across the campus. Let's keep our community green!</div>
+        </div>
+      </li>
+    </ul>
+  </main>
+  <footer class="site-footer" data-aos="fade-up">
+    <div class="footer-links">
+      <a href="index.html">Home</a>|
+      <a href="about.html">About</a>|
+      <a href="amenities.html">Amenities</a>|
+      <a href="events.html">Events</a>|
+      <a href="pet.html">Pet Policy</a>
+    </div>
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div>
+      © 2025 Brigade Meadows Phase-1. All rights reserved.
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').onclick = function() {
+      var nav = document.getElementById('nav-links');
+      nav.classList.toggle('show');
+    };
+    // AOS animation
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+    // Admin link logic
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.getElementById("admin-link").style.display = "inline-block";
+          });
+        } else {
+          document.getElementById("admin-link").style.display = "inline-block";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brigade Meadows</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+<header class="hero-section">
+  <nav class="navbar">
+    <a href="index.html" class="logo">BRIGADE MEADOWS</a>
+    <button class="hamburger hamburger--emphatic" type="button" aria-label="Toggle Menu">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a class="contact-button" href="#">Contact</a></li>
+      <li><a href="admin/" class="admin-button" id="admin-link" style="display: none;">Admin</a></li>
+    </ul>
+  </nav>
+  <div class="hero-content">
+    <h1>About Brigade Meadows</h1>
+    <p>Learn more about our vibrant and well-managed residential community.</p>
+  </div>
+</header>
+<main class="about-section">
+  <section class="section">
+    <h2>About Brigade Meadows</h2>
+    <p>
+      Brigade Meadows Phase-1 is a well-managed residential community dedicated to ensuring a secure, peaceful, and inclusive living environment. Governed by a proactive Executive Committee and Estate Management team, our society maintains high standards in security, housekeeping, amenities, and resident engagement.
+    </p>
+    <p>
+      With clear operational procedures, digital gate management (via MyGate), and comprehensive SOPs for security, movement, pets, and community facilities, we promote transparency, safety, and convenience.
+    </p>
+    <p>
+      This platform provides all residents — owners and tenants — with easy access to policies, event updates, and community guidelines to support responsible and harmonious living.
+    </p>
+  </section>
+</main>
+<footer class="site-footer">
+  © 2025 Brigade Meadows Phase-1
+</footer>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.getElementById("admin-link").style.display = "inline-block";
+        });
+      } else {
+        document.getElementById("admin-link").style.display = "inline-block";
+      }
+    });
+  }
+</script>
+</body>
+</html>
+

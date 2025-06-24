@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brigade Meadows - Amenities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+<header class="hero-section">
+    <nav class="navbar">
+        <a href="index.html" class="logo">BRIGADE MEADOWS</a>
+        <button class="hamburger hamburger--emphatic" type="button" aria-label="Toggle Menu">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a class="contact-button" href="#">Contact</a></li>
+            <li><a href="admin/" class="admin-button" id="admin-link" style="display: none;">Admin</a></li>
+        </ul>
+    </nav>
+    <div class="hero-content">
+        <h1>Amenities</h1>
+        <p>Explore the world-class facilities available to residents.</p>
+    </div>
+</header>
+<main class="amenities-section">
+    <section class="section">
+        <div class="amenity-item">
+            <h2>Swimming Pool</h2>
+            <ul>
+                <li>Separate ladies' batch (3:30 PM – 5:50 PM, except Mondays)</li>
+                <li>Cleaned regularly as per schedule</li>
+                <li>Proper attire required (no casuals)</li>
+                <li>No food, alcohol, or pets allowed</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Gym</h2>
+            <ul>
+                <li>Open 5 AM – 12 PM & 4 PM – 10 PM</li>
+                <li>Entry with valid amenities ID only</li>
+                <li>Proper gym shoes mandatory</li>
+                <li>No food or outside footwear allowed</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Party Hall</h2>
+            <ul>
+                <li>Bookable in 4-hour slots with security deposit</li>
+                <li>No cooking/tandoors allowed inside</li>
+                <li>Strict decoration rules to avoid wall damage</li>
+                <li>Extra charges for time extension</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Children's Play Area</h2>
+            <ul>
+                <li>For children under 12 only</li>
+                <li>No pets, smoking, or sand throwing allowed</li>
+                <li>Children must be supervised by adults</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Pushpak Viman (Buggy)</h2>
+            <ul>
+                <li>Only for senior citizens & differently abled</li>
+                <li>Ticket-based access, managed by forum</li>
+                <li>Only small bags allowed; no trolleys</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Pet Policy</h2>
+            <ul>
+                <li>Pets allowed with registration & vaccinations</li>
+                <li>Leash and poop scooper mandatory in public</li>
+                <li>No feeding in corridors or common areas</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Waste Management</h2>
+            <ul>
+                <li>Segregation: Wet, Dry, Reject & E-Waste</li>
+                <li>Collection daily at 8:30 AM</li>
+                <li>E-Bin available near basement lift</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Security & Surveillance</h2>
+            <ul>
+                <li>24/7 patrol + CCTV monitoring</li>
+                <li>MyGate for visitor & delivery control</li>
+                <li>Emergency readiness protocols in place</li>
+            </ul>
+        </div>
+    </section>
+</main>
+<footer class="site-footer">
+    © 2025 Brigade Meadows Phase-1
+</footer>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.getElementById("admin-link").style.display = "inline-block";
+        });
+      } else {
+        document.getElementById("admin-link").style.display = "inline-block";
+      }
+    });
+  }
+</script>
+</body>
+</html>

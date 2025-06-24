@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brigade Meadows - Pet Policy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles_1.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" /> 
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #f8fafc;
+            color: #222;
+        }
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5em 2em;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 1.5em;
+            color: #0077b6;
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2em;
+            margin: 0;
+        }
+        .nav-links li a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 0.3em 0.5em;
+            border-radius: 4px;
+        }
+        .nav-links li a:hover, .nav-links li a:focus {
+            color: #fff;
+            background: #0077b6;
+            outline: none;
+        }
+        .mobile-menu {
+            display: none;
+            font-size: 2em;
+            color: #0077b6;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .hero-section {
+            background: linear-gradient(120deg, #f0fcfd 0%, #e2f8fa 100%);
+            color: #0077b6;
+            padding: 1.2em 1em 1em 1em;  /* Less vertical space */
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #e0e0e0;
+            min-height: 40vh; /* Ensures it's visible but not too tall */
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.2); /* Softer overlay */
+            z-index: 0;
+        }
+        .hero-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-section h1 {
+            font-size: 1.1em;
+            margin-bottom: 0.15em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            justify-content: center;
+        }
+        .hero-section p {
+            font-size: 0.95em;
+            margin-bottom: 0.5em;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1.5em;
+            text-align: left;
+        }
+        section {
+            margin-bottom: 2.5em;
+        }
+        .section-heading {
+            color: #0077b6;
+            font-size: 1.35em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            border-left: 4px solid #00b4d8;
+            padding-left: 0.7em;
+            margin-bottom: 0.7em;
+            background: linear-gradient(90deg, #e0f7fa 60%, transparent 100%);
+            text-align: left;
+            margin-top: 2em;
+            font-weight: 600;
+        }
+        ul {
+            padding-left: 1.2em;
+            text-align: justify;
+            margin-top: 0;
+            margin-bottom: 1.5em;
+        }
+        .sop-button, .pdf-download-container a {
+            display: inline-block;
+            background: #0077b6;
+            color: #fff;
+            padding: 0.7em 1.5em;
+            border-radius: 2em;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1em;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0,119,182,0.08);
+        }
+        .sop-button:hover, .pdf-download-container a:hover, .sop-button:focus, .pdf-download-container a:focus {
+            background: #023e8a;
+            box-shadow: 0 4px 16px rgba(0,62,138,0.12);
+            outline: none;
+        }
+        .site-footer {
+            background: #fff;
+            color: #222;
+            text-align: center;
+            padding: 2em 1em 1em 1em;
+            margin-top: 3em;
+            border-top: 1px solid #e0e0e0;
+            font-size: 1em;
+        }
+        .footer-links {
+            margin-bottom: 1em;
+        }
+        .footer-links a {
+            color: #0077b6;
+            margin: 0 1em;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover, .footer-links a:focus {
+            color: #023e8a;
+            text-decoration: underline;
+            outline: none;
+        }
+        .footer-social {
+            margin-bottom: 1em;
+        }
+        .footer-social a {
+            color: #0077b6;
+            margin: 0 0.5em;
+            font-size: 1.3em;
+            transition: color 0.2s;
+        }
+        .footer-social a:hover, .footer-social a:focus {
+            color: #023e8a;
+            outline: none;
+        }
+        @media (max-width: 900px) {
+            .main-content {
+                margin: 2em auto;
+                padding: 0 0.5em;
+            }
+        }
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.5em 1em;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                gap: 1em;
+                margin-top: 1em;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                right: 1em;
+                top: 1em;
+            }
+            .main-content {
+                padding: 0 0.2em;
+            }
+            .hero-section {
+                padding: 0.7em 0.5em 0.5em 0.5em;
+            }
+            .hero-section h1 {
+                font-size: 1em;
+            }
+        }
+        .scroll-down-arrow {
+            display: block;
+            margin: 0.2em auto 0 auto;
+            text-align: center;
+            font-size: 1.2em;
+            color: #0077b6;
+            opacity: 0.7;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0);}
+            50% { transform: translateY(8px);}
+        }
+    </style>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <nav class="navbar" data-aos="fade-down">
+        <a href="index.html" class="logo"><i class="fa-solid fa-paw"></i> BRIGADE MEADOWS</a>
+        <button class="mobile-menu" id="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="pet.html">Pet Policy</a></li>
+            <li><a href="admin/" id="admin-link" style="display: none;">Admin</a></li>
+        </ul>
+    </nav>
+    <header class="hero-section" data-aos="fade-up">
+        <h1><i class="fa-solid fa-dog"></i> Pet Policy & Stray Dog Solutions</h1>
+        <p>Creating a safe, pet-friendly, and harmonious community for all residents.</p>
+        <a href="#stray-dogs" class="sop-button">Learn about Stray Dog Solutions</a>
+        <div class="scroll-down-arrow">
+            <i class="fa-solid fa-angle-down"></i>
+        </div>
+    </header>
+    <main class="main-content">
+        <section data-aos="fade-right">
+            <div class="section-heading"><i class="fa-solid fa-shield-dog"></i> Pet Policy</div>
+            <ul>
+                <li>Pets are welcome — registration with society office is mandatory.</li>
+                <li>Dangerous or exotic animals are not allowed as per law.</li>
+                <li>Vaccination records must be submitted annually.</li>
+                <li>Pets must be leashed in common areas at all times.</li>
+                <li>Owners must carry a poop scooper — fines apply if not cleaned up.</li>
+                <li>Pet feeding is allowed only inside flats or in designated pet zones (if available).</li>
+                <li>Pets must not cause noise disturbance or display aggressive behavior.</li>
+                <li>No pets in play areas, swimming pools, gym, or clubhouses.</li>
+                <li>No free roaming of pets is allowed anywhere in the society.</li>
+                <li>Pets showing signs of illness must be treated promptly by the owner.</li>
+                <li>No barking or pet-related noise during quiet hours (10 PM – 7 AM).</li>
+                <li>Repeated complaints may result in fines or further action by EC.</li>
+                <li>Pet complaints must be submitted in writing to the estate office.</li>
+                <li>Violations may lead to warnings, fines, or restrictions as per society rules.</li>
+            </ul>
+            <div>
+                <a href="assets/SOP%2025-03-2025%20EC-6.pdf" download class="sop-button"><i class="fa fa-download"></i> Download SOP</a>
+            </div>
+        </section>
+        <section id="stray-dogs" data-aos="fade-left">
+            <div class="section-heading"><i class="fa-solid fa-dog"></i> Solution to Stray Dogs</div>
+            <ul>
+                <li><strong><i class="fa-solid fa-question-circle"></i> What is a Stray Dog?</strong>
+                    <ul>
+                        <li>Dogs without an owner or permanent shelter.</li>
+                        <li>Commonly found in public spaces: streets, parks, school and hospital areas, railway and bus stations.</li>
+                        <li>They survive by scavenging food waste and living in open areas.</li>
+                    </ul>
+                </li>
+                <li><strong><i class="fa-solid fa-gavel"></i> Legal Aspects:</strong>
+                    <ul>
+                        <li>It is a criminal offense to harm, kill, or relocate stray dogs (ABC Rules 2001).</li>
+                        <li>Only humane management is allowed; removal or violence is strictly prohibited.</li>
+                        <li>Residents and associations must comply with these laws to avoid legal consequences.</li>
+                    </ul>
+                </li>
+                <li><strong><i class="fa-solid fa-hand-holding-medical"></i> How Are Stray Dogs Controlled?</strong>
+                    <ul>
+                        <li><strong>ABC-ARV Programme:</strong>
+                            <ul>
+                                <li>Dogs are humanely caught by trained personnel.</li>
+                                <li>Sterilization prevents further breeding (no more puppies).</li>
+                                <li>Anti-rabies vaccination protects both dogs and humans.</li>
+                                <li>De-worming improves dog health and reduces disease risk.</li>
+                                <li>After treatment, dogs are released back to their original location.</li>
+                                <li>Managed dogs are marked with a V-shaped notch on one ear.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Waste Management:</strong>
+                            <ul>
+                                <li>Proper disposal of food and meat waste is crucial.</li>
+                                <li>Do not dump leftovers in open areas; use closed bins.</li>
+                                <li>Less food waste means fewer stray dogs in the area.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong><i class="fa-solid fa-phone"></i> Dog-Related Complaints:</strong>
+                    <ul>
+                        <li>Contact BBMP control rooms in your zone for immediate action.</li>
+                        <li>Reach out to Animal Welfare NGOs working with BBMP for rescue or sterilization.</li>
+                        <li>If issues persist, escalate to the Deputy Director (Animal Husbandry), BBMP.</li>
+                        <li>Find more details and contacts at <a href="https://www.bbmp.gov.in" target="_blank">www.bbmp.gov.in</a>.</li>
+                    </ul>
+                </li>
+                <li><strong><i class="fa-solid fa-bolt"></i> Why Do Stray Dogs Get Aggressive?</strong>
+                    <ul>
+                        <li>Sexual aggression during mating season.</li>
+                        <li>Maternal aggression when protecting puppies.</li>
+                        <li>Food aggression when competing for food.</li>
+                        <li>Fear aggression if threatened or chased.</li>
+                        <li>Territorial aggression to protect familiar areas.</li>
+                        <li>Rabies aggression: sick dogs may attack without reason.</li>
+                    </ul>
+                </li>
+                <li><strong><i class="fa-solid fa-shield-alt"></i> How to Prevent Dog Attacks:</strong>
+                    <ul>
+                        <li>Avoid packs of dogs, especially during mating or nursing periods.</li>
+                        <li>Do not stare at, chase, or throw objects at dogs.</li>
+                        <li>Do not run if approached by a dog; stay calm and back away slowly.</li>
+                        <li>Avoid carrying food openly in areas with stray dogs.</li>
+                        <li>Be alert in areas where dogs are known to live.</li>
+                        <li>Recognize signs of rabid dogs: excessive drooling, confusion, unprovoked aggression.</li>
+                    </ul>
+                </li>
+                <li><strong><i class="fa-solid fa-users"></i> Community Responsibility:</strong>
+                    <ul>
+                        <li>Support and participate in sterilization and vaccination drives.</li>
+                        <li>Educate children and residents about safe and respectful behavior around dogs.</li>
+                        <li>Discourage feeding strays in public/common areas; if feeding, do so responsibly and clean up after.</li>
+                        <li>Report aggressive, sick, or unsterilized dogs to authorities—do not attempt to handle them yourself.</li>
+                        <li>Encourage neighbors to use closed bins for food waste and not to litter.</li>
+                    </ul>
+                </li>
+                <li><strong><i class="fa-solid fa-eye"></i> Identifying Managed Strays:</strong>
+                    <ul>
+                        <li>Look for a V-shaped notch on one ear, indicating the dog has been sterilized and vaccinated.</li>
+                        <li>Managed dogs are less likely to be aggressive and help keep new, unsterilized dogs away.</li>
+                    </ul>
+                </li>
+                <li><strong><i class="fa-solid fa-briefcase-medical"></i> What to Do If Bitten by a Dog:</strong>
+                    <ul>
+                        <li>Wash the wound immediately with soap and water for at least 10 minutes.</li>
+                        <li>Seek medical attention and get anti-rabies vaccination as soon as possible.</li>
+                        <li>Report the incident to local authorities for follow-up action.</li>
+                    </ul>
+                </li>
+                <li><strong><i class="fa-solid fa-heart"></i> Benefits of Humane Stray Dog Management:</strong>
+                    <ul>
+                        <li>Reduces stray dog population over time.</li>
+                        <li>Prevents rabies and other diseases.</li>
+                        <li>Creates a safer and more harmonious community for both people and animals.</li>
+                    </ul>
+                </li>
+                <li><strong><i class="fa-solid fa-address-book"></i> Key Contacts:</strong>
+                    <ul>
+                        <li>BBMP Control Room: For immediate complaints and emergencies.</li>
+                        <li>Animal Welfare NGOs: For rescue, sterilization, and vaccination support.</li>
+                        <li>Deputy Director (Animal Husbandry), BBMP: For unresolved or escalated issues.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="pdf-download-container">
+                <a href="assets/Solution%20to%20Stray%20Dogs%20(1).pdf" download class="sop-button"><i class="fa fa-download"></i> Download Full "Solution to Stray Dogs" PDF</a>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer" data-aos="fade-up">
+        <div class="footer-links">
+            <a href="index.html">Home</a>|
+            <a href="about.html">About</a>|
+            <a href="services.html">Services</a>|
+            <a href="events.html">Events</a>|
+            <a href="pet.html">Pet Policy</a>
+        </div>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div>
+            © 2025 Brigade Meadows Phase-1. All rights reserved.
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').onclick = function() {
+            var nav = document.getElementById('nav-links');
+            nav.classList.toggle('show');
+        };
+        // AOS animation
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        // Admin link logic
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.getElementById("admin-link").style.display = "inline-block";
+                    });
+                } else {
+                    document.getElementById("admin-link").style.display = "inline-block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
