@@ -1,0 +1,70 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "announcements"
+    label: "Announcements"
+    folder: "content/announcements"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Priority", name: "priority", widget: "select", options: ["low", "medium", "high"]}
+      - {label: "Content", name: "body", widget: "markdown"}
+      - {label: "Icon", name: "icon", widget: "string", hint: "Emoji or icon (e.g., 📌, 🚭, 🔥)"}
+      - {label: "Active", name: "active", widget: "boolean", default: true}
+
+  - name: "events"
+    label: "Events"
+    folder: "content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Time", name: "time", widget: "string", hint: "e.g., 7 AM, 4 PM"}
+      - {label: "Location", name: "location", widget: "string", required: false}
+      - {label: "Recurring", name: "recurring", widget: "boolean", default: false}
+      - {label: "Recurrence Pattern", name: "recurrence", widget: "string", hint: "e.g., Every Saturday", required: false}
+      - {label: "Active", name: "active", widget: "boolean", default: true}
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/pages/about.md"
+        label: "About Page"
+        name: "about"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Content", name: "body", widget: "markdown"}
+      
+      - file: "content/pages/contact.md"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Office Hours", name: "office_hours", widget: "string"}
+          - {label: "Additional Info", name: "additional_info", widget: "markdown", required: false}
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "content/settings/site.md"
+        label: "Site Configuration"
+        name: "site"
+        fields:
+          - {label: "Site Title", name: "title", widget: "string"}
+          - {label: "Site Description", name: "description", widget: "text"}
+          - {label: "Contact Email", name: "contact_email", widget: "string"}
+          - {label: "Office Hours", name: "office_hours", widget: "string"}
+          - {label: "Footer Text", name: "footer_text", widget: "string"} 

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brigade Meadows - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    /* General styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      color: #fff; /* Default text color, if not overridden */
+      overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    /* Navbar Styles - Glass Morphism (Updated from navbar-code-only) */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem; /* Adjust padding as needed */
+      background-color: rgba(0, 0, 0, 0.4); /* Darker, semi-transparent background */
+      backdrop-filter: blur(10px); /* Glass morphism effect */
+      -webkit-backdrop-filter: blur(10px); /* For Safari support */
+      border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle light border */
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Darker, more pronounced shadow */
+      z-index: 100; /* Ensure navbar is on top */
+    }
+
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-item > a {
+      color: #fff; /* White text for contrast */
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav-item > a:hover {
+      color: rgba(255,255,255,0.7); /* Slightly faded white on hover */
+    }
+
+    /* Dropdown Menu - Glass Morphism */
+    .dropdown-menu {
+      position: absolute;
+      top: 100%; /* Position below the parent nav-item */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for dropdown */
+      backdrop-filter: blur(15px); /* More blur for dropdown */
+      -webkit-backdrop-filter: blur(15px);
+      min-width: 150px;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border */
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Consistent shadow */
+      list-style: none;
+      padding: 0.5rem 0;
+      margin-top: 0.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-item.dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0); /* Remove translateY after hover */
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: #fff;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: rgba(255,255,255,0.1); /* Light hover effect for dropdown items */
+    }
+
+    /* Mobile Menu */
+    .hamburger-menu {
+      display: none; /* Hidden by default on desktop */
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Smart Conf Carousel Section */
+    .smart-conf-carousel-section {
+      padding-top: 80px;
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden; /* Hide overflowing slides */
+    }
+
+    .smart-conf-carousel-inner {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .smart-conf-slide {
+      flex-shrink: 0;
+      width: 100vw; /* Each slide takes full viewport width */
+      height: 100%;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Vertically center content */
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Specific background images for each slide */
+    .smart-conf-slide.slide-1 {
+      background-image: url('assets/raw.webp');
+    }
+    .smart-conf-slide.slide-2 {
+      background-image: url('assets/Whimsical Suburban Street Scene.png');
+    }
+    .smart-conf-slide.slide-3 {
+      background-image: url('assets/pushpak.webp');
+    }
+
+    .smart-conf-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay */
+      z-index: 1;
+    }
+
+    .smart-conf-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Ensures content inside is centered */
+    }
+
+    .smart-conf-title {
+      font-size: 5em;
+      font-weight: 700;
+      color: #ffeb3b; /* Yellowish color from image */
+      margin-bottom: 0.2em;
+    }
+
+    .smart-conf-subtitle {
+      font-size: 1.8em;
+      font-weight: 400;
+      margin-bottom: 1.5em;
+      line-height: 1.3;
+    }
+
+    .watch-video-btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: transparent;
+      border: 2px solid #ffeb3b; /* Yellowish border */
+      color: #ffeb3b;
+      padding: 0.8em 1.5em;
+      border-radius: 9999px; /* Fully rounded */
+      font-size: 1.1em;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      /* Removed margin-bottom as location cards are gone, and content should be centered */
+    }
+
+    .watch-video-btn:hover {
+      background-color: #ffeb3b;
+      color: #000;
+    }
+
+    .watch-video-btn i {
+      margin-right: 0.5em;
+    }
+
+    /* Carousel Navigation Buttons for Smart Conf */
+    .smart-conf-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: transparent; /* Removed background */
+      color: white;
+      border: none; /* Removed border */
+      padding: 1em; /* Uniform padding */
+      cursor: pointer;
+      z-index: 4; /* Above carousel content */
+      font-size: 1.5em;
+      border-radius: 0; /* Removed border-radius */
+      transition: background-color 0.3s ease;
+    }
+
+    .smart-conf-nav-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
+    }
+
+    .smart-conf-prev {
+      left: 0px; /* Increased spacing from the left edge */
+    }
+
+    .smart-conf-next {
+      right: 10px; /* Retained spacing from the right edge */
+    }
+
+
+    /* Upcoming Events Section (Static List) */
+    .upcoming-events-section {
+      background-color: #f0f8ff; /* Light background similar to image */
+      padding: 4em 2em; /* Restored horizontal padding */
+      color: #333; /* Darker text for readability */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative; /* Keep if needed for other elements, but not for carousel nav */
+    }
+
+    .events-header {
+      width: 100%;
+      max-width: 900px;
+      padding-bottom: 1em;
+      margin-bottom: 2em;
+      border-bottom: 2px solid #ccc; /* Underline for "Upcoming Events" */
+      text-align: left;
+    }
+
+    .events-header h2 {
+      font-size: 2em;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .event-item {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 900px;
+      padding: 1.5em 0;
+      border-bottom: 1px solid #eee; /* Light separator between events */
+      gap: 1.5em;
+      background-color: transparent; /* Ensure no background from old carousel-slide */
+      border-radius: 0; /* Remove border-radius from old carousel-slide */
+      margin-bottom: 0; /* Remove margin-bottom from old carousel-slide */
+    }
+
+    .event-item:last-child {
+      border-bottom: none; /* No border for the last item */
+    }
+
+    .event-thumbnail {
+      width: 120px;
+      height: 80px;
+      overflow: hidden;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .event-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .event-date-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 80px; /* Fixed width for date box */
+      flex-shrink: 0;
+      color: #333;
+    }
+
+    .event-date-box .day {
+      font-size: 3em;
+      font-weight: 700;
+      line-height: 1;
+      color: #0077b6; /* Blue color for the day */
+    }
+
+    .event-date-box .month {
+      font-size: 0.9em;
+      text-transform: uppercase;
+      margin-top: 0.2em;
+    }
+
+    .event-date-box .year {
+      font-size: 0.8em;
+      opacity: 0.7;
+    }
+
+    .event-details {
+      flex-grow: 1;
+      text-align: left;
+    }
+
+    .event-details .title {
+      font-size: 1.4em;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.3em;
+    }
+
+    .event-details .info {
+      font-size: 0.9em;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+
+    .event-details .info span {
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+
+    .rsvp-button {
+      background-color: #0077b6;
+      color: #fff;
+      padding: 0.6em 1.2em;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .rsvp-button:hover {
+      background-color: #005f95;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #fff;
+      color: #222;
+      text-align: center;
+      padding: 2em 1em 1em 1em;
+      font-size: 1em;
+    }
+
+    .footer-links {
+      margin-bottom: 1em;
+    }
+
+    .footer-links a {
+      color: #0077b6;
+      margin: 0 1em;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-social a {
+      color: #0077b6;
+      margin: 0 0.5em;
+      font-size: 1.3em;
+    }
+
+    .footer-social a:hover {
+      color: #023e8a;
+    }
+
+    /* Keyframe Animations */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(10px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem 1.5rem;
+      }
+      .nav-links {
+        display: none; /* Hide by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9); /* Darker for mobile menu background */
+        backdrop-filter: blur(15px); /* Apply blur to mobile menu too */
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        padding: 1rem 0;
+      }
+      .nav-links.active {
+        display: flex; /* Show when active */
+      }
+      .nav-item {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+      .nav-item > a {
+        padding: 0.75rem 0;
+        display: block;
+      }
+      .dropdown-menu {
+        position: static; /* Allows dropdown to flow in mobile menu */
+        transform: none;
+        box-shadow: none;
+        margin-top: 0;
+        border-radius: 0;
+        background-color: rgba(0, 0, 0, 0.8); /* Slightly less opaque for sub-menu */
+        border: none; /* Remove border for static dropdown */
+      }
+      .nav-item.dropdown:hover .dropdown-menu {
+        transform: none;
+      }
+      .dropdown-menu li a {
+        padding-left: 2rem; /* Indent dropdown items */
+      }
+      .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+      }
+
+      /* Smart Conf Mobile Adjustments */
+      .smart-conf-title {
+        font-size: 3em;
+      }
+
+      .smart-conf-subtitle {
+        font-size: 1.2em;
+      }
+
+      /* Upcoming Events Mobile Adjustments (Static List) */
+      .upcoming-events-section {
+        padding: 2em 1em;
+      }
+      .events-header {
+        padding: 0 0 1em 0;
+      }
+      .event-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8em;
+        padding: 1em 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .event-item:last-child {
+        border-bottom: none;
+      }
+
+      .event-date-box {
+        flex-direction: row;
+        width: auto;
+        gap: 0.5em;
+        margin-bottom: 0.5em;
+      }
+      .event-date-box .day {
+        font-size: 2.5em;
+      }
+      .event-date-box .month, .event-date-box .year {
+        font-size: 0.9em;
+      }
+
+      .event-thumbnail {
+        width: 100%;
+        height: 150px;
+      }
+      .event-details {
+        width: 100%;
+      }
+      .rsvp-button {
+        margin-top: 0.5em;
+        width: 100%;
+        text-align: center;
+      }
+
+      /* Smart Conf Carousel Nav Buttons Mobile */
+      .smart-conf-nav-btn {
+        font-size: 1.2em;
+        padding: 0.8em 0.6em;
+      }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="#" class="navbar-brand">BRIGADE MEADOWS</a>
+  <div class="hamburger-menu" id="hamburgerMenu">
+    <i class="fas fa-bars"></i>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li class="nav-item"><a href="main.html">Home</a></li>
+    <li class="nav-item"><a href="about.html">About</a></li>
+    <li class="nav-item"><a href="amenities.html">Amenities</a></li>
+    <li class="nav-item"><a href="events.html">Events</a></li>
+    <li class="nav-item dropdown">
+      <a href="#">Policy <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">SOPs</a></li>
+        <li><a href="pet.html">Pet Policy</a></li>
+        <li><a href="#">Downloads</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- New Section: Smart Conf Carousel -->
+<section class="smart-conf-carousel-section" id="smartConfSection">
+  <div class="smart-conf-carousel-inner" id="smartConfCarouselInner">
+    <!-- Smart Conf Slide 1 (Original content) -->
+    <div class="smart-conf-slide slide-1">
+      <div class="smart-conf-overlay"></div>
+      <div class="smart-conf-content">
+        <h2 class="smart-conf-title">Yoga Day</h2>
+        <p class="smart-conf-subtitle">
+          Excercise for Healthy Mind | Clubhouse | July 10-12, 2018
+        </p>
+        <a href="#" class="watch-video-btn">
+          <i class="fas fa-envelope"></i> RSVP
+        </a>
+      </div>
+    </div>
+
+    <!-- Smart Conf Slide 2 -->
+    <div class="smart-conf-slide slide-2">
+      <div class="smart-conf-overlay"></div>
+      <div class="smart-conf-content">
+        <h2 class="smart-conf-title">Diwali Celebration</h2>
+        <p class="smart-conf-subtitle">
+          Victory of good over Evil | Open Garden | August 5-7, 2019
+        </p>
+        <a href="#" class="watch-video-btn">
+          <i class="fas fa-envelope"></i> RSVP
+        </a>
+      </div>
+    </div>
+
+    <!-- Smart Conf Slide 3 -->
+    <div class="smart-conf-overlay"></div>
+    <div class="smart-conf-content">
+      <h2 class="smart-conf-title">Independence Day</h2>
+      <p class="smart-conf-subtitle">
+        78th Year of Independence | Flag Post | August 15, 2025
+      </p>
+      <a href="#" class="watch-video-btn">
+        <i class="fas fa-envelope"></i> RSVP
+      </a>
+    </div>
+  </div>
+  </div>
+
+  <!-- Carousel Navigation Buttons for Smart Conf -->
+  <button class="smart-conf-nav-btn smart-conf-prev" id="smartConfCarouselPrev">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="smart-conf-nav-btn smart-conf-next" id="smartConfCarouselNext">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</section>
+
+<!-- Upcoming Events Section (Static List) -->
+<section class="upcoming-events-section">
+  <div class="events-header">
+    <h2>Upcoming Events</h2>
+  </div>
+
+  <!-- Event 1 -->
+  <div class="event-item">
+    <div class="event-thumbnail">
+      <img src="https://placehold.co/120x80/cccccc/333333?text=Event+1" alt="Event Thumbnail 1">
+    </div>
+    <div class="event-date-box">
+      <span class="day">17</span>
+      <span class="month">May</span>
+      <span class="year">2018</span>
+    </div>
+    <div class="event-details">
+      <div class="title">Yoga Day</div>
+      <div class="info">
+        <span><i class="fas fa-map-marker-alt"></i> Clubhouse</span>
+        <span><i class="fas fa-clock"></i> 5pm-8pm</span>
+      </div>
+    </div>
+    <a href="#" class="rsvp-button">RSVP</a>
+  </div>
+
+  <!-- Event 2 -->
+  <div class="event-item">
+    <div class="event-thumbnail">
+      <img src="https://placehold.co/120x80/cccccc/333333?text=Event+2" alt="Event Thumbnail 2">
+    </div>
+    <div class="event-date-box">
+      <span class="day">21</span>
+      <span class="month">May</span>
+      <span class="year">2018</span>
+    </div>
+    <div class="event-details">
+      <div class="title">Diwali Celebration</div>
+      <div class="info">
+        <span><i class="fas fa-map-marker-alt"></i> Clubhouse</span>
+        <span><i class="fas fa-clock"></i> 5pm-8pm</span>
+      </div>
+    </div>
+    <a href="#" class="rsvp-button">RSVP</a>
+  </div>
+
+  <!-- Event 3 -->
+  <div class="event-item">
+    <div class="event-thumbnail">
+      <img src="https://placehold.co/120x80/cccccc/333333?text=Event+3" alt="Event Thumbnail 3">
+    </div>
+    <div class="event-date-box">
+      <span class="day">03</span>
+      <span class="month">April</span>
+      <span class="year">2018</span>
+    </div>
+    <div class="event-details">
+      <div class="title">Independence Day</div>
+      <div class="info">
+        <span><i class="fas fa-map-marker-alt"></i> Clubhouse</span>
+        <span><i class="fas fa-clock"></i> 5pm-8pm</span>
+      </div>
+    </div>
+    <a href="#" class="rsvp-button">RSVP</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="amenities.html">Amenities</a> |
+    <a href="events.html">Events</a> |
+    <a href="pet.html">Pet Policy</a>
+  </div>
+  <div class="footer-social">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div>© 2025 Brigade Meadows Phase-1. All rights reserved.</div>
+</footer>
+
+<!-- Scripts -->
+<script>
+  // Updated JavaScript to use consistent IDs for hamburger menu and nav links
+  const hamburgerMenu = document.getElementById('hamburgerMenu');
+  const navLinks = document.getElementById('navLinks');
+
+  if (hamburgerMenu && navLinks) {
+    hamburgerMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+
+
+  // Removed carousel functionality for Upcoming Events
+  // The Upcoming Events section is now a static list.
+
+  // Smart Conf Carousel functionality (Auto-playing)
+  const smartConfCarouselInner = document.getElementById('smartConfCarouselInner');
+  const smartConfSlides = document.querySelectorAll('.smart-conf-slide');
+  const smartConfCarouselPrev = document.getElementById('smartConfCarouselPrev');
+  const smartConfCarouselNext = document.getElementById('smartConfCarouselNext');
+  const smartConfSection = document.getElementById('smartConfSection'); // Get the section element
+
+  let smartConfCurrentIndex = 0;
+  const smartConfTotalSlides = smartConfSlides.length;
+  let smartConfInterval; // Variable to hold the interval ID
+  const autoPlayDelay = 5000; // 5 seconds
+
+  function showSmartConfSlide(index) {
+    if (index < 0) {
+      smartConfCurrentIndex = smartConfTotalSlides - 1;
+    } else if (index >= smartConfTotalSlides) {
+      smartConfCurrentIndex = 0;
+    } else {
+      smartConfCurrentIndex = index;
+    }
+    const offset = -smartConfCurrentIndex * 100;
+    smartConfCarouselInner.style.transform = `translateX(${offset}%)`;
+  }
+
+  function startSmartConfAutoPlay() {
+    smartConfInterval = setInterval(() => {
+      showSmartConfSlide(smartConfCurrentIndex + 1);
+    }, autoPlayDelay);
+  }
+
+  function stopSmartConfAutoPlay() {
+    clearInterval(smartConfInterval);
+  }
+
+  smartConfCarouselPrev.addEventListener('click', () => {
+    stopSmartConfAutoPlay(); // Stop on manual interaction
+    showSmartConfSlide(smartConfCurrentIndex - 1);
+    startSmartConfAutoPlay(); // Restart after a brief pause
+  });
+
+  smartConfCarouselNext.addEventListener('click', () => {
+    stopSmartConfAutoPlay(); // Stop on manual interaction
+    showSmartConfSlide(smartConfCurrentIndex + 1);
+    startSmartConfAutoPlay(); // Restart after a brief pause
+  });
+
+  // Pause on hover, resume on mouse leave
+  smartConfSection.addEventListener('mouseenter', stopSmartConfAutoPlay);
+  smartConfSection.addEventListener('mouseleave', startSmartConfAutoPlay);
+
+  showSmartConfSlide(0); // Initialize Smart Conf carousel
+  startSmartConfAutoPlay(); // Start auto-play
+</script>
+</body>
+</html>

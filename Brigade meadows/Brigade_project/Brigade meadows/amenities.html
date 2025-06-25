@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brigade Meadows - Amenities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+<header class="hero-section">
+    <nav class="navbar">
+        <a href="index.html" class="logo">BRIGADE MEADOWS</a>
+        <button class="hamburger hamburger--emphatic" type="button" aria-label="Toggle Menu">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a class="contact-button" href="#">Contact</a></li>
+            <li><a href="admin/" class="admin-button" id="admin-link" style="display: none;">Admin</a></li>
+        </ul>
+    </nav>
+    <div class="hero-content">
+        <h1>Amenities</h1>
+        <p>Explore the world-class facilities available to residents.</p>
+    </div>
+</header>
+<main class="amenities-section">
+    <section class="section">
+        <div class="amenity-item">
+            <h2>Swimming Pool</h2>
+            <ul>
+                <li>Separate ladies' batch (3:30 PM – 5:50 PM, except Mondays)</li>
+                <li>Cleaned regularly as per schedule</li>
+                <li>Proper attire required (no casuals)</li>
+                <li>No food, alcohol, or pets allowed</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Gym</h2>
+            <ul>
+                <li>Open 5 AM – 12 PM & 4 PM – 10 PM</li>
+                <li>Entry with valid amenities ID only</li>
+                <li>Proper gym shoes mandatory</li>
+                <li>No food or outside footwear allowed</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Party Hall</h2>
+            <ul>
+                <li>Bookable in 4-hour slots with security deposit</li>
+                <li>No cooking/tandoors allowed inside</li>
+                <li>Strict decoration rules to avoid wall damage</li>
+                <li>Extra charges for time extension</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Children's Play Area</h2>
+            <ul>
+                <li>For children under 12 only</li>
+                <li>No pets, smoking, or sand throwing allowed</li>
+                <li>Children must be supervised by adults</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Pushpak Viman (Buggy)</h2>
+            <ul>
+                <li>Only for senior citizens & differently abled</li>
+                <li>Ticket-based access, managed by forum</li>
+                <li>Only small bags allowed; no trolleys</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Pet Policy</h2>
+            <ul>
+                <li>Pets allowed with registration & vaccinations</li>
+                <li>Leash and poop scooper mandatory in public</li>
+                <li>No feeding in corridors or common areas</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Waste Management</h2>
+            <ul>
+                <li>Segregation: Wet, Dry, Reject & E-Waste</li>
+                <li>Collection daily at 8:30 AM</li>
+                <li>E-Bin available near basement lift</li>
+            </ul>
+        </div>
+        <div class="amenity-item">
+            <h2>Security & Surveillance</h2>
+            <ul>
+                <li>24/7 patrol + CCTV monitoring</li>
+                <li>MyGate for visitor & delivery control</li>
+                <li>Emergency readiness protocols in place</li>
+            </ul>
+        </div>
+    </section>
+</main>
+<footer class="site-footer">
+    © 2025 Brigade Meadows Phase-1
+</footer>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.getElementById("admin-link").style.display = "inline-block";
+        });
+      } else {
+        document.getElementById("admin-link").style.display = "inline-block";
+      }
+    });
+  }
+</script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brigade Meadows - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+
+        .fullscreen-image {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background-image: url('assets/Whimsical Suburban Street Scene.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.7em 2em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5em;
+            color: #0077b6;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2em;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+            padding: 0.3em 0.6em;
+            border-radius: 4px;
+        }
+
+        .nav-links li a:hover, .nav-links li a:focus {
+            background: #0077b6;
+            color: #fff;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.8em;
+            color: #0077b6;
+            background: none;
+            border: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-heading {
+            font-size: 4em;
+            font-weight: 700;
+            margin-top: 5em;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .about-heading-box {
+            display: inline-block;
+            border: 1px solid #000;
+            padding: 1em 2em;
+            margin-bottom: 1.5em;
+        }
+
+        .about-heading-box h2 {
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+
+        .arrow-down {
+            margin-top: 6em;
+            font-size: 2em;
+            color: white;
+            animation: bounce 2s infinite;
+        }
+        .about-fullscreen {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background-image: url('assets/1035.jpg'); /* Replace with your actual image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(8px); /* The blur effect */
+            background-color: rgba(0, 0, 0, 0.4); /* Slight dark tint */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3em 1.5em;
+        }
+        .about-content {
+            color: #fff;
+            max-width: 960px;
+            text-align: center;
+        }
+
+        .about-heading-box {
+            display: inline-block;
+            border: 1px solid #fff;
+            padding: 1.5em 2em;
+            margin-bottom: 2em;
+        }
+
+        .about-heading-box h2 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #222;
+        }
+
+        .about-content h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .about-content p {
+            font-size: 1.15em;
+            line-height: 1.8em;
+            color: #f0f0f0;
+        }
+
+        .water-fullscreen {
+            width: 100%;
+            min-height: 100vh;
+            background: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3em 1.5em;
+        }
+
+        .water-content {
+            max-width: 960px;
+            text-align: center;
+        }
+
+        .water-heading-box {
+            display: inline-block;
+            border: 1px solid #0077b6;
+            background-color: #d0f0f7;
+            padding: 1.5em 2em;
+            margin-bottom: 2em;
+        }
+
+        .water-heading-box h2 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #0077b6;
+        }
+
+        .water-content p {
+            font-size: 1.15em;
+            line-height: 1.8em;
+            color: #004e64;
+        }
+
+
+        .water-conservation-section {
+            background-image: url('assets/raw.webp'); /* Placeholder image for water */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            min-height: 100vh; /* Ensure it takes full viewport height */
+            display: flex;
+            align-items: center; /* Center content vertically */
+            justify-content: flex-start; /* Align content to the left */
+        }
+
+        .water-conservation-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            max-width: 900px; /* Adjust as needed */
+            padding: 4rem 2rem; /* Responsive padding */
+            color: #fff;
+            margin-left: 10%; /* Adjust margin to mimic the image's left alignment */
+        }
+
+        .read-more-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .read-more-link:hover {
+            color: #a0a0a0; /* Lighter color on hover */
+        }
+
+        .download-button {
+            display: inline-block; /* Make it behave like a button, allowing padding/margins */
+            background-color: #fff;
+            color: #1a202c; /* Dark text for contrast on light button */
+            font-weight: 600;
+            padding: 0.75rem 2rem; /* py-3 px-8 in Tailwind */
+            border-radius: 0.5rem; /* rounded-lg in Tailwind */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg in Tailwind */
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* Remove underline for links */
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .site-footer {
+            background: #fff;
+            color: #222;
+            text-align: center;
+            padding: 2em 1em 1em 1em;
+            font-size: 1em;
+        }
+
+        .footer-links {
+            margin-bottom: 1em;
+        }
+
+        .footer-links a {
+            color: #0077b6;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-social a {
+            color: #0077b6;
+            margin: 0 0.5em;
+            font-size: 1.3em;
+        }
+
+        .footer-social a:hover {
+            color: #023e8a;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                padding: 1em;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .about-heading {
+                font-size: 2em;
+                padding: 0 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="fullscreen-image">
+    <div class="overlay"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo"><i class="fa-solid fa-building"></i> BRIGADE MEADOWS</a>
+        <button class="mobile-menu" id="mobile-menu-btn"><i class="fa fa-bars"></i></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="amenities.html">Amenities</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="pet.html">Pet Policy</a></li>
+            <li><a href="admin/" id="admin-link" style="display: none;">Admin</a></li>
+        </ul>
+    </nav>
+
+    <!-- Center Content -->
+    <div class="hero-content">
+        <div class="about-heading">About Us</div>
+        <div class="arrow-down"><i class="fas fa-arrow-down"></i></div>
+    </div>
+</div>
+<section class="about-fullscreen">
+    <div class="overlay">
+        <div class="about-content" id="about-section">
+            <div class="about-heading-box">
+                <h2>ABOUT BRIGADE MEADOWS</h2>
+            </div>
+            <p>
+                Brigade Meadows is not just a residential community — it's a lifestyle destination that blends greenery, modern infrastructure, and community-focused living. With thoughtfully designed amenities and a commitment to sustainability, we aim to provide an environment that supports healthy, secure, and fulfilling urban life for all residents.
+            </p>
+        </div>
+    </div>
+</section>
+<section class="water-conservation-section">
+    <div class="content-wrapper">
+        <!-- Adjusted text color for the subheading for better contrast -->
+        <p class="text-gray-400 text-lg font-light mb-2">Preserving our most vital resource</p>
+        <!-- Adjusted tracking for the main heading to match image's kerning -->
+        <h1 class="text-5xl md:text-6xl tracking-normal leading-tight mb-8">Water Conservation</h1>
+
+        <!-- Adjusted text color and line height for paragraphs -->
+        <p class="text-gray-300 text-lg md:text-xl leading-snug mb-6">
+            At our core, we are dedicated to pioneering sustainable water management practices. We believe in
+            redefining how water is used, treated, and conserved, setting new benchmarks for environmental
+            responsibility and addressing the critical challenges of water scarcity globally.
+        </p>
+
+        <p class="text-gray-300 text-lg md:text-xl leading-snug mb-8">
+            Our commitment extends to implementing advanced wastewater treatment systems and promoting water-efficient
+            technologies across all our operations. We strive to educate and empower communities and stakeholders
+            to embrace water-saving habits, fostering a collective endeavor towards a greener future.
+        </p>
+
+        <a href="#" class="read-more-link mb-6">
+            <span>READ MORE</span>
+            <span class="text-2xl">→</span>
+        </a>
+
+        <a href="assets/Water_Conservation_Presentation.pptx.pdf" download="Our_Water_Strategy.pdf" class="download-button">
+            OUR WATER STRATEGY
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-links">
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="amenities.html">Amenities</a> |
+        <a href="events.html">Events</a> |
+        <a href="pet.html">Pet Policy</a>
+    </div>
+    <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div>© 2025 Brigade Meadows Phase-1. All rights reserved.</div>
+</footer>
+
+<!-- Scripts -->
+<script>
+    document.getElementById('mobile-menu-btn').onclick = function () {
+        document.getElementById('nav-links').classList.toggle('show');
+    };
+</script>
+</body>
+</html>

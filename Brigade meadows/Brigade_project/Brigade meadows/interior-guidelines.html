@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brigade Meadows - Interior Work Guidelines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles_1.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #f8fafc;
+            color: #222;
+        }
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10; /* Increased z-index to ensure it's on top */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.7em 2em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+          }
+      
+          .logo {
+            font-weight: 700;
+            font-size: 1.5em;
+            color: #0077b6;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+          }
+      
+          .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2em;
+          }
+      
+          .nav-links li a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+            padding: 0.3em 0.6em;
+            border-radius: 4px;
+          }
+      
+          .nav-links li a:hover, .nav-links li a:focus {
+            background: #0077b6;
+            color: #fff;
+          }
+      
+          .mobile-menu {
+            display: none;
+            font-size: 1.8em;
+            color: #0077b6;
+            background: none;
+            border: none;
+            cursor: pointer; /* Added cursor for better UX */
+          }
+        .hero-section {
+            background: linear-gradient(120deg, #f0fcfd 0%, #e2f8fa 100%);
+            color: #0077b6;
+            padding: 1.2em 1em 1em 1em;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #e0e0e0;
+            min-height: 40vh;
+        }
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 0;
+        }
+        .hero-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-section h1 {
+            font-size: 1.1em;
+            margin-bottom: 0.15em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            justify-content: center;
+        }
+        .hero-section p {
+            font-size: 0.95em;
+            margin-bottom: 0.5em;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1.5em;
+            text-align: left;
+        }
+        section {
+            margin-bottom: 2.5em;
+        }
+        .section-heading {
+            color: #0077b6;
+            font-size: 1.35em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            border-left: 4px solid #00b4d8;
+            padding-left: 0.7em;
+            margin-bottom: 0.7em;
+            background: linear-gradient(90deg, #e0f7fa 60%, transparent 100%);
+            text-align: left;
+            margin-top: 2em;
+            font-weight: 600;
+        }
+        ul {
+            padding-left: 1.2em;
+            text-align: justify;
+            margin-top: 0;
+            margin-bottom: 1.5em;
+        }
+        .sop-button, .pdf-download-container a {
+            display: inline-block;
+            background: #0077b6;
+            color: #fff;
+            padding: 0.7em 1.5em;
+            border-radius: 2em;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1em;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0,119,182,0.08);
+        }
+        .sop-button:hover, .pdf-download-container a:hover, .sop-button:focus, .pdf-download-container a:focus {
+            background: #023e8a;
+            box-shadow: 0 4px 16px rgba(0,62,138,0.12);
+            outline: none;
+        }
+        .site-footer {
+            background: #fff;
+            color: #222;
+            text-align: center;
+            padding: 2em 1em 1em 1em;
+            margin-top: 3em;
+            border-top: 1px solid #e0e0e0;
+            font-size: 1em;
+        }
+        .footer-links {
+            margin-bottom: 1em;
+        }
+        .footer-links a {
+            color: #0077b6;
+            margin: 0 1em;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover, .footer-links a:focus {
+            color: #023e8a;
+            text-decoration: underline;
+            outline: none;
+        }
+        .footer-social {
+            margin-bottom: 1em;
+        }
+        .footer-social a {
+            color: #0077b6;
+            margin: 0 0.5em;
+            font-size: 1.3em;
+            transition: color 0.2s;
+        }
+        .footer-social a:hover, .footer-social a:focus {
+            color: #023e8a;
+            outline: none;
+        }
+        @media (max-width: 900px) {
+            .main-content {
+                margin: 2em auto;
+                padding: 0 0.5em;
+            }
+        }
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.5em 1em;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                gap: 1em;
+                margin-top: 1em;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                right: 1em;
+                top: 1em;
+            }
+            .main-content {
+                padding: 0 0.2em;
+            }
+            .hero-section {
+                padding: 0.7em 0.5em 0.5em 0.5em;
+            }
+            .hero-section h1 {
+                font-size: 1em;
+            }
+        }
+    </style>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <nav class="navbar" data-aos="fade-down">
+        <a href="index.html" class="logo"><i class="fa-solid fa-ruler-combined"></i> BRIGADE MEADOWS</a>
+        <button class="mobile-menu" id="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="interior-guidelines.html">Interior Work</a></li>
+            <li><a href="admin/" id="admin-link" style="display: none;">Admin</a></li>
+        </ul>
+    </nav>
+    <header class="hero-section" data-aos="fade-up">
+        <h1><i class="fa-solid fa-ruler-combined"></i> Interior Work Guidelines</h1>
+        <p>Essential rules and procedures for safe, compliant, and neighbor-friendly interior work.</p>
+        <a href="#guidelines" class="sop-button">View Guidelines</a>
+        <div class="scroll-down-arrow">
+            <i class="fa-solid fa-angle-down"></i>
+        </div>
+    </header>
+    <main class="main-content">
+        <section id="guidelines" data-aos="fade-right">
+            <div class="section-heading"><i class="fa-solid fa-hammer"></i> Interior Work Policy</div>
+            <h3>1. Work Timings</h3>
+            <ul>
+                <li>Interior work is strictly permitted only between <strong>9:00 AM to 6:00 PM</strong> on working days.</li>
+                <li><strong>No work is allowed</strong> on <strong>Sundays and public holidays</strong>.</li>
+                <li>Violation of timings (e.g., drilling or hammering after hours) will lead to <strong>power disconnection</strong> without further notice.</li>
+            </ul>
+            <h3>2. Labor Stay and Conduct</h3>
+            <ul>
+                <li><strong>Laborers must not stay inside flats</strong> beyond 6:00 PM under any circumstance.</li>
+                <li>Workers are not allowed to loiter or use common amenities during or after work hours.</li>
+                <li>Chewing tobacco or spitting in premises is strictly prohibited.</li>
+                <li>Smoking is not allowed inside units or common areas — the society is a <strong>No Smoking Zone</strong>.</li>
+            </ul>
+            <h3>3. Worker Identification & Contractor Documentation</h3>
+            <ul>
+                <li>All workers must carry valid ID (Aadhaar, PAN, Voter ID, or Driving License).</li>
+                <li>Contractors must submit:
+                    <ul>
+                        <li>Photo ID proof and photographs of all laborers</li>
+                        <li>A copy of the <strong>Work Permit</strong> to security at Gate A or B</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>4. Common Area Usage Restrictions</h3>
+            <ul>
+                <li>Work must be strictly confined to the designated flat.</li>
+                <li>No items, tools, debris, or materials should block staircases, lifts, or corridors.</li>
+                <li>Workers are <strong>not allowed</strong> to tamper with common-area water valves or electrical boards.</li>
+                <li><strong>Use of passenger lifts</strong> for moving heavy materials or during move-in/move-out is prohibited — only service lifts or stairs must be used.</li>
+            </ul>
+            <h3>5. Debris & Waste Disposal</h3>
+            <ul>
+                <li>Contractors and owners are fully responsible for proper disposal of interior debris or leftover construction material.</li>
+                <li>Housekeeping staff will <strong>not collect renovation debris</strong> or accidental construction waste.</li>
+                <li>No waste should be dumped in corridors, near lifts, or public areas.</li>
+            </ul>
+            <h3>6. Advance Notice & Formalities</h3>
+            <ul>
+                <li>All interior work formalities must be completed <strong>at least one day in advance</strong>.</li>
+                <li>Permission must be obtained from the Estate Office and relevant documents submitted.</li>
+            </ul>
+            <h3>7. Security Deposit Policy</h3>
+            <ul>
+                <li>A <strong>refundable caution deposit of ₹15,000</strong> (by cheque only) is mandatory before starting interior work.</li>
+                <li>Cheque should be payable to: <em>"Brigade Meadows Apartment Owners Association Phase-1"</em>.</li>
+                <li>This will only be returned after inspection, subject to no damage to common infrastructure.</li>
+            </ul>
+            <h3>8. Rules Linked with Penalties</h3>
+            <ul>
+                <li>Unauthorized work beyond allowed hours (6:00 PM) or on holidays will attract <strong>power disconnection and fines</strong>.</li>
+                <li>Any damage to lifts, walls, or shared infrastructure (due to negligence) will attract <strong>critical penalties</strong>.</li>
+                <li>Using common areas as temporary storerooms, drilling in shared walls, or using society electricity is punishable.</li>
+                <li><strong>Misuse of lifts</strong> or staining corridors will attract cleaning penalties or service charge deductions.</li>
+            </ul>
+            <h3>9. Electrical/Plumbing Work Specifics</h3>
+            <ul>
+                <li>Only licensed electricians or plumbers should perform modification work inside flats.</li>
+                <li>Switching off power/water for the building for private interior work is not permitted without prior written permission.</li>
+            </ul>
+            <h3>10. Noise and Nuisance Control</h3>
+            <ul>
+                <li>Contractors and workers must avoid loud machinery use or drilling during rest hours (especially before 9 AM or after 6 PM).</li>
+                <li>Persistent complaints from neighbors regarding dust, sound, or debris will lead to immediate suspension of work.</li>
+            </ul>
+            <h3>11. Legal and Safety Compliance</h3>
+            <ul>
+                <li>All interior works must comply with BBMP/local authority guidelines and fire safety regulations.</li>
+                <li>Unauthorized modifications (e.g., structural changes, balcony enclosures) are prohibited and subject to legal action.</li>
+            </ul>
+            <h3>12. Responsibilities of Residents & Owners</h3>
+            <ul>
+                <li>Owners are responsible for contractor behavior and restoration of damage caused to society property.</li>
+                <li>If tenants are performing interior work, the owner must coordinate and remain accountable for rule compliance.</li>
+            </ul>
+            <div class="pdf-download-container">
+                <a href="assets/SOP%2025-03-2025%20EC-6.pdf" download class="sop-button"><i class="fa fa-download"></i> Download </a>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer" data-aos="fade-up">
+        <div class="footer-links">
+            <a href="index.html">Home</a>|
+            <a href="about.html">About</a>|
+            <a href="services.html">Services</a>|
+            <a href="events.html">Events</a>|
+            <a href="interior-guidelines.html">Interior Work</a>
+        </div>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div>
+            © 2025 Brigade Meadows Phase-1. All rights reserved.
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').onclick = function() {
+            var nav = document.getElementById('nav-links');
+            nav.classList.toggle('show');
+        };
+        // AOS animation
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        // Admin link logic
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.getElementById("admin-link").style.display = "inline-block";
+                    });
+                } else {
+                    document.getElementById("admin-link").style.display = "inline-block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

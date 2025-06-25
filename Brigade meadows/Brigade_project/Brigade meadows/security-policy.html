@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brigade Meadows - Security SOP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles_1.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #f8fafc;
+            color: #222;
+        }
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5em 2em;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 1.5em;
+            color: #0077b6;
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2em;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 0.3em 0.5em;
+            border-radius: 4px;
+        }
+        .nav-links li a:hover, .nav-links li a:focus {
+            color: #fff;
+            background: #0077b6;
+            outline: none;
+        }
+        .mobile-menu {
+            display: none;
+            font-size: 2em;
+            color: #0077b6;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .hero-section {
+            background: linear-gradient(120deg, #f0fcfd 0%, #e2f8fa 100%);
+            color: #0077b6;
+            padding: 1.2em 1em 1em 1em;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #e0e0e0;
+            min-height: 40vh;
+        }
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 0;
+        }
+        .hero-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-section h1 {
+            font-size: 1.1em;
+            margin-bottom: 0.15em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            justify-content: center;
+        }
+        .hero-section p {
+            font-size: 0.95em;
+            margin-bottom: 0.5em;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1.5em;
+            text-align: left;
+        }
+        section {
+            margin-bottom: 2.5em;
+        }
+        .section-heading {
+            color: #0077b6;
+            font-size: 1.35em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            border-left: 4px solid #00b4d8;
+            padding-left: 0.7em;
+            margin-bottom: 0.7em;
+            background: linear-gradient(90deg, #e0f7fa 60%, transparent 100%);
+            text-align: left;
+            margin-top: 2em;
+            font-weight: 600;
+        }
+        ul {
+            padding-left: 1.2em;
+            text-align: justify;
+            margin-top: 0;
+            margin-bottom: 1.5em;
+        }
+        .sop-button, .pdf-download-container a {
+            display: inline-block;
+            background: #0077b6;
+            color: #fff;
+            padding: 0.7em 1.5em;
+            border-radius: 2em;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1em;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0,119,182,0.08);
+        }
+        .sop-button:hover, .pdf-download-container a:hover, .sop-button:focus, .pdf-download-container a:focus {
+            background: #023e8a;
+            box-shadow: 0 4px 16px rgba(0,62,138,0.12);
+            outline: none;
+        }
+        .site-footer {
+            background: #fff;
+            color: #222;
+            text-align: center;
+            padding: 2em 1em 1em 1em;
+            margin-top: 3em;
+            border-top: 1px solid #e0e0e0;
+            font-size: 1em;
+        }
+        .footer-links {
+            margin-bottom: 1em;
+        }
+        .footer-links a {
+            color: #0077b6;
+            margin: 0 1em;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover, .footer-links a:focus {
+            color: #023e8a;
+            text-decoration: underline;
+            outline: none;
+        }
+        .footer-social {
+            margin-bottom: 1em;
+        }
+        .footer-social a {
+            color: #0077b6;
+            margin: 0 0.5em;
+            font-size: 1.3em;
+            transition: color 0.2s;
+        }
+        .footer-social a:hover, .footer-social a:focus {
+            color: #023e8a;
+            outline: none;
+        }
+        @media (max-width: 900px) {
+            .main-content {
+                margin: 2em auto;
+                padding: 0 0.5em;
+            }
+        }
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.5em 1em;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                gap: 1em;
+                margin-top: 1em;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                right: 1em;
+                top: 1em;
+            }
+            .main-content {
+                padding: 0 0.2em;
+            }
+            .hero-section {
+                padding: 0.7em 0.5em 0.5em 0.5em;
+            }
+            .hero-section h1 {
+                font-size: 1em;
+            }
+        }
+    </style>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <nav class="navbar" data-aos="fade-down">
+        <a href="index.html" class="logo"><i class="fa-solid fa-shield-alt"></i> BRIGADE MEADOWS</a>
+        <button class="mobile-menu" id="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="amenities.html">Amenities</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Policy <i class="fa fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="security-policy.html">Security Policies</a></li>
+                    <li><a href="interior-guidelines.html">Interior Work</a></li>
+                    <li><a href="housekeeping.html">Housekeeping & Waste</a></li>
+                    <li><a href="pet-policy.html">Pet Policy</a></li>
+                    <li><a href="party-hall.html">Party Hall</a></li>
+                    <li><a href="swimming-pool.html">Swimming Pool</a></li>
+                    <li><a href="gym-guidelines.html">Gym</a></li>
+                    <li><a href="play-area.html">Children's Play Area</a></li>
+                    <li><a href="penalties.html">Rule Violation & Penalty</a></li>
+                    <li><a href="move.html">Move-In / Move-Out</a></li>
+                </ul>
+            </li>
+    </nav>
+    <header class="hero-section" data-aos="fade-up">
+        <h1><i class="fa-solid fa-shield-alt"></i> Security SOP</h1>
+        <p>Standard Operating Procedures for a safe and secure community.</p>
+        <a href="#security-policies" class="sop-button">View Security Policies</a>
+        <div class="scroll-down-arrow">
+            <i class="fa-solid fa-angle-down"></i>
+        </div>
+    </header>
+    <main class="main-content">
+        <section id="security-policies" data-aos="fade-right">
+            <div class="section-heading"><i class="fa-solid fa-user-shield"></i> Security Policies</div>
+            <ul>
+                <li><strong>Access Control & Visitor Management</strong>
+                    <ul>
+                        <li>All visitors must be registered in the security logbook or digital visitor management system (MyGate), and approval must be obtained before granting entry.</li>
+                        <li>Delivery personnel must be verified and allowed entry only after confirmation from the concerned resident.</li>
+                        <li>Vendors, maintenance workers, and service providers must undergo screening, receive temporary ID badges, and obtain approval before entry.</li>
+                        <li>Residents should inform security in advance about expected guests or large gatherings (or provide MyGate approval).</li>
+                        <li>Unauthorized salespersons, marketers, or unregistered individuals should be denied entry.</li>
+                    </ul>
+                </li>
+                <li><strong>Vehicle & Parking Management</strong>
+                    <ul>
+                        <li>Only authorized vehicles are permitted entry; visitor vehicles must be registered at the security desk as per norms.</li>
+                        <li>Parking rules and traffic regulations within the complex must be strictly enforced.</li>
+                        <li>Emergency vehicle access must always be maintained and kept clear of obstructions.</li>
+                        <li>Vehicles should not be parked in walkways or non-designated areas.</li>
+                        <li>Regular patrols must be conducted to identify unauthorized parking or abandoned vehicles.</li>
+                    </ul>
+                </li>
+                <li><strong>Gate Security & Patrol Duties</strong>
+                    <ul>
+                        <li>Security personnel must be stationed at designated gates to monitor entry and exit.</li>
+                        <li>Regular patrols (on foot or bicycle) must be conducted at scheduled intervals across residential blocks, common areas, parking lots, and perimeter zones.</li>
+                        <li>Security must ensure that all common area doors, gates, and exits are secured after operational hours.</li>
+                        <li>CCTV surveillance must be actively monitored, and any suspicious activity must be reported immediately.</li>
+                    </ul>
+                </li>
+                <li><strong>CCTV & Surveillance Monitoring</strong>
+                    <ul>
+                        <li>Security personnel must monitor CCTV footage continuously and report any unusual activities.</li>
+                        <li>Any tampering or malfunctioning of CCTV systems must be reported immediately to the Management / Estate Office.</li>
+                        <li>Recorded footage must not be disclosed to any individual without prior authorization from the EC or Estate Management Team.</li>
+                    </ul>
+                </li>
+                <li><strong>Emergency Response Protocol</strong>
+                    <ul>
+                        <li>Security personnel must be trained to handle medical emergencies, fire incidents, theft, and vandalism.</li>
+                        <li>In case of emergencies, security must promptly contact emergency services, the EC, and the Estate Management Team. If necessary, the local police station must be informed.</li>
+                        <li>Firefighting equipment and emergency exits should be checked regularly, and evacuation procedures must be well understood.</li>
+                        <li>If a resident reports a security concern, security personnel must document and escalate the issue appropriately.</li>
+                    </ul>
+                </li>
+                <li><strong>Handling Deliveries & Service Personnel</strong>
+                    <ul>
+                        <li>Security personnel must not receive any items on behalf of residents.</li>
+                        <li>Domestic staff and service providers must be checked and logged in at every entry and exit.</li>
+                        <li>All items uploaded by the residents in the MyGate Portal are to be checked and confirmed.</li>
+                    </ul>
+                </li>
+                <li><strong>Guest Entry Guidelines for Student Tenants</strong>
+                    <ul>
+                        <li>Residents must send a pre-approved invitation via the MyGate app for guest entry.</li>
+                        <li>If a guest arrives in a commercial vehicle (such as Ola, Uber, or a taxi), the security team will record the flat number and vehicle details. The resident must approve the entry through MyGate.</li>
+                        <li>Guest entry for student tenants is restricted between 10:30 PM and 6:00 AM.</li>
+                        <li>In case of an emergency, residents should contact the Estate Management Office/ Security Supervisor for assistance.</li>
+                    </ul>
+                </li>
+                <li><strong>Incident Reporting & Documentation</strong>
+                    <ul>
+                        <li>A daily security report must be maintained, documenting key incidents, visitor logs, and patrol findings.</li>
+                        <li>Major security breaches, thefts, vandalism, or conflicts must be reported immediately to the EC and Estate Management Team, and to Police Authorities if required.</li>
+                        <li>Incident reports must include the date, time, location, involved individuals, and actions taken.</li>
+                        <li>All registers maintained by the Security Personnel must be handed over to the EM office on a bi-monthly basis.</li>
+                    </ul>
+                </li>
+                <li><strong>Responsibilities of the Security Supervisor</strong>
+                    <ul>
+                        <li>Ensure all security personnel comply with this SOP.</li>
+                        <li>Conduct random checks and training sessions for security guards.</li>
+                        <li>Coordinate with the EC and Estate Management Team for security updates and improvements.</li>
+                        <li>Ensure emergency drills are conducted at regular intervals.</li>
+                        <li>Address resident complaints related to security issues.</li>
+                    </ul>
+                </li>
+                <li><strong>General Code of Conduct for Security Personnel</strong>
+                    <ul>
+                        <li>Must remain vigilant, wear the designated uniform, and display ID cards at all times.</li>
+                        <li>Must behave professionally, politely, and ethically at all times.</li>
+                        <li>Must be familiar with fire safety, first aid, and efficient usage of walkie-talkies.</li>
+                        <li>Unauthorized persons or vehicles must not be allowed entry into the premises.</li>
+                        <li>Guards must not engage in personal calls or conversations, and should never leave their post unattended.</li>
+                        <li>Smoking, drinking, or consuming intoxicants while on duty is strictly prohibited. The premises is a No-Smoking Zone.</li>
+                        <li>Any violation of the code of conduct will result in disciplinary action or termination of service.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="pdf-download-container">
+                <a href="assets/SOP%2025-03-2025%20EC-6.pdf" download class="sop-button"><i class="fa fa-download"></i> Download Full SOP PDF</a>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer" data-aos="fade-up">
+        <div class="footer-links">
+            <a href="index.html">Home</a>|
+            <a href="about.html">About</a>|
+            <a href="services.html">Services</a>|
+            <a href="events.html">Events</a>|
+            <a href="sop.html">Security SOP</a>
+        </div>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div>
+            © 2025 Brigade Meadows Phase-1. All rights reserved.
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').onclick = function() {
+            var nav = document.getElementById('nav-links');
+            nav.classList.toggle('show');
+        };
+        // AOS animation
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        // Admin link logic
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.getElementById("admin-link").style.display = "inline-block";
+                    });
+                } else {
+                    document.getElementById("admin-link").style.display = "inline-block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
