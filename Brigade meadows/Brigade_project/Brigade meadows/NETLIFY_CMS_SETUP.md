@@ -1,159 +1,170 @@
-# Netlify CMS Setup Guide for Brigade Meadows Website
+# Netlify CMS Setup Guide for Brigade Meadows
 
-## Overview
-This guide will help you set up Netlify CMS for your Brigade Meadows website, allowing you to manage content through a user-friendly interface.
+This guide will help you set up and use Netlify CMS to manage your community events and content.
 
-## What's Been Added
+## What is Netlify CMS?
 
-### 1. Admin Interface
-- **Location**: `/admin/index.html`
-- **Purpose**: Provides the CMS interface for content management
-- **Access**: Visit `yourdomain.com/admin/` to access the CMS
+Netlify CMS is a content management system that allows you to edit your website content through a user-friendly interface without needing to edit code files directly.
 
-### 2. Configuration
-- **Location**: `/admin/config.yml`
-- **Purpose**: Defines the content structure and fields
-- **Features**: 
-  - Announcements management
-  - Events management
-  - Site settings
-  - Page content management
+## Features Available
 
-### 3. Content Structure
-- **Announcements**: `/content/announcements/`
-- **Events**: `/content/events/`
-- **Settings**: `/content/settings/`
-- **Pages**: `/content/pages/`
+### 1. Events Management
+- Create new community events
+- Edit existing events
+- Set event types (yoga, pet policy, move-in, etc.)
+- Add event status (upcoming, ongoing, completed)
+- Include event details like time, location, and description
 
-### 4. Dynamic Content Loading
-- **File**: `cms-loader.js`
-- **Purpose**: Loads CMS content dynamically on the website
-- **Features**: Updates announcements, events, and site settings automatically
+### 2. Announcements
+- Post important announcements
+- Set priority levels
+- Control visibility
+
+### 3. Site Settings
+- Update contact information
+- Modify site configuration
+- Edit page content
 
 ## Setup Instructions
 
 ### Step 1: Deploy to Netlify
+
 1. Push your code to a Git repository (GitHub, GitLab, or Bitbucket)
 2. Connect your repository to Netlify
 3. Deploy your site
 
-### Step 2: Enable Netlify Identity
-1. Go to your Netlify dashboard
-2. Navigate to **Site settings** > **Identity**
-3. Click **Enable Identity**
-4. Configure registration settings (recommended: invite only)
+### Step 2: Enable Identity
+
+1. In your Netlify dashboard, go to **Site settings** > **Identity**
+2. Click **Enable Identity**
+3. Configure registration settings (recommended: invite only)
 
 ### Step 3: Configure Git Gateway
+
 1. In **Site settings** > **Identity** > **Services**
 2. Enable **Git Gateway**
-3. This allows the CMS to commit changes to your repository
+3. This allows the CMS to make changes to your repository
 
-### Step 4: Set Up Admin Users
+### Step 4: Invite Users
+
 1. Go to **Identity** > **Users**
-2. Click **Invite users** to add content editors
-3. Users will receive email invitations to join
+2. Click **Invite users**
+3. Enter email addresses of people who should have access to the CMS
 
-### Step 5: Access the CMS
-1. Visit `yourdomain.com/admin/`
-2. Log in with your Netlify Identity credentials
-3. Start managing content!
+## How to Access the CMS
 
-## Content Management
+### Option 1: Direct Admin Access
+- Navigate to `your-site.com/admin/`
+- Log in with your Netlify Identity credentials
 
-### Announcements
-- **Fields**: Title, Date, Priority, Content, Icon, Active status
-- **Use**: For important community updates and notices
-- **Display**: Shows on the homepage with icons and priority indicators
+### Option 2: From Events Page
+- Go to the Events page on your website
+- Click the "Admin" button in the navigation (visible when logged in)
+- This will open the CMS interface
 
-### Events
-- **Fields**: Title, Date, Time, Location, Description, Recurring pattern
-- **Use**: For community events, activities, and gatherings
-- **Display**: Shows on the homepage with auto-scrolling
+### Option 3: From Any Page
+- When logged in, you'll see an "Edit Events" button on the hero section
+- Click to open the CMS
 
-### Site Settings
-- **Fields**: Site title, description, contact email, office hours, footer text
-- **Use**: Global site configuration
-- **Display**: Updates across the entire website
+## Using the CMS
 
-## Local Development
+### Adding a New Event
 
-### Testing Locally
-1. Install Netlify CLI: `npm install -g netlify-cli`
-2. Run: `netlify dev`
-3. Access CMS at `http://localhost:8888/admin/`
+1. Log into the CMS
+2. Click on **Events** in the sidebar
+3. Click **New Events**
+4. Fill in the event details:
+   - **Title**: Event name
+   - **Date**: When the event takes place
+   - **Description**: Event details
+   - **Event Type**: Select from dropdown (yoga, pet policy, etc.)
+   - **Icon**: FontAwesome icon class (e.g., `fas fa-person-praying`)
+   - **Status**: upcoming, ongoing, or completed
+   - **Time**: Event time (optional)
+   - **Location**: Where the event takes place (optional)
+   - **Recurring**: Check if it's a recurring event
+   - **Recurrence Pattern**: How often it repeats (optional)
+5. Click **Publish** to save
 
-### Local Backend
-The CMS is configured with `local_backend: true`, which allows you to:
-- Test content changes locally
-- Preview changes before publishing
-- Work offline
+### Editing an Existing Event
 
-## Customization
+1. Find the event in the Events list
+2. Click on it to open the editor
+3. Make your changes
+4. Click **Publish** to save
 
-### Adding New Content Types
-1. Edit `/admin/config.yml`
-2. Add new collections under the `collections` section
-3. Define fields and structure
-4. Create corresponding content folders
+### Managing Announcements
 
-### Styling the Admin Interface
-1. Create custom CSS for the admin interface
-2. Add it to the admin page
-3. Customize the look and feel
+1. Go to **Announcements** in the sidebar
+2. Create new announcements or edit existing ones
+3. Set priority levels and visibility
 
-### Extending Functionality
-1. Add custom widgets if needed
-2. Implement custom preview templates
-3. Add validation rules
+## Event Types Available
 
-## Security Considerations
+- **yoga**: Yoga and fitness classes
+- **pet_policy**: Pet-related events and policies
+- **move_in**: Move-in guidelines and procedures
+- **community_day**: Community celebrations
+- **green_drive**: Environmental initiatives
+- **food_festival**: Food and dining events
+- **other**: Miscellaneous events
 
-### Access Control
-- Use Netlify Identity for authentication
-- Set up role-based access if needed
-- Regularly review user permissions
+## Icons
 
-### Content Validation
-- Implement field validation in the CMS config
-- Use required fields for critical content
-- Set up content approval workflows if needed
+Use FontAwesome icon classes for event icons. Examples:
+- `fas fa-person-praying` (yoga)
+- `fas fa-dog` (pet events)
+- `fas fa-bullhorn` (announcements)
+- `fas fa-people-group` (community events)
+- `fas fa-tree` (environmental events)
+- `fas fa-utensils` (food events)
+
+## File Structure
+
+The CMS creates and manages files in these directories:
+- `content/events/` - Event files
+- `content/announcements/` - Announcement files
+- `content/settings/` - Site configuration
 
 ## Troubleshooting
 
-### Common Issues
-1. **CMS not loading**: Check if Netlify Identity is enabled
-2. **Changes not saving**: Verify Git Gateway is configured
-3. **Content not displaying**: Check the cms-loader.js implementation
+### Can't Access Admin Panel
+- Make sure you're logged in with Netlify Identity
+- Check that Git Gateway is enabled
+- Verify you have the correct permissions
 
-### Support
-- Netlify CMS Documentation: https://www.netlifycms.org/docs/
-- Netlify Identity Documentation: https://docs.netlify.com/visitor-access/identity/
-- Community Forum: https://github.com/netlify/netlify-cms/discussions
+### Changes Not Appearing
+- Check that your site is deployed
+- Verify the content files are in the correct format
+- Ensure the CMS configuration is correct
+
+### Login Issues
+- Check your email for the invitation
+- Make sure you're using the correct email address
+- Contact the site administrator if you need access
+
+## Security Notes
+
+- Only invite trusted users to the CMS
+- Regularly review user access
+- Monitor changes made through the CMS
+- Keep your Netlify Identity settings secure
+
+## Support
+
+If you encounter issues:
+1. Check the Netlify documentation
+2. Review the CMS configuration file (`admin/config.yml`)
+3. Contact your site administrator
+4. Check the browser console for error messages
 
 ## Next Steps
 
-1. **Customize the CMS interface** to match your brand
-2. **Add more content types** as needed
-3. **Set up content workflows** for approval processes
-4. **Implement preview functionality** for content editors
-5. **Add image management** for media content
+Once the CMS is set up:
+1. Add your first events
+2. Customize the event types if needed
+3. Set up user roles and permissions
+4. Train other users on how to use the CMS
+5. Regularly backup your content
 
-## File Structure
-```
-Brigade meadows/
-├── admin/
-│   ├── index.html          # CMS interface
-│   └── config.yml          # CMS configuration
-├── content/
-│   ├── announcements/      # Announcement content
-│   ├── events/            # Event content
-│   ├── pages/             # Page content
-│   └── settings/          # Site settings
-├── index/
-│   ├── index.html         # Main website
-│   ├── cms-loader.js      # Dynamic content loader
-│   └── ...                # Other website files
-└── NETLIFY_CMS_SETUP.md   # This guide
-```
-
-Your website is now ready for content management through Netlify CMS! 
+The CMS will make it much easier to keep your community website updated with fresh, relevant content! 

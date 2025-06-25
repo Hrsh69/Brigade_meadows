@@ -17,59 +17,56 @@
             color: #222;
         }
         .navbar {
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10; /* Increased z-index to ensure it's on top */
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.5em 2em;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.7em 2em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+          }
+      
+          .logo {
             font-weight: 700;
             font-size: 1.5em;
             color: #0077b6;
             text-decoration: none;
-            letter-spacing: 1px;
             display: flex;
             align-items: center;
             gap: 0.5em;
-        }
-        .nav-links {
+          }
+      
+          .nav-links {
             list-style: none;
             display: flex;
             gap: 2em;
-            margin: 0;
-        }
-        .nav-links li a {
+          }
+      
+          .nav-links li a {
             text-decoration: none;
             color: #222;
             font-weight: 500;
-            transition: color 0.2s;
-            padding: 0.3em 0.5em;
+            padding: 0.3em 0.6em;
             border-radius: 4px;
-        }
-        .nav-links li a:hover, .nav-links li a:focus {
-            color: #fff;
+          }
+      
+          .nav-links li a:hover, .nav-links li a:focus {
             background: #0077b6;
-            outline: none;
-        }
-        .mobile-menu {
+            color: #fff;
+          }
+      
+          .mobile-menu {
             display: none;
-            font-size: 2em;
+            font-size: 1.8em;
             color: #0077b6;
             background: none;
             border: none;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        .mobile-menu:hover,
-        .mobile-menu:focus {
-            color: #023e8a;
-            outline: none;
-        }
+            cursor: pointer; /* Added cursor for better UX */
+          }
         .hero-section {
             background: linear-gradient(120deg, #e0f7fa 0%, #b2ebf2 100%);
             color: #0077b6;
@@ -261,29 +258,130 @@
                 grid-template-columns: 1fr;
             }
         }
+        .fullscreen-image {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background-image: url('assets/landscape.jpg'); /* Change to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 8em;
+        }
+        .main-heading {
+            font-size: 3em;
+            font-weight: 700;
+            text-align: center;
+            color: #fff;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .arrow-down {
+            margin-top: 3em;
+            font-size: 2em;
+            color: white;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0);}
+            50% { transform: translateY(10px);}
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 2.2em;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            min-width: 220px;
+            z-index: 100;
+            padding: 0.5em 0;
+        }
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu li {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 0;
+        }
+        .dropdown-menu li:last-child {
+            border-bottom: none;
+        }
+        .dropdown-menu a {
+            color: #222;
+            padding: 0.7em 1.2em;
+            display: block;
+            border-radius: 0;
+            background: none;
+        }
+        .dropdown-menu a:hover {
+            background: #0077b6;
+            color: #fff;
+        }
     </style>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-<nav class="navbar" data-aos="fade-down">
-    <a href="index.html" class="logo"><i class="fa-solid fa-building"></i> BRIGADE MEADOWS</a>
-    <button class="mobile-menu" id="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
-    <ul class="nav-links" id="nav-links">
+  <div class="fullscreen-image">
+    <div class="overlay"></div>
+    <nav class="navbar">
+      <a href="index.html" class="logo"><i class="fa-solid fa-building"></i> BRIGADE MEADOWS</a>
+      <button class="mobile-menu" id="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="amenities.html">Amenities</a></li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="pet.html">Pet Policy</a></li>
-        <li><a href="admin/" id="admin-link" style="display: none;">Admin</a></li>
-    </ul>
-</nav>
-<header class="hero-section" data-aos="fade-up">
-    <h1><i class="fa-solid fa-tree-city"></i> Welcome to Brigade Meadows</h1>
-    <p>
-        A vibrant, secure, and green community in Bangalore. Discover our amenities, events, and pet-friendly policies designed for a harmonious living experience.
-    </p>
-</header>
-<section class="in-numbers" data-aos="fade-up">
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Policy <i class="fa fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="security-policy.html">Security Policies</a></li>
+            <li><a href="interior-guidelines.html">Interior Work</a></li>
+            <li><a href="housekeeping.html">Housekeeping & Waste</a></li>
+            <li><a href="pet-policy.html">Pet Policy</a></li>
+            <li><a href="party-hall.html">Party Hall</a></li>
+            <li><a href="swimming-pool.html">Swimming Pool</a></li>
+            <li><a href="gym-guidelines.html">Gym</a></li>
+            <li><a href="play-area.html">Children's Play Area</a></li>
+            <li><a href="penalties.html">Rule Violation & Penalty</a></li>
+            <li><a href="move.html">Move-In / Move-Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <div class="main-heading">Welcome to Brigade Meadows</div>
+      <div class="arrow-down"><i class="fas fa-arrow-down"></i></div>
+    </div>
+  </div>
+  <section class="in-numbers" data-aos="fade-up">
     <div class="number-block">
         <div class="number"><i class="fa-solid fa-building"></i> 20+</div>
         <div class="label">Residential Towers</div>
@@ -300,8 +398,8 @@
         <div class="number"><i class="fa-solid fa-tree"></i> 30+</div>
         <div class="label">Acres of Greenery</div>
     </div>
-</section>
-<section class="section" data-aos="fade-right">
+  </section>
+  <section class="section" data-aos="fade-right">
     <div class="section-heading"><i class="fa-solid fa-star"></i> Amenities & Services</div>
     <div class="features-grid">
         <div class="feature-card">
@@ -335,8 +433,8 @@
             <p>Dedicated pet zones and pet-friendly policies for animal lovers.</p>
         </div>
     </div>
-</section>
-<section class="section" data-aos="fade-left">
+  </section>
+  <section class="section" data-aos="fade-left">
     <div class="section-heading"><i class="fa-solid fa-calendar-days"></i> Upcoming Events</div>
     <ul class="events-list">
         <li>
@@ -361,8 +459,8 @@
             </div>
         </li>
     </ul>
-</section>
-<footer class="site-footer" data-aos="fade-up">
+  </section>
+  <footer class="site-footer" data-aos="fade-up">
     <div class="footer-links">
         <a href="index.html">Home</a>|
         <a href="about.html">About</a>|
@@ -379,10 +477,10 @@
     <div>
         © 2025 Brigade Meadows Phase-1. All rights reserved.
     </div>
-</footer>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="script.js"></script>
-<script>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <script>
     // Mobile menu toggle
     document.getElementById('mobile-menu-btn').onclick = function() {
         var nav = document.getElementById('nav-links');
@@ -405,6 +503,6 @@
             }
         });
     }
-</script>
+  </script>
 </body>
 </html>
