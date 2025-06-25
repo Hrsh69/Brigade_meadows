@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brigade Meadows - Housekeeping & Waste Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles_1.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #f8fafc;
+            color: #222;
+        }
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10; /* Increased z-index to ensure it's on top */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.7em 2em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+          }
+      
+          .logo {
+            font-weight: 700;
+            font-size: 1.5em;
+            color: #0077b6;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+          }
+      
+          .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2em;
+          }
+      
+          .nav-links li a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+            padding: 0.3em 0.6em;
+            border-radius: 4px;
+          }
+      
+          .nav-links li a:hover, .nav-links li a:focus {
+            background: #0077b6;
+            color: #fff;
+          }
+      
+          .mobile-menu {
+            display: none;
+            font-size: 1.8em;
+            color: #0077b6;
+            background: none;
+            border: none;
+            cursor: pointer; /* Added cursor for better UX */
+          }
+        .hero-section {
+            background: linear-gradient(120deg, #f0fcfd 0%, #e2f8fa 100%);
+            color: #0077b6;
+            padding: 2.5em 1em 2em 1em;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #e0e0e0;
+            min-height: 32vh;
+        }
+        .hero-section h1 {
+            font-size: 2.1em;
+            margin-bottom: 0.3em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .hero-section p {
+            font-size: 1.1em;
+            margin-bottom: 0.5em;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #1976d2;
+        }
+        .main-content {
+            max-width: 900px;
+            margin: 2.5em auto 2em auto;
+            padding: 0 1.5em;
+        }
+        .content-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px rgba(0,119,182,0.07);
+            padding: 2.5em 2em 2em 2em;
+            margin-bottom: 2em;
+            border: 1px solid #e0f4fa;
+        }
+        .section-heading {
+            color: #0077b6;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            border-left: 5px solid #00b4d8;
+            padding-left: 0.7em;
+            margin-bottom: 1.2em;
+            background: linear-gradient(90deg, #e0f7fa 60%, transparent 100%);
+            text-align: left;
+            margin-top: 0.5em;
+            font-weight: 700;
+        }
+        h3 {
+            color: #023e8a;
+            font-size: 1.18em;
+            margin-top: 2em;
+            margin-bottom: 0.7em;
+            font-weight: 600;
+        }
+        ul {
+            padding-left: 1.3em;
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 1.5em;
+        }
+        ul ul {
+            margin-top: 0.3em;
+            margin-bottom: 0.3em;
+        }
+        li {
+            margin-bottom: 0.6em;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+        .pdf-download-container {
+            margin-top: 2em;
+            text-align: center;
+        }
+        .sop-button, .pdf-download-container a {
+            display: inline-block;
+            background: #0077b6;
+            color: #fff;
+            padding: 0.8em 2em;
+            border-radius: 2em;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1em;
+            font-size: 1.08em;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0,119,182,0.08);
+        }
+        .sop-button:hover, .pdf-download-container a:hover, .sop-button:focus, .pdf-download-container a:focus {
+            background: #023e8a;
+            box-shadow: 0 4px 16px rgba(0,62,138,0.12);
+            outline: none;
+        }
+        .site-footer {
+            background: #fff;
+            color: #222;
+            text-align: center;
+            padding: 2em 1em 1em 1em;
+            margin-top: 3em;
+            border-top: 1px solid #e0e0e0;
+            font-size: 1em;
+        }
+        .footer-links {
+            margin-bottom: 1em;
+        }
+        .footer-links a {
+            color: #0077b6;
+            margin: 0 1em;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover, .footer-links a:focus {
+            color: #023e8a;
+            text-decoration: underline;
+            outline: none;
+        }
+        .footer-social {
+            margin-bottom: 1em;
+        }
+        .footer-social a {
+            color: #0077b6;
+            margin: 0 0.5em;
+            font-size: 1.3em;
+            transition: color 0.2s;
+        }
+        .footer-social a:hover, .footer-social a:focus {
+            color: #023e8a;
+            outline: none;
+        }
+        @media (max-width: 900px) {
+            .main-content {
+                margin: 2em auto;
+                padding: 0 0.5em;
+            }
+            .content-card {
+                padding: 1.5em 0.7em 1.2em 0.7em;
+            }
+            .dropdown-menu {
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+                background: #f8fafc;
+                box-shadow: none;
+                position: static;
+                padding-left: 1.5em;
+            }
+            .dropdown.open .dropdown-menu {
+                max-height: 500px; /* Large enough for all links */
+                opacity: 1;
+                transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+            }
+            .dropdown .dropbtn {
+                cursor: pointer;
+            }
+        }
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.5em 1em;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                gap: 1em;
+                margin-top: 1em;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                right: 1em;
+                top: 1em;
+            }
+            .main-content {
+                padding: 0 0.2em;
+            }
+            .hero-section {
+                padding: 1.2em 0.5em 1em 0.5em;
+            }
+            .hero-section h1 {
+                font-size: 1.2em;
+            }
+        }
+</style>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+<nav class="navbar" data-aos="fade-down">
+    <a href="index.html" class="logo"><i class="fa-solid fa-paw"></i> BRIGADE MEADOWS</a>
+    <button class="mobile-menu" id="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="amenities.html">Amenities</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Policy <i class="fa fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="security-policy.html">Security Policies</a></li>
+                <li><a href="interior-guidelines.html">Interior Work</a></li>
+                <li><a href="housekeeping.html">Housekeeping & Waste</a></li>
+                <li><a href="pet-policy.html">Pet Policy</a></li>
+                <li><a href="party-hall.html">Party Hall</a></li>
+                <li><a href="swimming-pool.html">Swimming Pool</a></li>
+                <li><a href="gym-guidelines.html">Gym</a></li>
+                <li><a href="play-area.html">Children's Play Area</a></li>
+                <li><a href="penalties.html">Rule Violation & Penalty</a></li>
+                <li><a href="move.html">Move-In / Move-Out</a></li>
+            </ul>
+        </li>
+</nav>
+</head>
+
+<h2>Party Hall Guidelines</h2>
+
+  <h3>1. Booking & Usage Rules</h3>
+  <ul>
+    <li>Residents can book the Party Hall based on availability through the Estate Management Office.</li>
+    <li>The hall must be booked in advance by submitting the request form and paying the applicable charges and caution deposit.</li>
+    <li>Each Party Hall is equipped with 50 chairs.</li>
+    <li>If only one party is scheduled during a slot, an additional 50 chairs can be provided on request.</li>
+    <li><strong>Booking slots are limited to a maximum of 8 hours</strong>.</li>
+    <li>Party Hall usage beyond 4 hours will attract additional charges for the next 4-hour block.</li>
+    <li><strong>Applicable Charges:</strong> ₹3,500 for 4 hours, ₹7,000 for 8 hours.</li>
+    <li>Water supply pressure may be affected if the guest count exceeds 100 due to overhead tank refill delays.</li>
+  </ul>
+
+  <h3>2. Decoration & Cooking Restrictions</h3>
+  <ul>
+    <li><strong>Cooking is not permitted</strong> inside the Party Hall or clubhouse kitchen.</li>
+    <li><strong>LPG cylinders, tandoors, or open flame cooking equipment</strong> are strictly prohibited for safety reasons.</li>
+    <li>Use of electric fryers or induction stoves is also not allowed inside the Party Hall.</li>
+    <li>Only heating/serving of pre-cooked food is allowed, without any live cooking setups.</li>
+    <li><strong>Decoration Rules:</strong>
+      <ul>
+        <li>No drilling, hammering nails, or using double-sided tape on walls, ceilings, or windows.</li>
+        <li>Residents must use the <strong>existing hooks and nails</strong> provided for decoration.</li>
+        <li>Stage and wall decorations must be completed in a safe and non-damaging manner.</li>
+        <li>Decorations are allowed only <strong>2 hours before the event starts</strong>.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>3. Waste Management</h3>
+  <ul>
+    <li>All event waste must be collected in proper <strong>garbage disposal bags</strong>.</li>
+    <li>Housekeeping staff will collect the waste at the end of the event if it is packed and ready.</li>
+    <li>Residents must ensure all garbage is removed from the premises before vacating the hall.</li>
+    <li>Any leftover food, decoration material, or party items must be cleared without causing damage or stains to floors and furniture.</li>
+    <li><strong>Improper garbage disposal or spillage</strong> will lead to deductions from the security deposit.</li>
+  </ul>
+
+  <h3>4. Parking & Delivery Rules</h3>
+  <ul>
+    <li><strong>Guest Parking:</strong> There is no designated guest parking space at the clubhouse.</li>
+    <li>Guests are advised to be dropped off at the Clubhouse and park their vehicles outside <strong>Gate A or Gate B</strong>.</li>
+    <li><strong>Delivery & Setup Vehicles:</strong>
+      <ul>
+        <li>Vendors and goods vehicles must park outside the main gates.</li>
+        <li>Loading and unloading is permitted near the clubhouse for a maximum of <strong>20 minutes only</strong>.</li>
+      </ul>
+    </li>
+    <li>The <strong>clubhouse lift cannot be used for moving heavy items</strong>. Large materials must be carried via stairs.</li>
+  </ul>
+
+  <h3>5. Damage & Security Deposit</h3>
+  <ul>
+    <li>Residents must submit a <strong>refundable caution deposit</strong>:
+      <ul>
+        <li>₹5,000 for up to 4 hours</li>
+        <li>₹10,000 for up to 8 hours</li>
+        <li>To be submitted via cheque before the event date</li>
+      </ul>
+    </li>
+    <li>This cheque will be returned after the event, subject to:
+      <ul>
+        <li>No damage to furniture, fixtures, or hall structure</li>
+        <li>No unauthorized activity or rule violations</li>
+        <li>Proper garbage disposal and cleaning compliance</li>
+      </ul>
+    </li>
+    <li><strong>Any damage to Party Hall assets or Clubhouse property</strong> will be assessed, and charges will be deducted from the deposit.</li>
+    <li>If the damage exceeds the deposit, the resident will be billed for the difference.</li>
+  </ul>
+</ul>
+<div class="pdf-download-container">
+    <a href="assets/Move-In-Out-Guidelines.pdf" download class="sop-button"><i class="fa fa-download"></i> Download Full Guidelines PDF</a>
+</div>
+</div>
+
+  <footer class="site-footer" data-aos="fade-up">
+    <div class="footer-links">
+        <a href="index.html">Home</a>|
+        <a href="about.html">About</a>|
+        <a href="services.html">Services</a>|
+        <a href="events.html">Events</a>|
+        <a href="move.html">Move In/Out</a>
+    </div>
+    <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div>
+        © 2025 Brigade Meadows Phase-1. All rights reserved.
+    </div>
+</footer>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
+<script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').onclick = function() {
+        var nav = document.getElementById('nav-links');
+        nav.classList.toggle('show');
+    };
+    // AOS animation
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+    // Admin link logic
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+            if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                    document.getElementById("admin-link").style.display = "inline-block";
+                });
+            } else {
+                document.getElementById("admin-link").style.display = "inline-block";
+            }
+        });
+    }
+    document.querySelectorAll('.dropbtn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var menu = this.parentElement.querySelector('.dropdown-menu');
+            if(menu) menu.style.display = (menu.style.display === 'block' ? 'none' : 'block');
+        });
+    });
+</script>
+</body>
+</html>

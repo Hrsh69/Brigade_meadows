@@ -244,11 +244,23 @@
         <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="amenities.html">Amenities</a></li>
             <li><a href="events.html">Events</a></li>
-            <li><a href="pet.html">Pet Policy</a></li>
-            <li><a href="admin/" id="admin-link" style="display: none;">Admin</a></li>
-        </ul>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Policy <i class="fa fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="security-policy.html">Security Policies</a></li>
+                    <li><a href="interior-guidelines.html">Interior Work</a></li>
+                    <li><a href="housekeeping.html">Housekeeping & Waste</a></li>
+                    <li><a href="pet-policy.html">Pet Policy</a></li>
+                    <li><a href="party-hall.html">Party Hall</a></li>
+                    <li><a href="swimming-pool.html">Swimming Pool</a></li>
+                    <li><a href="gym-guidelines.html">Gym</a></li>
+                    <li><a href="play-area.html">Children's Play Area</a></li>
+                    <li><a href="penalties.html">Rule Violation & Penalty</a></li>
+                    <li><a href="move.html">Move-In / Move-Out</a></li>
+                </ul>
+            </li>
     </nav>
     <header class="hero-section" data-aos="fade-up">
         <h1><i class="fa-solid fa-dog"></i> Pet Policy & Stray Dog Solutions</h1>
@@ -256,27 +268,27 @@
         <a href="#stray-dogs" class="sop-button">Learn about Stray Dog Solutions</a>
         <div class="scroll-down-arrow">
             <i class="fa-solid fa-angle-down"></i>
-        </div>
-    </header>
+    </div>
+</header>
     <main class="main-content">
         <section data-aos="fade-right">
             <div class="section-heading"><i class="fa-solid fa-shield-dog"></i> Pet Policy</div>
-            <ul>
-                <li>Pets are welcome — registration with society office is mandatory.</li>
-                <li>Dangerous or exotic animals are not allowed as per law.</li>
-                <li>Vaccination records must be submitted annually.</li>
-                <li>Pets must be leashed in common areas at all times.</li>
-                <li>Owners must carry a poop scooper — fines apply if not cleaned up.</li>
-                <li>Pet feeding is allowed only inside flats or in designated pet zones (if available).</li>
-                <li>Pets must not cause noise disturbance or display aggressive behavior.</li>
-                <li>No pets in play areas, swimming pools, gym, or clubhouses.</li>
-                <li>No free roaming of pets is allowed anywhere in the society.</li>
-                <li>Pets showing signs of illness must be treated promptly by the owner.</li>
-                <li>No barking or pet-related noise during quiet hours (10 PM – 7 AM).</li>
-                <li>Repeated complaints may result in fines or further action by EC.</li>
-                <li>Pet complaints must be submitted in writing to the estate office.</li>
-                <li>Violations may lead to warnings, fines, or restrictions as per society rules.</li>
-            </ul>
+        <ul>
+            <li>Pets are welcome — registration with society office is mandatory.</li>
+            <li>Dangerous or exotic animals are not allowed as per law.</li>
+            <li>Vaccination records must be submitted annually.</li>
+            <li>Pets must be leashed in common areas at all times.</li>
+            <li>Owners must carry a poop scooper — fines apply if not cleaned up.</li>
+            <li>Pet feeding is allowed only inside flats or in designated pet zones (if available).</li>
+            <li>Pets must not cause noise disturbance or display aggressive behavior.</li>
+            <li>No pets in play areas, swimming pools, gym, or clubhouses.</li>
+            <li>No free roaming of pets is allowed anywhere in the society.</li>
+            <li>Pets showing signs of illness must be treated promptly by the owner.</li>
+            <li>No barking or pet-related noise during quiet hours (10 PM – 7 AM).</li>
+            <li>Repeated complaints may result in fines or further action by EC.</li>
+            <li>Pet complaints must be submitted in writing to the estate office.</li>
+            <li>Violations may lead to warnings, fines, or restrictions as per society rules.</li>
+        </ul>
             <div>
                 <a href="assets/SOP%2025-03-2025%20EC-6.pdf" download class="sop-button"><i class="fa fa-download"></i> Download SOP</a>
             </div>
@@ -386,9 +398,9 @@
             </ul>
             <div class="pdf-download-container">
                 <a href="assets/Solution%20to%20Stray%20Dogs%20(1).pdf" download class="sop-button"><i class="fa fa-download"></i> Download Full "Solution to Stray Dogs" PDF</a>
-            </div>
-        </section>
-    </main>
+    </div>
+    </section>
+</main>
     <footer class="site-footer" data-aos="fade-up">
         <div class="footer-links">
             <a href="index.html">Home</a>|
@@ -406,10 +418,10 @@
         <div>
             © 2025 Brigade Meadows Phase-1. All rights reserved.
         </div>
-    </footer>
+</footer>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="script.js"></script>
-    <script>
+<script src="script.js"></script>
+<script>
         // Mobile menu toggle
         document.getElementById('mobile-menu-btn').onclick = function() {
             var nav = document.getElementById('nav-links');
@@ -421,17 +433,17 @@
             once: true
         });
         // Admin link logic
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.getElementById("admin-link").style.display = "inline-block";
-                    });
-                } else {
-                    document.getElementById("admin-link").style.display = "inline-block";
-                }
-            });
-        }
-    </script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.getElementById("admin-link").style.display = "inline-block";
+        });
+      } else {
+        document.getElementById("admin-link").style.display = "inline-block";
+      }
+    });
+  }
+</script>
 </body>
 </html>

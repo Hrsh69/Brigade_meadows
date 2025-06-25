@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brigade Meadows - Move In/Out</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Brigade Meadows - Housekeeping & Waste Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="styles_1.css" />
@@ -17,127 +17,145 @@
             color: #222;
         }
         .navbar {
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10; /* Increased z-index to ensure it's on top */
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.5em 2em;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.7em 2em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+          }
+      
+          .logo {
             font-weight: 700;
             font-size: 1.5em;
             color: #0077b6;
             text-decoration: none;
-            letter-spacing: 1px;
             display: flex;
             align-items: center;
             gap: 0.5em;
-        }
-        .nav-links {
+          }
+      
+          .nav-links {
             list-style: none;
             display: flex;
             gap: 2em;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-links li a {
+          }
+      
+          .nav-links li a {
             text-decoration: none;
             color: #222;
             font-weight: 500;
-            transition: color 0.2s;
-            padding: 0.3em 0.5em;
+            padding: 0.3em 0.6em;
             border-radius: 4px;
-        }
-        .nav-links li a:hover, .nav-links li a:focus {
-            color: #fff;
+          }
+      
+          .nav-links li a:hover, .nav-links li a:focus {
             background: #0077b6;
-            outline: none;
-        }
-        .mobile-menu {
+            color: #fff;
+          }
+      
+          .mobile-menu {
             display: none;
-            font-size: 2em;
+            font-size: 1.8em;
             color: #0077b6;
             background: none;
             border: none;
-            cursor: pointer;
-        }
+            cursor: pointer; /* Added cursor for better UX */
+          }
         .hero-section {
             background: linear-gradient(120deg, #f0fcfd 0%, #e2f8fa 100%);
             color: #0077b6;
-            padding: 1.2em 1em 1em 1em;
+            padding: 2.5em 1em 2em 1em;
             text-align: center;
             position: relative;
             border-bottom: 1px solid #e0e0e0;
-            min-height: 40vh;
-        }
-        .hero-section::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.2);
-            z-index: 0;
-        }
-        .hero-section > * {
-            position: relative;
-            z-index: 1;
+            min-height: 32vh;
         }
         .hero-section h1 {
-            font-size: 1.1em;
-            margin-bottom: 0.15em;
+            font-size: 2.1em;
+            margin-bottom: 0.3em;
             display: flex;
             align-items: center;
             gap: 0.5em;
             justify-content: center;
+            font-weight: 700;
         }
         .hero-section p {
-            font-size: 0.95em;
+            font-size: 1.1em;
             margin-bottom: 0.5em;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            color: #1976d2;
         }
         .main-content {
-            max-width: 800px;
-            margin: 2em auto;
+            max-width: 900px;
+            margin: 2.5em auto 2em auto;
             padding: 0 1.5em;
-            text-align: left;
         }
-        section {
-            margin-bottom: 2.5em;
+        .content-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px rgba(0,119,182,0.07);
+            padding: 2.5em 2em 2em 2em;
+            margin-bottom: 2em;
+            border: 1px solid #e0f4fa;
         }
         .section-heading {
             color: #0077b6;
-            font-size: 1.35em;
+            font-size: 1.5em;
             display: flex;
             align-items: center;
             gap: 0.5em;
-            border-left: 4px solid #00b4d8;
+            border-left: 5px solid #00b4d8;
             padding-left: 0.7em;
-            margin-bottom: 0.7em;
+            margin-bottom: 1.2em;
             background: linear-gradient(90deg, #e0f7fa 60%, transparent 100%);
             text-align: left;
+            margin-top: 0.5em;
+            font-weight: 700;
+        }
+        h3 {
+            color: #023e8a;
+            font-size: 1.18em;
             margin-top: 2em;
+            margin-bottom: 0.7em;
             font-weight: 600;
         }
         ul {
-            padding-left: 1.2em;
-            text-align: justify;
+            padding-left: 1.3em;
+            text-align: left;
             margin-top: 0;
             margin-bottom: 1.5em;
+        }
+        ul ul {
+            margin-top: 0.3em;
+            margin-bottom: 0.3em;
+        }
+        li {
+            margin-bottom: 0.6em;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+        .pdf-download-container {
+            margin-top: 2em;
+            text-align: center;
         }
         .sop-button, .pdf-download-container a {
             display: inline-block;
             background: #0077b6;
             color: #fff;
-            padding: 0.7em 1.5em;
+            padding: 0.8em 2em;
             border-radius: 2em;
             text-decoration: none;
             font-weight: 600;
             margin-top: 1em;
+            font-size: 1.08em;
             transition: background 0.2s, box-shadow 0.2s;
             box-shadow: 0 2px 8px rgba(0,119,182,0.08);
         }
@@ -188,6 +206,9 @@
                 margin: 2em auto;
                 padding: 0 0.5em;
             }
+            .content-card {
+                padding: 1.5em 0.7em 1.2em 0.7em;
+            }
         }
         @media (max-width: 700px) {
             .navbar {
@@ -215,10 +236,10 @@
                 padding: 0 0.2em;
             }
             .hero-section {
-                padding: 0.7em 0.5em 0.5em 0.5em;
+                padding: 1.2em 0.5em 1em 0.5em;
             }
             .hero-section h1 {
-                font-size: 1em;
+                font-size: 1.2em;
             }
         }
     </style>
@@ -252,108 +273,77 @@
         </ul>
     </nav>
     <header class="hero-section" data-aos="fade-up">
-        <h1><i class="fa-solid fa-truck-moving"></i> Move-In / Move-Out Guidelines</h1>
-        <p>Your guide to a smooth and compliant moving process.</p>
-        <a href="#move-guidelines" class="sop-button">View Guidelines</a>
+        <h1><i class="fa-solid fa-broom"></i> Housekeeping & Waste Management</h1>
+        <p>Guidelines for a clean, healthy, and eco-friendly community at Brigade Meadows.</p>
         <div class="scroll-down-arrow">
             <i class="fa-solid fa-angle-down"></i>
         </div>
     </header>
     <main class="main-content">
-        <section id="move-guidelines" data-aos="fade-right">
-            <div class="section-heading"><i class="fa-solid fa-file-signature"></i> Move-In / Move-Out Policy</div>
-            <h3>1. Application & Documentation</h3>
-  <ul>
-    <li>Residents (Owners/Tenants) must complete the <strong>Move-In/Move-Out Application Form</strong> with all fields properly filled.</li>
-    <li>A valid <strong>Lease/Rental Agreement</strong> must be submitted with the Move-In/Move-Out Application.</li>
-    <li>The tenants listed in the Lease/Rental Agreement must match those in the Application Form.</li>
-    <li>Application must be submitted to the Estate Management (EM) office for verification and approval.</li>
-  </ul>
-
-  <h3>2. Tenant Verification & Compliance</h3>
-  <ul>
-    <li>For bachelor tenants, ensure all names are included in the <strong>Lease/Rental Agreement</strong>.</li>
-    <li>The number of bachelor tenants must comply with the community regulations:
-      <ul>
-        <li>1 bachelor Tenant for 1 BHK</li>
-        <li>2 bachelor Tenants for 2 BHK</li>
-        <li>3 bachelor Tenants for 3 BHK</li>
-      </ul>
-    </li>
-    <li>Bachelor tenants must submit the <strong>Bachelor Tenant Format</strong>, signed by all tenants.</li>
-    <li>Tenant details will be verified against the Lease Agreement to ensure compliance with society regulations.</li>
-    <li>The Move-In/Move-Out Application must be fully filled with no missing or incorrect details.</li>
-  </ul>
-
-  <h3>3. Financial Clearance</h3>
-  <ul>
-    <li>Verify that all outstanding charges (CAM dues, penalties, or other fees) are cleared before granting permission for Move-In/Move-Out.</li>
-    <li>If outstanding dues exist, tenants must settle them before proceeding with the Move-In or Move-Out.</li>
-    <li>If tenants have any pending payments, the owner must assist them in clearing the pending charges before processing the application.</li>
-    <li>Once financial clearance is obtained, the approval for the move will be processed.</li>
-  </ul>
-
-  <h3>4. KYC & Security Compliance</h3>
-  <ul>
-    <li>The EM office will collect KYC documents such as Aadhaar, Passport, or other valid Government-issued ID from each tenant or resident.</li>
-    <li>Prospective tenants must pay Move-In/Move-Out Charges and provide a <strong>payment receipt or UTR number</strong> as proof of payment in the application form.</li>
-    <li>The copies of the Move-In/Move-Out Form must be shared with the security team to ensure the move is logged and cleared by security before proceeding.</li>
-    <li>The original Move-In/Move-Out form must be submitted to the EM office for records and approval.</li>
-    <li>Any discrepancies or missing documents will result in delays, and the move will be deferred until the required documents are provided.</li>
-  </ul>
-
-  <h3>5. Vehicle Registration & Parking Stickers</h3>
-  <ul>
-    <li>Once the Move-In formalities are completed, tenants must submit <strong>vehicle registration (RC) copies</strong> and a <strong>valid driving license</strong> to the EM office for verification.</li>
-    <li>Vehicle stickers will be issued only after completing all the Move-In formalities and after proper verification of the documents.</li>
-    <li>Vehicle stickers will be provided based on the number of vehicles allowed per unit according to the society's policy.</li>
-    <li>Ensure that all vehicles registered for Move-In/Move-Out comply with parking and entry regulations set by the society.</li>
-    <li>Vehicles will be allowed to park in designated areas only, and unauthorized parking will incur penalties.</li>
-  </ul>
-
-  <h3>6. Move-In/Move-Out Time & Day Restrictions</h3>
-  <ul>
-    <li><strong>Move-in and move-out activities are not allowed on Sundays, Public Holidays, or after 6:00 PM on any working day.</strong></li>
-    <li>Any move activities that take place outside the permitted time will be <strong>subject to penalties or a fine.</strong></li>
-    <li>Moves are allowed only during standard operational hours to ensure minimal disruption to the community.</li>
-    <li>Specific time slots for the move-in and move-out should be coordinated with the Estate Management office for approval.</li>
-    <li>Prior notice of at least one day is required before the move is scheduled to ensure that all formalities are in place.</li>
-  </ul>
-
-  <h3>7. System Update & Final Approvals</h3>
-  <ul>
-    <li>All resident and tenant details must be updated in the <strong>MyGate portal</strong> before proceeding with the move.</li>
-    <li>Once all documentation is completed, and payments are verified, final approval must be obtained from the Estate Office before moving activities can commence.</li>
-    <li>The final move is recorded in the MyGate portal for security tracking and access control.</li>
-    <li>The Estate Management office will ensure that the property is fully compliant with the necessary guidelines for the move to proceed smoothly.</li>
-  </ul>
-
-  <h3>8. Elevator Usage</h3>
-  <ul>
-    <li><strong>Passenger lifts must not be used</strong> for carrying heavy items or during move-in/move-out activities.</li>
-    <li>Residents should use <strong>service lifts</strong> or carry heavy items via stairs to avoid damaging the lifts.</li>
-    <li>The use of lifts during the move must be coordinated with security personnel to avoid overcrowding or misuse.</li>
-  </ul>
-
-  <h3>9. Cleanliness & Housekeeping Responsibility</h3>
-  <ul>
-    <li>During Move-In/Move-Out, all packaging waste, discarded furniture, and materials must be removed by the resident or tenant.</li>
-    <li><strong>Common areas, corridors, or lobbies must not be littered</strong> with items during the move.</li>
-    <li>Any waste or debris left behind will result in cleaning fees and penalties, which the tenant or owner will be responsible for.</li>
-  </ul>
-
-  <h3>10. Penalties & Rule Violations</h3>
-  <ul>
-    <li>Moving outside permitted hours will result in a fine. This fine will be classified based on the severity of the violation (low, medium, or high).</li>
-    <li>Using common areas, elevators, or damaging society property during the move will incur fines and the deduction of security deposits.</li>
-    <li><strong>Spitting, smoking, or improper garbage disposal</strong> during Move-In/Move-Out activities will lead to penalties.</li>
-    <li>Any damage caused to the property, including furniture or infrastructure, will be charged to the moving party, and the costs will be recovered from their security deposit.</li>
-  </ul>
+        <div class="content-card" data-aos="fade-up">
+            <div class="section-heading"><i class="fa-solid fa-broom"></i> Housekeeping / Waste Management</div>
+            <h3>1. Responsibilities & General Duties</h3>
+            <ul>
+                <li>The Housekeeping (HK) team is responsible for maintaining the cleanliness and hygiene of the entire Brigade Meadows Phase 1 community.</li>
+                <li>They ensure that all floors, lobbies, staircases, and common areas are cleaned regularly and kept free from clutter, dust, and waste.</li>
+                <li>HK staff are responsible for ensuring proper waste collection and transport to the designated disposal points within the campus.</li>
+                <li>Wet waste is transported daily to the composting plant located near Club Meadows, usually by <strong>11:00 AM</strong>.</li>
+                <li>Housekeeping staff are <strong>not allowed to perform any personal chores or tasks</strong> for residents, during or outside duty hours.</li>
+                <li>HK staff will remove <strong>dead pigeons</strong> if it is safe to do so. <strong>Live pigeon removal is not permitted</strong>.</li>
+            </ul>
+            <h3>2. Waste Segregation Rules</h3>
+            <ul>
+                <li>All residents must follow <strong>BBMP regulations</strong> and society-specific waste segregation policies.</li>
+                <li>Waste must be separated into the following categories before disposal:
+                    <ul>
+                        <li><strong>Wet Waste:</strong> Includes cooked and uncooked food, fruit/vegetable peels, etc.</li>
+                        <li><strong>Dry Waste:</strong> Includes paper, plastic, cardboard, packaging, metal, glass, etc.</li>
+                        <li><strong>Reject Waste:</strong> Includes sanitary pads, diapers, medical waste, and soiled tissues.</li>
+                        <li><strong>E-Waste:</strong> Includes batteries, phones, appliances, wires, etc.</li>
+                    </ul>
+                </li>
+                <li><strong>Mixing wet and dry waste is strictly prohibited</strong> and may attract penalties as per society rules.</li>
+            </ul>
+            <h3>3. Waste Collection Schedule</h3>
+            <ul>
+                <li><strong>Wet Waste & Reject Waste:</strong> Collected daily by HK staff.</li>
+                <li><strong>Dry Waste:</strong> Collected daily.</li>
+                <li><strong>E-Waste:</strong> Must be dropped in the <strong>designated E-Bin</strong> opposite the basement lift. HK staff will not collect it from flats.</li>
+                <li>Residents must ensure bins are placed outside only during the collection window.</li>
+            </ul>
+            <h3>4. Garbage Bin Etiquette</h3>
+            <ul>
+                <li>Garbage bins must be placed <strong>outside the apartment by 8:30 AM</strong> on collection days.</li>
+                <li>Bins should not be placed outside the flat the night before to prevent odor or pest issues.</li>
+                <li>Bins must be placed only in front of the resident's own door and not in front of lifts or other flats.</li>
+                <li>After collection, bins must be taken inside — <strong>empty bins must not be left in the corridors</strong>.</li>
+                <li>If a resident is away, the Estate Manager or HK Supervisor must be informed for special instructions.</li>
+            </ul>
+            <h3>5. Special Waste Handling</h3>
+            <ul>
+                <li><strong>Renovation debris, construction waste, or scrap</strong> will <strong>not be collected</strong> by the HK team.</li>
+                <li>Residents must make their own arrangements to dispose of construction waste through approved vendors.</li>
+                <li><strong>Accidental debris or broken items</strong> (e.g., glass, ceramics) must be safely packaged and disposed of by the resident.</li>
+                <li>In case of <strong>exceptional waste quantity</strong> (from parties, clear-outs, etc.), prior permission must be taken from the EM office. Extra charges may apply.</li>
+            </ul>
+            <h3>6. Penalties Related to Waste Management</h3>
+            <ul>
+                <li><strong>Mixing garbage without segregation</strong> is a rule violation and is subject to fines.</li>
+                <li><strong>Throwing waste in common areas</strong> such as lobbies, lifts, corridors, or staircases is strictly prohibited and will incur penalties.</li>
+                <li><strong>Improper garbage placement or spillage</strong> will attract fines and cleaning charges.</li>
+                <li>Repeat violations can lead to increased fines and written warnings from the EC or Estate Office.</li>
+            </ul>
+            <h3>7. Resident Awareness & Cooperation</h3>
+            <ul>
+                <li>Residents are expected to actively participate in waste reduction and eco-friendly disposal habits.</li>
+                <li>Instructions from HK staff regarding timing, segregation, or bin placement should be respected and followed.</li>
+                <li>Residents should report any issues related to housekeeping to the Estate Management office instead of instructing HK staff directly.</li>
+                <li>Complaints can be addressed formally to the EC or EM team for resolution and action.</li>
             </ul>
             <div class="pdf-download-container">
                 <a href="assets/Move-In-Out-Guidelines.pdf" download class="sop-button"><i class="fa fa-download"></i> Download Full Guidelines PDF</a>
             </div>
-        </section>
+        </div>
     </main>
     <footer class="site-footer" data-aos="fade-up">
         <div class="footer-links">
