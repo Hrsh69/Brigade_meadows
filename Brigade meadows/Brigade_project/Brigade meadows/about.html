@@ -23,57 +23,101 @@
     }
 
     /* Navbar - Copied from main-page immersive */
+    /* Navbar Styles - Glass Morphism */
     .navbar {
-      position: fixed; /* Changed to fixed */
+      position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      width: 100%; /* Ensure it spans full width when fixed */
-      z-index: 10; /* Increased z-index to ensure it's on top */
+      width: 100%;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 0.7em 2em;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      align-items: center;
+      padding: 1.5rem 3rem; /* Adjust padding as needed */
+      background-color: rgba(0, 0, 0, 0.4); /* Darker, semi-transparent background */
+      backdrop-filter: blur(10px); /* Glass morphism effect */
+      -webkit-backdrop-filter: blur(10px); /* For Safari support */
+      border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle light border */
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Darker, more pronounced shadow */
+      z-index: 100; /* Ensure navbar is on top */
     }
 
-    .logo {
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
       font-weight: 700;
-      font-size: 1.5em;
-      color: #0077b6;
+      color: #fff;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
     }
 
     .nav-links {
-      list-style: none;
       display: flex;
-      gap: 2em;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
-    .nav-links li a {
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-item > a {
+      color: #fff; /* White text for contrast */
       text-decoration: none;
-      color: #222;
       font-weight: 500;
-      padding: 0.3em 0.6em;
-      border-radius: 4px;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
     }
 
-    .nav-links li a:hover, .nav-links li a:focus {
-      background: #0077b6;
+    .nav-item > a:hover {
+      color: rgba(255,255,255,0.7); /* Slightly faded white on hover */
+    }
+
+    /* Dropdown Menu - Glass Morphism */
+    .dropdown-menu {
+      position: absolute;
+      top: 100%; /* Position below the parent nav-item */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for dropdown */
+      backdrop-filter: blur(15px); /* More blur for dropdown */
+      -webkit-backdrop-filter: blur(15px);
+      min-width: 150px;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border */
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Consistent shadow */
+      list-style: none;
+      padding: 0.5rem 0;
+      margin-top: 0.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-item.dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0); /* Remove translateY after hover */
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.75rem 1rem;
       color: #fff;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
     }
 
-    .mobile-menu {
-      display: none;
-      font-size: 1.8em;
-      color: #0077b6;
-      background: none;
-      border: none;
-      cursor: pointer; /* Added cursor for better UX */
+    .dropdown-menu li a:hover {
+      background-color: rgba(255,255,255,0.1); /* Light hover effect for dropdown items */
+    }
+
+    /* Mobile Menu */
+    .hamburger-menu {
+      display: none; /* Hidden by default on desktop */
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
     }
 
     /* Fullscreen Image Section (retained but image path updated) */
@@ -81,7 +125,6 @@
       position: relative;
       height: 100vh;
       width: 100vw;
-      /* Placeholder image for the whimsical suburban street scene */
       background-image: url('assets/Whimsical Suburban Street Scene.png');
       background-size: cover;
       background-position: center;
@@ -90,8 +133,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 0 1em; /* Add horizontal padding for mobile */
-      padding-top: 60px; /* Add padding to account for fixed navbar height */
+      padding: 0 1em;
+      padding-top: 80px; /* Increased from 60px */
     }
 
     /* Overlay for fullscreen-image */
@@ -121,7 +164,7 @@
     .hero-content .about-heading { /* Specificity for the hero heading */
       font-size: 4em;
       font-weight: 700;
-      margin-top: 5em; /* As per your provided code for this element */
+      margin-top: 4em; /* As per your provided code for this element */
       text-align: center;
       animation: fadeIn 2s ease-in-out;
       color: #fff; /* Ensure text is white against overlay */
@@ -293,38 +336,79 @@
     }
 
     /* Footer */
-    .site-footer {
-      background: #fff;
-      color: #222;
-      text-align: center;
-      padding: 2em 1em 1em 1em;
-      font-size: 1em;
+    .footer {
+      background-color: #1a202c; /* Dark background */
+      color: #a0aec0; /* Light gray text */
+      padding: 4rem 2rem;
+      font-size: 0.9rem;
     }
 
-    .footer-links {
-      margin-bottom: 1em;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .footer-links a {
-      color: #0077b6;
-      margin: 0 1em;
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .footer-section h4 {
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-list a {
+      color: #a0aec0;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
 
-    .footer-links a:hover {
-      text-decoration: underline;
+    .footer-list a:hover {
+      color: #fff;
     }
 
-    .footer-social a {
-      color: #0077b6;
-      margin: 0 0.5em;
-      font-size: 1.3em;
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
-    .footer-social a:hover {
-      color: #023e8a;
+    .social-link {
+      color: #a0aec0;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
     }
 
+    .social-link:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #718096;
+    }
     /* Keyframe Animations */
     @keyframes bounce {
       0%, 100% {
@@ -420,6 +504,19 @@
       .water-conservation-section .content-wrapper .download-button {
         justify-content: center; /* Center the links/buttons */
       }
+      .footer {
+        padding: 3rem 1.5rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+        text-align: center;
+      }
+      .footer-section h4 {
+        margin-top: 1.5rem;
+      }
+      .social-links {
+        justify-content: center; /* Center social links on mobile */
+      }
     }
     /* Tablet responsiveness */
     @media (min-width: 769px) and (max-width: 1024px) {
@@ -480,15 +577,24 @@
 </head>
 <body>
 <nav class="navbar">
-  <a href="index.html" class="logo"><i class="fa-solid fa-building"></i> BRIGADE MEADOWS</a>
-  <button class="mobile-menu" id="mobile-menu-btn"><i class="fa fa-bars"></i></button>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="amenities.html">Amenities</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="pet.html">Pet Policy</a></li>
-    <li><a href="admin/" id="admin-link" style="display: none;">Admin</a></li>
+  <a href="#" class="navbar-brand">BRIGADE MEADOWS</a>
+  <div class="hamburger-menu" id="hamburgerMenu">
+    <i class="fas fa-bars"></i>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li class="nav-item"><a href="main.html">Home</a></li>
+    <li class="nav-item"><a href="about.html">About</a></li>
+    <li class="nav-item"><a href="amenities.html">Amenities</a></li>
+    <li class="nav-item"><a href="events.html">Events</a></li>
+    <li class="nav-item dropdown">
+      <a href="#">Policy <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">SOPs</a></li>
+        <li><a href="pet.html">Pet Policy</a></li>
+        <li><a href="#">Downloads</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#">Contact</a></li>
   </ul>
 </nav>
 
@@ -546,23 +652,52 @@
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="footer-links">
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="amenities.html">Amenities</a> |
-    <a href="events.html">Events</a> |
-    <a href="pet.html">Pet Policy</a>
+<!-- Footer Start -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-section">
+      <div class="footer-brand">BRIGADE MEADOWS</div>
+      <p>A thriving community designed for modern living.</p>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul class="footer-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Amenities</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Policy</h4>
+      <ul class="footer-list">
+        <li><a href="#">SOPs</a></li>
+        <li><a href="#">Pet Policy</a></li>
+        <li><a href="#">Downloads</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <p>123 Brigade Road, Bangalore, India</p>
+      <p>+91 98765 43210</p>
+      <p>info@brigademeadows.com</p>
+    </div>
   </div>
-  <div class="footer-social">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
+  <div class="footer-bottom">
+    &copy; 2023 Brigade Meadows. All rights reserved.
   </div>
-  <div>© 2025 Brigade Meadows Phase-1. All rights reserved.</div>
 </footer>
+<!-- Footer End -->
 
 <!-- Scripts -->
 <script>

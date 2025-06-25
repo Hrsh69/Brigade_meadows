@@ -23,57 +23,101 @@
         }
 
         /* Navbar - Copied from main-page immersive */
+        /* Navbar Styles - Glass Morphism */
         .navbar {
-            position: fixed; /* Changed to fixed */
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            width: 100%; /* Ensure it spans full width when fixed */
-            z-index: 10; /* Increased z-index to ensure it's on top */
+            width: 100%;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 0.7em 2em;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            align-items: center;
+            padding: 1.5rem 3rem; /* Adjust padding as needed */
+            background-color: rgba(0, 0, 0, 0.4); /* Darker, semi-transparent background */
+            backdrop-filter: blur(10px); /* Glass morphism effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari support */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle light border */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Darker, more pronounced shadow */
+            z-index: 100; /* Ensure navbar is on top */
         }
 
-        .logo {
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
             font-weight: 700;
-            font-size: 1.5em;
-            color: #0077b6;
+            color: #fff;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
         }
 
         .nav-links {
-            list-style: none;
             display: flex;
-            gap: 2em;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
-        .nav-links li a {
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item > a {
+            color: #fff; /* White text for contrast */
             text-decoration: none;
-            color: #222;
             font-weight: 500;
-            padding: 0.3em 0.6em;
-            border-radius: 4px;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
         }
 
-        .nav-links li a:hover, .nav-links li a:focus {
-            background: #0077b6;
+        .nav-item > a:hover {
+            color: rgba(255,255,255,0.7); /* Slightly faded white on hover */
+        }
+
+        /* Dropdown Menu - Glass Morphism */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%; /* Position below the parent nav-item */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for dropdown */
+            backdrop-filter: blur(15px); /* More blur for dropdown */
+            -webkit-backdrop-filter: blur(15px);
+            min-width: 150px;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Consistent shadow */
+            list-style: none;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-item.dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0); /* Remove translateY after hover */
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.75rem 1rem;
             color: #fff;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
         }
 
-        .mobile-menu {
-            display: none;
-            font-size: 1.8em;
-            color: #0077b6;
-            background: none;
-            border: none;
-            cursor: pointer; /* Added cursor for better UX */
+        .dropdown-menu li a:hover {
+            background-color: rgba(255,255,255,0.1); /* Light hover effect for dropdown items */
+        }
+
+        /* Mobile Menu */
+        .hamburger-menu {
+            display: none; /* Hidden by default on desktop */
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
         }
 
         /* Fullscreen Image Section (retained but image path updated) */
@@ -82,7 +126,7 @@
             height: 100vh;
             width: 100vw;
             /* Placeholder image for the whimsical suburban street scene */
-            background-image: url('https://placehold.co/1920x1080/add8e6/000000?text=Whimsical+Suburban+Street+Scene');
+            background-image: url('assets/Whimsical Suburban Street Scene.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -121,7 +165,7 @@
         .hero-content .about-heading { /* Specificity for the hero heading */
             font-size: 4em;
             font-weight: 700;
-            margin-top: 5em; /* As per your provided code for this element */
+            margin-top: 4em; /* As per your provided code for this element */
             text-align: center;
             animation: fadeIn 2s ease-in-out;
             color: #fff; /* Ensure text is white against overlay */
@@ -480,15 +524,24 @@
 </head>
 <body>
 <nav class="navbar">
-    <a href="index.html" class="logo"><i class="fa-solid fa-building"></i> BRIGADE MEADOWS</a>
-    <button class="mobile-menu" id="mobile-menu-btn"><i class="fa fa-bars"></i></button>
-    <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="amenities.html">Amenities</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="pet.html">Pet Policy</a></li>
-        <li><a href="admin/" id="admin-link" style="display: none;">Admin</a></li>
+    <a href="#" class="navbar-brand">BRIGADE MEADOWS</a>
+    <div class="hamburger-menu" id="hamburgerMenu">
+        <i class="fas fa-bars"></i>
+    </div>
+    <ul class="nav-links" id="navLinks">
+        <li class="nav-item"><a href="main.html">Home</a></li>
+        <li class="nav-item"><a href="about.html">About</a></li>
+        <li class="nav-item"><a href="amenities.html">Amenities</a></li>
+        <li class="nav-item"><a href="events.html">Events</a></li>
+        <li class="nav-item dropdown">
+            <a href="#">Policy <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">SOPs</a></li>
+                <li><a href="pet.html">Pet Policy</a></li>
+                <li><a href="#">Downloads</a></li>
+            </ul>
+        </li>
+        <li class="nav-item"><a href="#">Contact</a></li>
     </ul>
 </nav>
 

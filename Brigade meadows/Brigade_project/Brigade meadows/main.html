@@ -1,410 +1,973 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brigade Meadows - Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="styles_1.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Screen Section Carousel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" xintegrity="sha512-9usAa10Iar7VpzHzxYQoVwYxUjB3/p2sQJ+jYF+R1U5B4k/B6K/C3S4lY/p2l8eN8uJv7V+T/Y0iV5f+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        /* General Body Styles */
         body {
-            font-family: 'Poppins', sans-serif;
             margin: 0;
-            background: #f8fafc;
-            color: #222;
-        }
-        .navbar {
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.5em 2em;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-weight: 700;
-            font-size: 1.5em;
-            color: #0077b6;
-            text-decoration: none;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2em;
-            margin: 0;
-        }
-        .nav-links li a {
-            text-decoration: none;
-            color: #222;
-            font-weight: 500;
-            transition: color 0.2s;
-            padding: 0.3em 0.5em;
-            border-radius: 4px;
-        }
-        .nav-links li a:hover, .nav-links li a:focus {
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll */
             color: #fff;
-            background: #0077b6;
-            outline: none;
+            height: 100vh; /* Full viewport height */
+            width: 100vw; /* Full viewport width */
         }
-        .mobile-menu {
-            display: none;
-            font-size: 2em;
-            color: #0077b6;
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: color 0.2s;
+
+        /* Navbar Styles - Glass Morphism */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem; /* Adjust padding as needed */
+            background-color: rgba(0, 0, 0, 0.4); /* Darker, semi-transparent background */
+            backdrop-filter: blur(10px); /* Glass morphism effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari support */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle light border */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Darker, more pronounced shadow */
+            z-index: 100; /* Ensure navbar is on top */
         }
-        .mobile-menu:hover,
-        .mobile-menu:focus {
-            color: #023e8a;
-            outline: none;
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
         }
-        .hero-section {
-            background: linear-gradient(120deg, #e0f7fa 0%, #b2ebf2 100%);
-            color: #0077b6;
-            padding: 0.7em 1em 0.5em 1em;
-            text-align: left;
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
             position: relative;
-            border-bottom: 1px solid #e0e0e0;
         }
-        .hero-section h1 {
-            font-size: 1.1em;
-            margin-bottom: 0.15em;
+
+        .nav-item > a {
+            color: #fff; /* White text for contrast */
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item > a:hover {
+            color: rgba(255,255,255,0.7); /* Slightly faded white on hover */
+        }
+
+        /* Dropdown Menu - Glass Morphism */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%; /* Position below the parent nav-item */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for dropdown */
+            backdrop-filter: blur(15px); /* More blur for dropdown */
+            -webkit-backdrop-filter: blur(15px);
+            min-width: 150px;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Consistent shadow */
+            list-style: none;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-item.dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0); /* Remove translateY after hover */
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: rgba(255,255,255,0.1); /* Light hover effect for dropdown items */
+        }
+
+        /* Mobile Menu */
+        .hamburger-menu {
+            display: none; /* Hidden by default on desktop */
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Main Carousel Container */
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Important to hide overflowing sections */
+            padding-top: 80px; /* Space for fixed navbar */
+            box-sizing: border-box; /* Include padding in height */
+        }
+
+        /* Carousel Track - Moves horizontally */
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); /* Ease-out for smooth slide */
+            will-change: transform;
+        }
+
+        /* Individual Section/Slide */
+        .carousel-section {
+            flex-shrink: 0; /* Prevent sections from shrinking */
+            width: 100vw; /* Each section takes full viewport width */
+            height: 100%; /* Take remaining height after navbar padding */
             display: flex;
             align-items: center;
-            gap: 0.5em;
+            justify-content: center;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff; /* Default text color for sections */
         }
-        .hero-section p {
-            font-size: 0.95em;
-            margin-bottom: 0.5em;
-            max-width: 600px;
+
+        .carousel-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+            z-index: 1; /* Below content, above background image */
         }
-        .in-numbers {
+
+        /* Specific Section Backgrounds (Placeholder) */
+        .section-1 { background-image: url("assets/Whimsical Suburban Street Scene.png"); /* Orange */ }
+        .section-2 { background-image: url("assets/1035.jpg"); /* Blue */ }
+        .section-3 { background-image: url("assets/raw.webp"); /* Green */ }
+        .section-4 { background-image: url("assets/water.jpg"); /* Red */ }
+
+        /* Content within each section */
+        .section-content {
+            position: relative;
+            z-index: 2; /* Above image/overlay */
+            width: 100%;
+            height: 100%;
             display: flex;
-            justify-content: space-around;
+            align-items: center; /* Vertically center content */
+            padding-left: 10vw; /* Large left padding for text */
+            padding-right: 5vw; /* Smaller right padding */
+            box-sizing: border-box; /* Include padding in width/height */
+        }
+
+        .text-column {
+            flex: 0 0 40%; /* Text column takes 40% width */
+            max-width: 400px;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Subtle text shadow for readability */
+        }
+
+        .text-column p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        /* Pagination Container for numbers and bar */
+        .pagination-container {
+            margin-bottom: 1rem; /* Consistent spacing */
+        }
+
+        .text-column .pagination-numbers {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            opacity: 0.7; /* Overall lighter look for numbers */
+            margin-bottom: 0.5rem; /* Reduced margin to bring bar closer */
+            display: flex;
             align-items: center;
-            background: #fff;
-            border-radius: 1em;
-            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-            max-width: 900px;
-            margin: 2em auto;
-            padding: 1.5em 1em;
-            gap: 2em;
+            gap: 10px; /* Space between numbers */
+            justify-content: flex-start; /* Align numbers to start */
+            position: relative; /* For the bar below it */
+            z-index: 1; /* Ensure numbers are above the bar */
         }
-        .in-numbers .number-block {
-            text-align: center;
+
+        .text-column .pagination-numbers span {
+            padding-bottom: 5px; /* Visual spacing for the numbers */
+            color: rgba(255,255,255,0.7); /* Lighter color for inactive numbers */
+            transition: color 0.3s ease;
+            cursor: pointer;
         }
-        .in-numbers .number {
-            font-size: 2em;
-            color: #0077b6;
+
+        .text-column .pagination-numbers span.active {
+            color: #fff; /* White for active number */
             font-weight: 700;
         }
-        .in-numbers .label {
-            font-size: 1em;
-            color: #555;
+
+        .pagination-bar {
+            width: 100%; /* Will take width of its parent (.pagination-container) */
+            height: 2px;
+            background-color: rgba(255,255,255,0.3); /* Background bar */
+            position: relative; /* For the progress bar */
         }
-        .section {
-            max-width: 900px;
-            margin: 2.5em auto;
-            padding: 0 1.5em;
+
+        .pagination-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #fff; /* Active progress color */
+            transition: width 0.3s ease-out, transform 0.3s ease-out; /* Smooth transition for width and position */
+            will-change: width, transform;
         }
-        .section-heading {
-            color: #0077b6;
-            font-size: 1.35em;
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
-            border-left: 4px solid #00b4d8;
-            padding-left: 0.7em;
-            margin-bottom: 1em;
-            background: none;
-            text-align: left;
-            margin-top: 2em;
+
+        .text-column .product-category {
+            text-transform: uppercase;
+            font-size: 1rem;
             font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            opacity: 0.8;
         }
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2em;
+
+        .text-column .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem; /* Large title */
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
         }
-        .feature-card {
-            background: #fff;
-            border-radius: 1em;
-            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-            padding: 1.5em 1em;
-            text-align: left;
+
+        .image-column {
+            flex: 1; /* Image column takes remaining width */
+            display: flex;
+            justify-content: flex-end; /* Align image to the right */
+            align-items: center;
+            position: relative;
+            height: 100%;
+            padding-right: 5vw; /* Padding from right edge of screen */
+        }
+
+        /* FAQ Section Styles */
+        .faq-section {
+            background-color: #f7f7f7; /* Light background for FAQ section */
+            color: #333; /* Dark text for contrast */
+            padding: 5rem 0;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            gap: 0.7em;
+            align-items: center;
+            text-align: justify;
         }
-        .feature-card i {
-            font-size: 1.7em;
-            color: #00b4d8;
+
+        .faq-header-tag {
+            color: #e56a1b; /* Orange color for "FREQUENTLY ASK QUESTION" */
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
         }
-        .feature-card h3 {
-            margin: 0.2em 0 0.2em 0;
-            font-size: 1.1em;
-            color: #0077b6;
+
+        .faq-main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #333;
         }
-        .feature-card p {
-            margin: 0;
-            color: #444;
-            font-size: 0.98em;
+
+        .faq-accordion {
+            width: 90%;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Ensures rounded corners cut off content */
         }
-        .events-list {
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none; /* No border on the last item */
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: #333;
+            background-color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+
+        .faq-question .icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            padding: 0 2rem; /* Initial padding, will expand */
+            color: #555;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .faq-answer p {
+            margin-bottom: 1.5rem; /* Padding at bottom of content */
+        }
+
+        .faq-item.active .faq-question .icon {
+            transform: rotate(45deg); /* Rotate icon for active state */
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Adjust based on expected content height */
+            padding-bottom: 1.5rem; /* Add bottom padding when expanded */
+            padding-top: 0.5rem; /* Add top padding when expanded */
+        }
+        /* Footer Styles */
+        .footer {
+            background-color: #1a202c; /* Dark background */
+            color: #a0aec0; /* Light gray text */
+            padding: 4rem 2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        .events-list li {
-            background: #fff;
-            border-radius: 0.7em;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            margin-bottom: 1em;
-            padding: 1em 1.2em;
-            display: flex;
-            align-items: center;
-            gap: 1em;
+
+        .footer-list li {
+            margin-bottom: 0.5rem;
         }
-        .events-list li i {
-            color: #00b4d8;
-            font-size: 1.3em;
-        }
-        .site-footer {
-            background: #fff;
-            color: #222;
-            text-align: center;
-            padding: 2em 1em 1em 1em;
-            margin-top: 3em;
-            border-top: 1px solid #e0e0e0;
-            font-size: 1em;
-        }
-        .footer-links {
-            margin-bottom: 1em;
-        }
-        .footer-links a {
-            color: #0077b6;
-            margin: 0 1em;
+
+        .footer-list a {
+            color: #a0aec0;
             text-decoration: none;
-            font-size: 1em;
-            transition: color 0.2s;
+            transition: color 0.3s ease;
         }
-        .footer-links a:hover, .footer-links a:focus {
-            color: #023e8a;
-            text-decoration: underline;
-            outline: none;
+
+        .footer-list a:hover {
+            color: #fff;
         }
-        .footer-social {
-            margin-bottom: 1em;
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
         }
-        .footer-social a {
-            color: #0077b6;
-            margin: 0 0.5em;
-            font-size: 1.3em;
-            transition: color 0.2s;
+
+        .social-link {
+            color: #a0aec0;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
         }
-        .footer-social a:hover, .footer-social a:focus {
-            color: #023e8a;
-            outline: none;
+
+        .social-link:hover {
+            color: #fff;
         }
-        @media (max-width: 900px) {
-            .in-numbers, .section {
-                max-width: 100%;
-                padding: 0 0.5em;
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #718096;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) { /* Tablets and smaller desktops */
+            .text-column {
+                flex: 0 0 50%;
+                padding-left: 8vw;
+                max-width: 350px;
             }
-            .features-grid {
-                grid-template-columns: 1fr 1fr;
+            .text-column .product-title {
+                font-size: 4rem;
+            }
+            .section-content {
+                padding-right: 3vw;
             }
         }
-        @media (max-width: 700px) {
+
+        @media (max-width: 768px) { /* Mobile */
             .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 0.5em 1em;
+                padding: 1rem 1.5rem;
             }
             .nav-links {
+                display: none; /* Hide by default on mobile */
                 flex-direction: column;
-                width: 100%;
-                display: none;
-                gap: 1em;
-                margin-top: 1em;
-            }
-            .nav-links.show {
-                display: flex;
-            }
-            .mobile-menu {
-                display: block;
                 position: absolute;
-                right: 1em;
-                top: 1em;
-                z-index: 101;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9); /* Darker for mobile menu background */
+                backdrop-filter: blur(15px); /* Apply blur to mobile menu too */
+                -webkit-backdrop-filter: blur(15px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                padding: 1rem 0;
             }
-            .hero-section {
-                padding: 0.7em 0.5em 0.5em 0.5em;
+            .nav-links.active {
+                display: flex; /* Show when active */
             }
-            .hero-section h1 {
-                font-size: 1.1em;
+            .nav-item {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
             }
-            .features-grid {
-                grid-template-columns: 1fr;
+            .nav-item > a {
+                padding: 0.75rem 0;
+                display: block;
+            }
+            .dropdown-menu {
+                position: static; /* Allows dropdown to flow in mobile menu */
+                transform: none;
+                box-shadow: none;
+                margin-top: 0;
+                border-radius: 0;
+                background-color: rgba(0, 0, 0, 0.8); /* Slightly less opaque for sub-menu */
+                border: none; /* Remove border for static dropdown */
+            }
+            .nav-item.dropdown:hover .dropdown-menu {
+                transform: none;
+            }
+            .dropdown-menu li a {
+                padding-left: 2rem; /* Indent dropdown items */
+            }
+            .hamburger-menu {
+                display: block; /* Show hamburger on mobile */
+            }
+
+            .carousel-wrapper {
+                padding-top: 60px; /* Adjust for mobile navbar height */
+            }
+            .carousel-section {
+                flex-direction: column; /* Stack content vertically */
+                justify-content: center;
+                padding-top: 5rem; /* Space for top nav */
+                padding-bottom: 5rem; /* Space for bottom content */
+            }
+            .section-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding-left: 5vw;
+                padding-right: 5vw;
+                height: auto; /* Allow height to adjust */
+            }
+            .text-column {
+                flex: none; /* Don't flex grow/shrink */
+                width: 100%;
+                max-width: 90%; /* Max width for text on mobile */
+                margin-bottom: 2rem;
+                padding-left: 0; /* Remove specific left padding */
+            }
+            .text-column p {
+                font-size: 1rem;
+            }
+            .text-column .product-title {
+                font-size: 3rem;
+            }
+            .image-column {
+                flex: none;
+                width: 100%;
+                height: 40vh; /* Fixed height for image section */
+                justify-content: center;
+                padding-right: 0;
+            }
+            .faq-section {
+                padding: 3rem 0;
+            }
+            .faq-main-title {
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
+            }
+            .faq-accordion {
+                width: 95%;
+                border-radius: 0.75rem;
+            }
+            .faq-question {
+                padding: 1.2rem 1.5rem;
+                font-size: 1rem;
+            }
+            .faq-answer {
+                padding: 0 1.5rem;
+            }
+            .faq-item.active .faq-answer {
+                padding-bottom: 1rem;
+                padding-top: 0.3rem;
+            }
+            .footer {
+                padding: 3rem 1.5rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr; /* Stack columns on mobile */
+                text-align: center;
+            }
+            .footer-section h4 {
+                margin-top: 1.5rem;
+            }
+            .social-links {
+                justify-content: center; /* Center social links on mobile */
             }
         }
     </style>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-<nav class="navbar" data-aos="fade-down">
-    <a href="index.html" class="logo"><i class="fa-solid fa-building"></i> BRIGADE MEADOWS</a>
-    <button class="mobile-menu" id="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
-    <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="amenities.html">Amenities</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="pet.html">Pet Policy</a></li>
-        <li><a href="admin/" id="admin-link" style="display: none;">Admin</a></li>
+<!-- Navbar Start -->
+<nav class="navbar">
+    <a href="#" class="navbar-brand">BRIGADE MEADOWS</a>
+    <div class="hamburger-menu" id="hamburgerMenu">
+        <i class="fas fa-bars"></i>
+    </div>
+    <ul class="nav-links" id="navLinks">
+        <li class="nav-item"><a href="main.html">Home</a></li>
+        <li class="nav-item"><a href="about.html">About</a></li>
+        <li class="nav-item"><a href="amenities.html">Amenities</a></li>
+        <li class="nav-item"><a href="events.html">Events</a></li>
+        <li class="nav-item dropdown">
+            <a href="#">Policy <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">SOPs</a></li>
+                <li><a href="pet.html">Pet Policy</a></li>
+                <li><a href="#">Downloads</a></li>
+            </ul>
+        </li>
+        <li class="nav-item"><a href="#">Contact</a></li>
     </ul>
 </nav>
-<header class="hero-section" data-aos="fade-up">
-    <h1><i class="fa-solid fa-tree-city"></i> Welcome to Brigade Meadows</h1>
-    <p>
-        A vibrant, secure, and green community in Bangalore. Discover our amenities, events, and pet-friendly policies designed for a harmonious living experience.
-    </p>
-</header>
-<section class="in-numbers" data-aos="fade-up">
-    <div class="number-block">
-        <div class="number"><i class="fa-solid fa-building"></i> 20+</div>
-        <div class="label">Residential Towers</div>
+<!-- Navbar End -->
+
+<div class="carousel-wrapper" id="carouselWrapper">
+    <div class="carousel-track" id="carouselTrack">
+        <!-- Section 1 -->
+        <div class="carousel-section section-1" data-image="https://placehold.co/1920x1080/e56a1b/FFFFFF?text=Commuter+Helmet">
+            <div class="section-content">
+                <div class="text-column">
+                    <p>Move around your city safely and comfortably, while reducing your carbon footprint and helping to keep the air we breathe clean.</p>
+                    <div class="pagination-container">
+                        <div class="pagination-numbers" id="paginationNumbers1">
+                            <span class="active" data-index="0">01</span>
+                            <span data-index="1">02</span>
+                            <span data-index="2">03</span>
+                            <span data-index="3">04</span>
+                        </div>
+                        <div class="pagination-bar">
+                            <div class="pagination-progress" id="paginationProgress1"></div>
+                        </div>
+                    </div>
+                    <div class="product-category">COMMUTER HELMET</div>
+                    <h2 class="product-title">Perfect for urban riders</h2>
+                </div>
+                <div class="image-column">
+                    <!-- Removed main-image-container -->
+                    <!-- Removed side-image-container -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="carousel-section section-2" data-image="https://placehold.co/1920x1080/3f51b5/FFFFFF?text=Cargo+Bike+BG">
+            <div class="section-content">
+                <div class="text-column">
+                    <p>Experience the convenience of effortless commutes. Our cargo bikes blend functionality with sleek design, making every journey a pleasure.</p>
+                    <div class="pagination-container">
+                        <div class="pagination-numbers" id="paginationNumbers2">
+                            <span data-index="0">01</span>
+                            <span data-index="1">02</span>
+                            <span data-index="2">03</span>
+                            <span data-index="3">04</span>
+                        </div>
+                        <div class="pagination-bar">
+                            <div class="pagination-progress" id="paginationProgress2"></div>
+                        </div>
+                    </div>
+                    <div class="product-category">CARGO BIKE</div>
+                    <h2 class="product-title">Your new urban companion</h2>
+                </div>
+                <div class="image-column">
+                    <!-- Removed main-image-container -->
+                    <!-- Removed side-image-container -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="carousel-section section-3" data-image="https://placehold.co/1920x1080/4caf50/FFFFFF?text=Smart+Lock+BG">
+            <div class="section-content">
+                <div class="text-column">
+                    <p>Secure your ride with cutting-edge technology. Our smart locks offer unparalleled protection and peace of mind wherever you go.</p>
+                    <div class="pagination-container">
+                        <div class="pagination-numbers" id="paginationNumbers3">
+                            <span data-index="0">01</span>
+                            <span data-index="1">02</span>
+                            <span data-index="2">03</span>
+                            <span data-index="3">04</span>
+                        </div>
+                        <div class="pagination-bar">
+                            <div class="pagination-progress" id="paginationProgress3"></div>
+                        </div>
+                    </div>
+                    <div class="product-category">SMART LOCK</div>
+                    <h2 class="product-title">Ultimate bike security</h2>
+                </div>
+                <div class="image-column">
+                    <!-- Removed main-image-container -->
+                    <!-- Removed side-image-container -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="carousel-section section-4" data-image="https://placehold.co/1920x1080/f44336/FFFFFF?text=Accessories+BG">
+            <div class="section-content">
+                <div class="text-column">
+                    <p>Enhance your riding experience with our range of premium accessories. From ergonomic grips to powerful lights, we have you covered.</p>
+                    <div class="pagination-container">
+                        <div class="pagination-numbers" id="paginationNumbers4">
+                            <span data-index="0">01</span>
+                            <span data-index="1">02</span>
+                            <span data-index="2">03</span>
+                            <span data-index="3">04</span>
+                        </div>
+                        <div class="pagination-bar">
+                            <div class="pagination-progress" id="paginationProgress4"></div>
+                        </div>
+                    </div>
+                    <div class="product-category">ACCESSORIES</div>
+                    <h2 class="product-title">Gear up for the road</h2>
+                </div>
+                <div class="image-column">
+                    <!-- Removed main-image-container -->
+                    <!-- Removed side-image-container -->
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="number-block">
-        <div class="number"><i class="fa-solid fa-users"></i> 2000+</div>
-        <div class="label">Happy Families</div>
-    </div>
-    <div class="number-block">
-        <div class="number"><i class="fa-solid fa-dog"></i> Pet</div>
-        <div class="label">Friendly Community</div>
-    </div>
-    <div class="number-block">
-        <div class="number"><i class="fa-solid fa-tree"></i> 30+</div>
-        <div class="label">Acres of Greenery</div>
+</div>
+
+
+<!-- FAQ Section Start -->
+<section class="faq-section">
+    <span class="faq-header-tag">FREQUENTLY ASK QUESTION</span>
+    <h2 class="faq-main-title">You ask? We answer</h2>
+
+    <div class="faq-accordion">
+        <div class="faq-item">
+            <div class="faq-question">
+                Do you provide a complete design style?
+                <i class="fas fa-plus icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, we offer a comprehensive design style that covers all aspects of product development, from conceptualization to final implementation, ensuring a cohesive and visually appealing result. Our team works closely with you to meet your specific aesthetic and functional requirements.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                How was the license?
+                <i class="fas fa-plus icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Our products come with a standard licensing agreement that grants you broad usage rights for personal and commercial projects. For specific details or enterprise licensing, please contact our sales team, and they will be happy to provide tailored information.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                How much can we buy this marvelous product?
+                <i class="fas fa-plus icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Pricing for our products varies depending on the specific model, features, and any customizations you might require. Please visit our pricing page or contact our sales department for a detailed quote that matches your needs and budget.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Do you have any terms & conditions?
+                <i class="fas fa-plus icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, our standard terms and conditions are available on our website in the legal section. We encourage all our users and partners to review them to understand our policies regarding usage, privacy, and support. For any clarifications, feel free to reach out.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                What is your refund policy?
+                <i class="fas fa-plus icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Our refund policy allows returns within 30 days of purchase, provided the product is in its original condition. Some exclusions may apply. Please refer to our full refund policy on our website for complete details.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                How can I get technical support?
+                <i class="fas fa-plus icon"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Technical support is available through our online help center, email, and live chat during business hours. We also have a comprehensive knowledge base with articles and tutorials to assist you.</p>
+            </div>
+        </div>
     </div>
 </section>
-<section class="section" data-aos="fade-right">
-    <div class="section-heading"><i class="fa-solid fa-star"></i> Amenities & Services</div>
-    <div class="features-grid">
-        <div class="feature-card">
-            <i class="fa-solid fa-dumbbell"></i>
-            <h3>Clubhouse & Gym</h3>
-            <p>State-of-the-art fitness center and clubhouse for recreation and wellness.</p>
+<!-- FAQ Section End -->
+
+<!-- Footer Start -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-section">
+            <div class="footer-brand">BRIGADE MEADOWS</div>
+            <p>A thriving community designed for modern living.</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
         </div>
-        <div class="feature-card">
-            <i class="fa-solid fa-swimmer"></i>
-            <h3>Swimming Pool</h3>
-            <p>Relax and unwind in our well-maintained swimming pool for all ages.</p>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Amenities</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
         </div>
-        <div class="feature-card">
-            <i class="fa-solid fa-bus"></i>
-            <h3>Shuttle Service</h3>
-            <p>Convenient shuttle and metro feeder services for easy city access.</p>
+
+        <div class="footer-section">
+            <h4>Policy</h4>
+            <ul class="footer-list">
+                <li><a href="#">SOPs</a></li>
+                <li><a href="#">Pet Policy</a></li>
+                <li><a href="#">Downloads</a></li>
+            </ul>
         </div>
-        <div class="feature-card">
-            <i class="fa-solid fa-tree"></i>
-            <h3>Landscaped Gardens</h3>
-            <p>Enjoy lush green spaces, walking trails, and children's play areas.</p>
-        </div>
-        <div class="feature-card">
-            <i class="fa-solid fa-shield-alt"></i>
-            <h3>24x7 Security</h3>
-            <p>Round-the-clock security and surveillance for your peace of mind.</p>
-        </div>
-        <div class="feature-card">
-            <i class="fa-solid fa-paw"></i>
-            <h3>Pet Zones</h3>
-            <p>Dedicated pet zones and pet-friendly policies for animal lovers.</p>
+
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p>123 Brigade Road, Bangalore, India</p>
+            <p>+91 98765 43210</p>
+            <p>info@brigademeadows.com</p>
         </div>
     </div>
-</section>
-<section class="section" data-aos="fade-left">
-    <div class="section-heading"><i class="fa-solid fa-calendar-days"></i> Upcoming Events</div>
-    <ul class="events-list">
-        <li>
-            <i class="fa-solid fa-person-praying"></i>
-            <div>
-                <strong>Yoga Class</strong> – 25 Jan 2025<br>
-                Start your day with a refreshing yoga session in the community hall.
-            </div>
-        </li>
-        <li>
-            <i class="fa-solid fa-bullhorn"></i>
-            <div>
-                <strong>Move-in Restrictions</strong> – 20 Jan 2025<br>
-                Please check the latest guidelines for move-ins and logistics.
-            </div>
-        </li>
-        <li>
-            <i class="fa-solid fa-dog"></i>
-            <div>
-                <strong>Pet Policy Awareness</strong> – Monthly<br>
-                Learn about our pet-friendly rules and how to be a responsible pet owner.
-            </div>
-        </li>
-    </ul>
-</section>
-<footer class="site-footer" data-aos="fade-up">
-    <div class="footer-links">
-        <a href="index.html">Home</a>|
-        <a href="about.html">About</a>|
-        <a href="amenities.html">Amenities</a>|
-        <a href="events.html">Events</a>|
-        <a href="pet.html">Pet Policy</a>
-    </div>
-    <div class="footer-social">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-    <div>
-        © 2025 Brigade Meadows Phase-1. All rights reserved.
+    <div class="footer-bottom">
+        &copy; 2023 Brigade Meadows. All rights reserved.
     </div>
 </footer>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="script.js"></script>
+<!-- Footer End -->
+
 <script>
-    // Mobile menu toggle
-    document.getElementById('mobile-menu-btn').onclick = function() {
-        var nav = document.getElementById('nav-links');
-        nav.classList.toggle('show');
-    };
-    // AOS animation
-    AOS.init({
-        duration: 800,
-        once: true
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburgerMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
     });
-    // Admin link logic
-    if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-            if (!user) {
-                window.netlifyIdentity.on("login", () => {
-                    document.getElementById("admin-link").style.display = "inline-block";
+
+    const carouselTrack = document.getElementById('carouselTrack');
+    const sections = document.querySelectorAll('.carousel-section');
+    const totalSections = sections.length;
+    let currentSectionIndex = 0;
+    let autoScrollInterval;
+    const autoScrollDelay = 5000; // 5 seconds for auto-scroll
+
+    // Function to update the carousel position and active state
+    function updateCarousel() {
+        const offset = -currentSectionIndex * 100;
+        carouselTrack.style.transform = `translateX(${offset}vw)`;
+
+        // Update active class for sections and pagination numbers
+        sections.forEach((section, index) => {
+            section.classList.remove('current-section');
+            if (index === currentSectionIndex) {
+                section.classList.add('current-section');
+            }
+
+            // Update pagination numbers within each section
+            const paginationNumbers = section.querySelector('.pagination-numbers');
+            const paginationProgressBar = section.querySelector('.pagination-progress');
+
+            if (paginationNumbers && paginationProgressBar) {
+                // Update active number span
+                paginationNumbers.querySelectorAll('span').forEach((span, spanIndex) => {
+                    span.classList.remove('active');
+                    if (spanIndex === currentSectionIndex) {
+                        span.classList.add('active');
+                    }
                 });
-            } else {
-                document.getElementById("admin-link").style.display = "inline-block";
+
+                // Update progress bar
+                // Calculate the width of one segment based on the total width of the numbers container
+                // Note: This relies on .pagination-numbers being visible and having a calculated width.
+                // For perfect alignment, the .pagination-bar should ideally align with .pagination-numbers.
+                const numbersContainerWidth = paginationNumbers.offsetWidth;
+                const segmentWidth = numbersContainerWidth / totalSections;
+
+                paginationProgressBar.style.width = `${segmentWidth}px`;
+                paginationProgressBar.style.transform = `translateX(${currentSectionIndex * segmentWidth}px)`;
             }
         });
     }
+
+    // Function to start auto-scrolling
+    function startAutoScroll() {
+        stopAutoScroll(); // Clear any existing interval first
+        autoScrollInterval = setInterval(() => {
+            currentSectionIndex = (currentSectionIndex + 1) % totalSections;
+            updateCarousel();
+        }, autoScrollDelay);
+    }
+
+    // Function to stop auto-scrolling
+    function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+    }
+
+    // Initialize carousel and start auto-scroll on load
+    window.addEventListener('load', () => {
+        updateCarousel(); // Set initial position and active state
+        startAutoScroll(); // Start auto-scrolling
+    });
+
+    // Touch/Swipe functionality
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carouselTrack.addEventListener('touchstart', (e) => {
+        stopAutoScroll(); // Stop auto-scroll on touch start
+        touchStartX = e.touches[0].clientX;
+    });
+
+    carouselTrack.addEventListener('touchmove', (e) => {
+        touchEndX = e.touches[0].clientX;
+    });
+
+    carouselTrack.addEventListener('touchend', () => {
+        const swipeThreshold = 50; // pixels to count as a swipe
+        if (touchStartX - touchEndX > swipeThreshold) {
+            // Swipe left (next slide)
+            currentSectionIndex = (currentSectionIndex + 1) % totalSections;
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            // Swipe right (previous slide)
+            currentSectionIndex = (currentSectionIndex - 1 + totalSections) % totalSections;
+        }
+        updateCarousel();
+        startAutoScroll(); // Resume auto-scroll after touch ends
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        stopAutoScroll(); // Stop auto-scroll on keydown
+        if (e.key === 'ArrowRight') {
+            currentSectionIndex = (currentSectionIndex + 1) % totalSections;
+        } else if (e.key === 'ArrowLeft') {
+            currentSectionIndex = (currentSectionIndex - 1 + totalSections) % totalSections;
+        }
+        updateCarousel();
+        startAutoScroll(); // Resume auto-scroll after key press
+    });
+
+    // Click on pagination numbers
+    document.querySelectorAll('.pagination-numbers span').forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            stopAutoScroll(); // Stop auto-scroll on pagination click
+            currentSectionIndex = parseInt(e.target.dataset.index);
+            updateCarousel();
+            startAutoScroll(); // Resume auto-scroll after click
+        });
+    });
+
+    // Add resize event listener to update pagination bar on window resize
+    window.addEventListener('resize', () => {
+        stopAutoScroll();
+        updateCarousel(); // Re-calculate and update carousel position and pagination bar
+        startAutoScroll();
+    });
+
+    // FAQ Accordion Logic
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const parentItem = question.closest('.faq-item');
+            parentItem.classList.toggle('active');
+
+            const answer = question.nextElementSibling;
+            if (parentItem.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + "px"; // Set max-height to scrollHeight for smooth expansion
+            } else {
+                answer.style.maxHeight = "0";
+            }
+
+            // Close other open FAQ items
+            document.querySelectorAll('.faq-item.active').forEach(item => {
+                if (item !== parentItem) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.maxHeight = "0";
+                }
+            });
+        });
+    });
 </script>
 </body>
 </html>
