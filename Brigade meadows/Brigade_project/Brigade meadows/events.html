@@ -1,28 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brigade Meadows - Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* General styles */
-    * {
+    /* General Body Styles */
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      font-family: 'Poppins', sans-serif;
-      color: #fff; /* Default text color, if not overridden */
+      font-family: 'Inter', sans-serif;
       overflow-x: hidden; /* Prevent horizontal scroll */
+      color: #fff; /* Default text color, overridden by specific sections */
     }
 
-    /* Navbar Styles - Glass Morphism (Updated from navbar-code-only) */
+    /* Navbar Styles - Glass Morphism */
     .navbar {
       position: fixed;
       top: 0;
@@ -119,46 +114,123 @@
       cursor: pointer;
     }
 
+    /* Hero Section (placeholder styles - often specific to each page) */
+    .hero-section {
+      padding-top: 80px; /* Space for fixed navbar */
+      min-height: 100vh; /* Make it full viewport height */
+      background-image: url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Your+Hero+Image'); /* Placeholder image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; /* Align content to the left */
+      position: relative;
+      color: #fff;
+      text-align: left;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(65, 105, 125, 0.7); /* Blueish overlay as seen in the original image */
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      width: 100%;
+      padding-left: 10vw;
+      padding-right: 5vw;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      min-height: calc(100vh - 80px); /* Adjust height for navbar */
+    }
+
+    .hero-text-column {
+      flex: 0 0 40%;
+      max-width: 400px;
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .hero-text-column .category {
+      text-transform: uppercase;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      opacity: 0.8;
+      color: #e0e0e0; /* Slightly lighter white for category as in image */
+    }
+
+    .hero-text-column .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      color: #add8e6; /* Light blueish color for title as in image */
+    }
+
+    .hero-text-column p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      color: #e0e0e0; /* Slightly lighter white for paragraph as in image */
+    }
+
     /* Smart Conf Carousel Section */
     .smart-conf-carousel-section {
-      padding-top: 80px;
+      /* Adjust padding-top for fixed navbar, ensuring content starts below it */
+      padding-top: 80px; /* Space for fixed navbar */
       position: relative;
-      height: 100vh;
-      width: 100vw;
+      height: 100vh; /* Full viewport height */
+      width: 100vw; /* Full viewport width */
       overflow: hidden; /* Hide overflowing slides */
+      background-color: #ffffff; /* Fallback background for carousel */
     }
 
     .smart-conf-carousel-inner {
       display: flex;
       height: 100%;
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.5s ease-in-out; /* Smooth sliding transition */
     }
 
     .smart-conf-slide {
-      flex-shrink: 0;
+      flex-shrink: 0; /* Prevents slides from shrinking */
       width: 100vw; /* Each slide takes full viewport width */
       height: 100%;
-      position: relative;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      position: relative; /* For overlay and content positioning */
+      background-size: cover; /* Cover the entire slide area */
+      background-position: center; /* Center the background image */
+      background-repeat: no-repeat; /* Do not repeat the background image */
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center; /* Vertically center content */
+      justify-content: center; /* Vertically and horizontally center content */
       color: #fff;
       text-align: center;
     }
 
     /* Specific background images for each slide */
+    /* IMPORTANT: Replace these with your actual image paths */
     .smart-conf-slide.slide-1 {
-      background-image: url('assets/raw.webp');
+      background-image: url('assets/raw.webp'); /* Replace with your image */
     }
     .smart-conf-slide.slide-2 {
-      background-image: url('assets/Whimsical Suburban Street Scene.png');
+      background-image: url('assets/Whimsical Suburban Street Scene.png'); /* Replace with your image */
     }
     .smart-conf-slide.slide-3 {
-      background-image: url('assets/pushpak.webp');
+      background-image: url('assets/pushpak.webp'); /* Replace with your image */
     }
 
     .smart-conf-overlay {
@@ -168,13 +240,13 @@
       height: 100%;
       width: 100%;
       background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay */
-      z-index: 1;
+      z-index: 1; /* Ensure overlay is above background image but below content */
     }
 
     .smart-conf-content {
       position: relative;
-      z-index: 2;
-      max-width: 900px;
+      z-index: 2; /* Ensure content is above the overlay */
+      max-width: 900px; /* Max width for content, adjust as needed */
       padding: 2em;
       display: flex;
       flex-direction: column;
@@ -183,10 +255,11 @@
     }
 
     .smart-conf-title {
-      font-size: 5em;
+      font-size: 5em; /* Large title */
       font-weight: 700;
       color: #ffeb3b; /* Yellowish color from image */
       margin-bottom: 0.2em;
+      line-height: 1.1; /* Adjust line height for better spacing */
     }
 
     .smart-conf-subtitle {
@@ -194,6 +267,7 @@
       font-weight: 400;
       margin-bottom: 1.5em;
       line-height: 1.3;
+      color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
     }
 
     .watch-video-btn {
@@ -207,8 +281,7 @@
       font-size: 1.1em;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.3s ease;
-      /* Removed margin-bottom as location cards are gone, and content should be centered */
+      transition: all 0.3s ease; /* Smooth transition for hover effects */
     }
 
     .watch-video-btn:hover {
@@ -217,7 +290,7 @@
     }
 
     .watch-video-btn i {
-      margin-right: 0.5em;
+      margin-right: 0.5em; /* Space between icon and text */
     }
 
     /* Carousel Navigation Buttons for Smart Conf */
@@ -225,15 +298,15 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: transparent; /* Removed background */
+      background-color: transparent; /* No background by default */
       color: white;
-      border: none; /* Removed border */
+      border: none; /* No border */
       padding: 1em; /* Uniform padding */
       cursor: pointer;
       z-index: 4; /* Above carousel content */
       font-size: 1.5em;
-      border-radius: 0; /* Removed border-radius */
-      transition: background-color 0.3s ease;
+      border-radius: 0; /* No border-radius */
+      transition: background-color 0.3s ease; /* Smooth background transition on hover */
     }
 
     .smart-conf-nav-btn:hover {
@@ -241,13 +314,12 @@
     }
 
     .smart-conf-prev {
-      left: 0px; /* Increased spacing from the left edge */
+      left: 10px; /* Spacing from the left edge */
     }
 
     .smart-conf-next {
-      right: 10px; /* Retained spacing from the right edge */
+      right: 10px; /* Spacing from the right edge */
     }
-
 
     /* Upcoming Events Section (Static List) */
     .upcoming-events-section {
@@ -257,7 +329,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative; /* Keep if needed for other elements, but not for carousel nav */
+      /* padding-top will be handled by main-content if it's placed inside */
+      /* min-height removed here as it's part of a larger page */
     }
 
     .events-header {
@@ -283,9 +356,9 @@
       padding: 1.5em 0;
       border-bottom: 1px solid #eee; /* Light separator between events */
       gap: 1.5em;
-      background-color: transparent; /* Ensure no background from old carousel-slide */
-      border-radius: 0; /* Remove border-radius from old carousel-slide */
-      margin-bottom: 0; /* Remove margin-bottom from old carousel-slide */
+      background-color: transparent;
+      border-radius: 0;
+      margin-bottom: 0;
     }
 
     .event-item:last-child {
@@ -376,64 +449,107 @@
       background-color: #005f95;
     }
 
-    /* Footer */
-    .site-footer {
-      background: #fff;
-      color: #222;
-      text-align: center;
-      padding: 2em 1em 1em 1em;
-      font-size: 1em;
+    /* Footer Styles */
+    .footer {
+      background-color: #1a202c; /* Dark background */
+      color: #a0aec0; /* Light gray text */
+      padding: 4rem 2rem;
+      font-size: 0.9rem;
     }
 
-    .footer-links {
-      margin-bottom: 1em;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .footer-links a {
-      color: #0077b6;
-      margin: 0 1em;
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .footer-section h4 {
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-list a {
+      color: #a0aec0;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
 
-    .footer-links a:hover {
-      text-decoration: underline;
+    .footer-list a:hover {
+      color: #fff;
     }
 
-    .footer-social a {
-      color: #0077b6;
-      margin: 0 0.5em;
-      font-size: 1.3em;
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
-    .footer-social a:hover {
-      color: #023e8a;
+    .social-link {
+      color: #a0aec0;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
     }
 
-    /* Keyframe Animations */
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
+    .social-link:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #718096;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) { /* Tablets and smaller desktops */
+      .hero-text-column {
+        flex: 0 0 50%;
+        padding-left: 8vw;
+        max-width: 350px;
       }
-      50% {
-        transform: translateY(10px);
+      .hero-text-column .title {
+        font-size: 4.5rem; /* Slightly smaller for tablets */
+      }
+      .hero-content {
+        padding-right: 3vw;
+      }
+      /* Smart Conf Carousel Mobile Adjustments */
+      .smart-conf-title {
+        font-size: 4em; /* Adjust for better fit on tablets */
+      }
+      .smart-conf-subtitle {
+        font-size: 1.5em; /* Adjust for better fit on tablets */
       }
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
+    @media (max-width: 768px) { /* Mobile */
       .navbar {
         padding: 1rem 1.5rem;
+        background-color: rgba(0, 0, 0, 0.4); /* Reverting mobile navbar background too */
       }
       .nav-links {
         display: none; /* Hide by default on mobile */
@@ -479,13 +595,56 @@
         display: block; /* Show hamburger on mobile */
       }
 
-      /* Smart Conf Mobile Adjustments */
-      .smart-conf-title {
-        font-size: 3em;
+      .hero-section {
+        padding-top: 60px; /* Adjust for mobile navbar height */
+        height: auto; /* Allow height to adjust based on content */
+        min-height: 50vh; /* Minimum height for hero on mobile */
+      }
+      .hero-content {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center content horizontally in column flow */
+        text-align: center; /* Center text within the column */
+        padding-left: 5vw;
+        padding-right: 5vw;
+        height: auto; /* Allow height to adjust based on content */
+      }
+      .hero-text-column {
+        flex: none; /* Don't flex grow/shrink */
+        width: 100%;
+        max-width: 90%; /* Max width for text on mobile */
+        margin-bottom: 2rem;
+        padding-left: 0; /* Remove specific left padding */
+      }
+      .hero-text-column p {
+        font-size: 1rem;
+      }
+      .hero-text-column .title {
+        font-size: 3rem;
+      }
+      .footer {
+        padding: 3rem 1.5rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+        text-align: center;
+      }
+      .footer-section h4 {
+        margin-top: 1.5rem;
+      }
+      .social-links {
+        justify-content: center; /* Center social links on mobile */
       }
 
+      /* Smart Conf Carousel Mobile Adjustments */
+      .smart-conf-title {
+        font-size: 3em; /* Smaller title on mobile */
+      }
       .smart-conf-subtitle {
-        font-size: 1.2em;
+        font-size: 1.2em; /* Smaller subtitle on mobile */
+      }
+      .smart-conf-nav-btn {
+        font-size: 1.2em; /* Smaller arrows on mobile */
+        padding: 0.8em 0.6em;
       }
 
       /* Upcoming Events Mobile Adjustments (Static List) */
@@ -532,12 +691,6 @@
         width: 100%;
         text-align: center;
       }
-
-      /* Smart Conf Carousel Nav Buttons Mobile */
-      .smart-conf-nav-btn {
-        font-size: 1.2em;
-        padding: 0.8em 0.6em;
-      }
     }
   </style>
 </head>
@@ -560,14 +713,12 @@
         <li><a href="#">Downloads</a></li>
       </ul>
     </li>
-    <li class="nav-item"><a href="#">Contact</a></li>
+    <li class="nav-item"><a href="#footer-section">Contact</a></li>
   </ul>
 </nav>
 
-<!-- New Section: Smart Conf Carousel -->
 <section class="smart-conf-carousel-section" id="smartConfSection">
   <div class="smart-conf-carousel-inner" id="smartConfCarouselInner">
-    <!-- Smart Conf Slide 1 (Original content) -->
     <div class="smart-conf-slide slide-1">
       <div class="smart-conf-overlay"></div>
       <div class="smart-conf-content">
@@ -581,7 +732,6 @@
       </div>
     </div>
 
-    <!-- Smart Conf Slide 2 -->
     <div class="smart-conf-slide slide-2">
       <div class="smart-conf-overlay"></div>
       <div class="smart-conf-content">
@@ -595,21 +745,20 @@
       </div>
     </div>
 
-    <!-- Smart Conf Slide 3 -->
-    <div class="smart-conf-overlay"></div>
-    <div class="smart-conf-content">
-      <h2 class="smart-conf-title">Independence Day</h2>
-      <p class="smart-conf-subtitle">
-        78th Year of Independence | Flag Post | August 15, 2025
-      </p>
-      <a href="#" class="watch-video-btn">
-        <i class="fas fa-envelope"></i> RSVP
-      </a>
+    <div class="smart-conf-slide slide-3">
+      <div class="smart-conf-overlay"></div>
+      <div class="smart-conf-content">
+        <h2 class="smart-conf-title">Independence Day</h2>
+        <p class="smart-conf-subtitle">
+          78th Year of Independence | Flag Post | August 15, 2025
+        </p>
+        <a href="#" class="watch-video-btn">
+          <i class="fas fa-envelope"></i> RSVP
+        </a>
+      </div>
     </div>
   </div>
-  </div>
 
-  <!-- Carousel Navigation Buttons for Smart Conf -->
   <button class="smart-conf-nav-btn smart-conf-prev" id="smartConfCarouselPrev">
     <i class="fas fa-chevron-left"></i>
   </button>
@@ -618,13 +767,11 @@
   </button>
 </section>
 
-<!-- Upcoming Events Section (Static List) -->
 <section class="upcoming-events-section">
   <div class="events-header">
     <h2>Upcoming Events</h2>
   </div>
 
-  <!-- Event 1 -->
   <div class="event-item">
     <div class="event-thumbnail">
       <img src="https://placehold.co/120x80/cccccc/333333?text=Event+1" alt="Event Thumbnail 1">
@@ -644,7 +791,6 @@
     <a href="#" class="rsvp-button">RSVP</a>
   </div>
 
-  <!-- Event 2 -->
   <div class="event-item">
     <div class="event-thumbnail">
       <img src="https://placehold.co/120x80/cccccc/333333?text=Event+2" alt="Event Thumbnail 2">
@@ -664,7 +810,6 @@
     <a href="#" class="rsvp-button">RSVP</a>
   </div>
 
-  <!-- Event 3 -->
   <div class="event-item">
     <div class="event-thumbnail">
       <img src="https://placehold.co/120x80/cccccc/333333?text=Event+3" alt="Event Thumbnail 3">
@@ -685,27 +830,52 @@
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="footer-links">
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="amenities.html">Amenities</a> |
-    <a href="events.html">Events</a> |
-    <a href="pet.html">Pet Policy</a>
-  </div>
-  <div class="footer-social">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-  </div>
-  <div>© 2025 Brigade Meadows Phase-1. All rights reserved.</div>
-</footer>
+<footer class="footer" id="footer-section">
+  <div class="footer-grid">
+    <div class="footer-section">
+      <div class="footer-brand">BRIGADE MEADOWS</div>
+      <p>A thriving community designed for modern living.</p>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
 
-<!-- Scripts -->
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul class="footer-list">
+        <li><a href="#hero-section">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="amenities.html">Amenities</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="#footer-section">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Policy</h4>
+      <ul class="footer-list">
+        <li><a href="#">SOPs</a></li>
+        <li><a href="pet.html">Pet Policy</a></li>
+        <li><a href="#">Downloads</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <p>123 Brigade Road, Bangalore, India</p>
+      <p>+91 98765 43210</p>
+      <p>info@brigademeadows.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2023 Brigade Meadows. All rights reserved.
+  </div>
+</footer>
 <script>
-  // Updated JavaScript to use consistent IDs for hamburger menu and nav links
+  // Hamburger Menu functionality
   const hamburgerMenu = document.getElementById('hamburgerMenu');
   const navLinks = document.getElementById('navLinks');
 
@@ -715,62 +885,70 @@
     });
   }
 
-
-  // Removed carousel functionality for Upcoming Events
-  // The Upcoming Events section is now a static list.
+  // Optional: Close mobile menu when a nav link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+      }
+    });
+  });
 
   // Smart Conf Carousel functionality (Auto-playing)
   const smartConfCarouselInner = document.getElementById('smartConfCarouselInner');
   const smartConfSlides = document.querySelectorAll('.smart-conf-slide');
   const smartConfCarouselPrev = document.getElementById('smartConfCarouselPrev');
   const smartConfCarouselNext = document.getElementById('smartConfCarouselNext');
-  const smartConfSection = document.getElementById('smartConfSection'); // Get the section element
+  const smartConfSection = document.getElementById('smartConfSection');
 
   let smartConfCurrentIndex = 0;
   const smartConfTotalSlides = smartConfSlides.length;
-  let smartConfInterval; // Variable to hold the interval ID
+  let smartConfInterval;
   const autoPlayDelay = 5000; // 5 seconds
 
   function showSmartConfSlide(index) {
     if (index < 0) {
-      smartConfCurrentIndex = smartConfTotalSlides - 1;
+      smartConfCurrentIndex = smartConfTotalSlides - 1; // Loop to the last slide
     } else if (index >= smartConfTotalSlides) {
-      smartConfCurrentIndex = 0;
+      smartConfCurrentIndex = 0; // Loop to the first slide
     } else {
       smartConfCurrentIndex = index;
     }
-    const offset = -smartConfCurrentIndex * 100;
+    const offset = -smartConfCurrentIndex * 100; // Calculate offset for translateX
     smartConfCarouselInner.style.transform = `translateX(${offset}%)`;
   }
 
   function startSmartConfAutoPlay() {
+    stopSmartConfAutoPlay(); // Clear any existing interval before starting a new one
     smartConfInterval = setInterval(() => {
       showSmartConfSlide(smartConfCurrentIndex + 1);
     }, autoPlayDelay);
   }
 
   function stopSmartConfAutoPlay() {
-    clearInterval(smartConfInterval);
+    clearInterval(smartConfInterval); // Stop the auto-play interval
   }
 
+  // Event listeners for navigation buttons
   smartConfCarouselPrev.addEventListener('click', () => {
-    stopSmartConfAutoPlay(); // Stop on manual interaction
+    stopSmartConfAutoPlay(); // Stop auto-play on manual interaction
     showSmartConfSlide(smartConfCurrentIndex - 1);
-    startSmartConfAutoPlay(); // Restart after a brief pause
+    startSmartConfAutoPlay(); // Restart auto-play after a brief pause
   });
 
   smartConfCarouselNext.addEventListener('click', () => {
-    stopSmartConfAutoPlay(); // Stop on manual interaction
+    stopSmartConfAutoPlay(); // Stop auto-play on manual interaction
     showSmartConfSlide(smartConfCurrentIndex + 1);
-    startSmartConfAutoPlay(); // Restart after a brief pause
+    startSmartConfAutoPlay(); // Restart auto-play after a brief pause
   });
 
-  // Pause on hover, resume on mouse leave
+  // Pause auto-play when mouse enters the carousel area, resume when it leaves
   smartConfSection.addEventListener('mouseenter', stopSmartConfAutoPlay);
   smartConfSection.addEventListener('mouseleave', startSmartConfAutoPlay);
 
-  showSmartConfSlide(0); // Initialize Smart Conf carousel
-  startSmartConfAutoPlay(); // Start auto-play
+  // Initialize the carousel and start auto-play when the page loads
+  showSmartConfSlide(0);
+  startSmartConfAutoPlay();
 </script>
 </body>
 </html>

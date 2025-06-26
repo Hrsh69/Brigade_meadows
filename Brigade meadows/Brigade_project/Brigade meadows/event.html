@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brigade Meadows - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        /* General styles */
-        * {
+        /* General Body Styles */
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-            font-family: 'Poppins', sans-serif;
-            color: #fff; /* Default text color, if not overridden */
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden; /* Prevent horizontal scroll */
+            color: #fff; /* Default text color, overridden by specific sections */
         }
 
-        /* Navbar - Copied from main-page immersive */
         /* Navbar Styles - Glass Morphism */
         .navbar {
             position: fixed;
@@ -120,404 +114,582 @@
             cursor: pointer;
         }
 
-        /* Fullscreen Image Section (retained but image path updated) */
-        .fullscreen-image {
-            position: relative;
-            height: 100vh;
-            width: 100vw;
-            /* Placeholder image for the whimsical suburban street scene */
-            background-image: url('assets/Whimsical Suburban Street Scene.png');
+        /* Hero Section (placeholder styles - often specific to each page) */
+        .hero-section {
+            padding-top: 80px; /* Space for fixed navbar */
+            min-height: 100vh; /* Make it full viewport height */
+            background-image: url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Your+Hero+Image'); /* Placeholder image */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 0 1em; /* Add horizontal padding for mobile */
-            padding-top: 60px; /* Add padding to account for fixed navbar height */
-        }
-
-        /* Overlay for fullscreen-image */
-        .fullscreen-image .overlay { /* Specificity for this overlay */
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            z-index: 1; /* Below hero content and navbar */
-        }
-
-        /* Hero Content Styles (for fullscreen-image section) */
-        .hero-content {
-            position: relative; /* Essential for z-index to work */
-            z-index: 2; /* Ensures it's above the overlay */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center; /* Center content within hero-content */
-            height: 100%; /* Take full height of parent to allow proper centering */
-        }
-
-        .hero-content .about-heading { /* Specificity for the hero heading */
-            font-size: 4em;
-            font-weight: 700;
-            margin-top: 4em; /* As per your provided code for this element */
-            text-align: center;
-            animation: fadeIn 2s ease-in-out;
-            color: #fff; /* Ensure text is white against overlay */
-        }
-
-        .hero-content .arrow-down { /* Specificity for the hero arrow */
-            margin-top: 6em; /* As per your provided code for this element */
-            font-size: 2em;
-            color: white;
-            animation: bounce 2s infinite;
-        }
-
-        .about-heading-box {
-            display: inline-block;
-            border: 1px solid #000;
-            padding: 1em 2em;
-            margin-bottom: 1.5em;
-        }
-
-        .about-heading-box h2 {
-            margin: 0;
-            font-size: 1.3em;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .arrow-down {
-            margin-top: 6em;
-            font-size: 2em;
-            color: white;
-            animation: bounce 2s infinite;
-        }
-
-        .about-fullscreen {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            background-image: url('assets/1035.jpg'); /* Replace with your actual image path */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            z-index: 1;
-        }
-        .overlay {
-            width: 100%;
-            height: 100%;
-            backdrop-filter: blur(8px); /* The blur effect */
-            background-color: rgba(0, 0, 0, 0.4); /* Slight dark tint */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 3em 1.5em;
-        }
-
-        .about-content {
-            color: #fff;
-            max-width: 960px;
-            text-align: center;
-            position: relative; /* Ensure it's above the overlay */
-            z-index: 2; /* Ensure it's above the overlay */
-        }
-
-        .about-heading-box {
-            display: inline-block;
-            border: 1px solid #fff;
-            padding: 1.5em 2em;
-            margin-bottom: 2em;
-        }
-
-        .about-heading-box h2 {
-            margin: 0;
-            font-size: 2em;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #fff; /* Changed to white for better contrast on blurred overlay */
-        }
-
-        .about-content h2 {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .about-content p {
-            font-size: 1.15em;
-            line-height: 1.8em;
-            color: #f0f0f0;
-        }
-
-        .water-conservation-section {
-            background-image: url('assets/raw.webp'); /* Placeholder image for water */
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            min-height: 100vh; /* Ensure it takes full viewport height */
-            display: flex;
-            align-items: center; /* Center content vertically */
             justify-content: flex-start; /* Align content to the left */
+            position: relative;
+            color: #fff;
+            text-align: left;
         }
 
-        .water-conservation-section::before {
+        .hero-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-            z-index: 1;
+            background-color: rgba(65, 105, 125, 0.7); /* Blueish overlay as seen in the original image */
+            z-index: 0;
         }
 
-        .content-wrapper {
+        .hero-content {
             position: relative;
-            z-index: 2;
-            max-width: 900px; /* Adjust as needed */
-            padding: 4rem 2rem; /* Responsive padding */
-            color: #fff;
-            margin-left: 0; /* REMOVED original margin-left: 10%; */
-            margin-right: auto; /* Used with max-width and no fixed margin-left to center the block */
-            margin-left: auto; /* Used with max-width and no fixed margin-left to center the block */
-            text-align: center; /* Align text inside to center for mobile, will be overridden by media query for desktop */
-        }
-
-        .read-more-link {
+            z-index: 1;
+            max-width: 1200px;
+            width: 100%;
+            padding-left: 10vw;
+            padding-right: 5vw;
+            box-sizing: border-box;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            min-height: calc(100vh - 80px); /* Adjust height for navbar */
+        }
+
+        .hero-text-column {
+            flex: 0 0 40%;
+            max-width: 400px;
             color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .hero-text-column .category {
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+            color: #e0e0e0; /* Slightly lighter white for category as in image */
+        }
+
+        .hero-text-column .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: #add8e6; /* Light blueish color for title as in image */
+        }
+
+        .hero-text-column p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            color: #e0e0e0; /* Slightly lighter white for paragraph as in image */
+        }
+
+        /* Smart Conf Carousel Section */
+        .smart-conf-carousel-section {
+            /* Adjust padding-top for fixed navbar, ensuring content starts below it */
+            padding-top: 80px; /* Space for fixed navbar */
+            position: relative;
+            height: 100vh; /* Full viewport height */
+            width: 100vw; /* Full viewport width */
+            overflow: hidden; /* Hide overflowing slides */
+            background-color: #ffffff; /* Fallback background for carousel */
+        }
+
+        .smart-conf-carousel-inner {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out; /* Smooth sliding transition */
+        }
+
+        .smart-conf-slide {
+            flex-shrink: 0; /* Prevents slides from shrinking */
+            width: 100vw; /* Each slide takes full viewport width */
+            height: 100%;
+            position: relative; /* For overlay and content positioning */
+            background-size: cover; /* Cover the entire slide area */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Vertically and horizontally center content */
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Specific background images for each slide */
+        /* IMPORTANT: Replace these with your actual image paths */
+        .smart-conf-slide.slide-1 {
+            background-image: url('assets/raw.webp'); /* Replace with your image */
+        }
+        .smart-conf-slide.slide-2 {
+            background-image: url('assets/Whimsical Suburban Street Scene.png'); /* Replace with your image */
+        }
+        .smart-conf-slide.slide-3 {
+            background-image: url('assets/pushpak.webp'); /* Replace with your image */
+        }
+
+        .smart-conf-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay */
+            z-index: 1; /* Ensure overlay is above background image but below content */
+        }
+
+        .smart-conf-content {
+            position: relative;
+            z-index: 2; /* Ensure content is above the overlay */
+            max-width: 900px; /* Max width for content, adjust as needed */
+            padding: 2em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Ensures content inside is centered */
+        }
+
+        .smart-conf-title {
+            font-size: 5em; /* Large title */
+            font-weight: 700;
+            color: #ffeb3b; /* Yellowish color from image */
+            margin-bottom: 0.2em;
+            line-height: 1.1; /* Adjust line height for better spacing */
+        }
+
+        .smart-conf-subtitle {
+            font-size: 1.8em;
+            font-weight: 400;
+            margin-bottom: 1.5em;
+            line-height: 1.3;
+            color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+        }
+
+        .watch-video-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: transparent;
+            border: 2px solid #ffeb3b; /* Yellowish border */
+            color: #ffeb3b;
+            padding: 0.8em 1.5em;
+            border-radius: 9999px; /* Fully rounded */
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease; /* Smooth transition for hover effects */
+        }
+
+        .watch-video-btn:hover {
+            background-color: #ffeb3b;
+            color: #000;
+        }
+
+        .watch-video-btn i {
+            margin-right: 0.5em; /* Space between icon and text */
+        }
+
+        /* Carousel Navigation Buttons for Smart Conf */
+        .smart-conf-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent; /* No background by default */
+            color: white;
+            border: none; /* No border */
+            padding: 1em; /* Uniform padding */
+            cursor: pointer;
+            z-index: 4; /* Above carousel content */
+            font-size: 1.5em;
+            border-radius: 0; /* No border-radius */
+            transition: background-color 0.3s ease; /* Smooth background transition on hover */
+        }
+
+        .smart-conf-nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
+        }
+
+        .smart-conf-prev {
+            left: 10px; /* Spacing from the left edge */
+        }
+
+        .smart-conf-next {
+            right: 10px; /* Spacing from the right edge */
+        }
+
+        /* Upcoming Events Section (Static List) */
+        .upcoming-events-section {
+            background-color: #f0f8ff; /* Light background similar to image */
+            padding: 4em 2em; /* Restored horizontal padding */
+            color: #333; /* Darker text for readability */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* padding-top will be handled by main-content if it's placed inside */
+            /* min-height removed here as it's part of a larger page */
+        }
+
+        .events-header {
+            width: 100%;
+            max-width: 900px;
+            padding-bottom: 1em;
+            margin-bottom: 2em;
+            border-bottom: 2px solid #ccc; /* Underline for "Upcoming Events" */
+            text-align: left;
+        }
+
+        .events-header h2 {
+            font-size: 2em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .event-item {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+            padding: 1.5em 0;
+            border-bottom: 1px solid #eee; /* Light separator between events */
+            gap: 1.5em;
+            background-color: transparent;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        .event-item:last-child {
+            border-bottom: none; /* No border for the last item */
+        }
+
+        .event-thumbnail {
+            width: 120px;
+            height: 80px;
+            overflow: hidden;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .event-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .event-date-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 80px; /* Fixed width for date box */
+            flex-shrink: 0;
+            color: #333;
+        }
+
+        .event-date-box .day {
+            font-size: 3em;
+            font-weight: 700;
+            line-height: 1;
+            color: #0077b6; /* Blue color for the day */
+        }
+
+        .event-date-box .month {
+            font-size: 0.9em;
+            text-transform: uppercase;
+            margin-top: 0.2em;
+        }
+
+        .event-date-box .year {
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+
+        .event-details {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .event-details .title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.3em;
+        }
+
+        .event-details .info {
+            font-size: 0.9em;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 1em;
+        }
+
+        .event-details .info span {
+            display: flex;
+            align-items: center;
+            gap: 0.3em;
+        }
+
+        .rsvp-button {
+            background-color: #0077b6;
+            color: #fff;
+            padding: 0.6em 1.2em;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: 500;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .rsvp-button:hover {
+            background-color: #005f95;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #1a202c; /* Dark background */
+            color: #a0aec0; /* Light gray text */
+            padding: 4rem 2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-list a {
+            color: #a0aec0;
+            text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .read-more-link:hover {
-            color: #a0a0a0; /* Lighter color on hover */
+        .footer-list a:hover {
+            color: #fff;
         }
 
-        .download-button {
-            display: inline-block; /* Make it behave like a button, allowing padding/margins */
-            background-color: #fff;
-            color: #1a202c; /* Dark text for contrast on light button */
-            font-weight: 600;
-            padding: 0.75rem 2rem; /* py-3 px-8 in Tailwind */
-            border-radius: 0.5rem; /* rounded-lg in Tailwind */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg in Tailwind */
-            transition: background-color 0.3s ease;
-            text-decoration: none; /* Remove underline for links */
-        }
-        .download-button:hover {
-            background-color: #e0e0e0;
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
-        /* Footer */
-        .site-footer {
-            background: #fff;
-            color: #222;
+        .social-link {
+            color: #a0aec0;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
             text-align: center;
-            padding: 2em 1em 1em 1em;
-            font-size: 1em;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #718096;
         }
 
-        .footer-links {
-            margin-bottom: 1em;
-        }
-
-        .footer-links a {
-            color: #0077b6;
-            margin: 0 1em;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-social a {
-            color: #0077b6;
-            margin: 0 0.5em;
-            font-size: 1.3em;
-        }
-
-        .footer-social a:hover {
-            color: #023e8a;
-        }
-
-        /* Keyframe Animations */
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
+        /* Responsive adjustments */
+        @media (max-width: 1024px) { /* Tablets and smaller desktops */
+            .hero-text-column {
+                flex: 0 0 50%;
+                padding-left: 8vw;
+                max-width: 350px;
             }
-            50% {
-                transform: translateY(10px);
+            .hero-text-column .title {
+                font-size: 4.5rem; /* Slightly smaller for tablets */
+            }
+            .hero-content {
+                padding-right: 3vw;
+            }
+            /* Smart Conf Carousel Mobile Adjustments */
+            .smart-conf-title {
+                font-size: 4em; /* Adjust for better fit on tablets */
+            }
+            .smart-conf-subtitle {
+                font-size: 1.5em; /* Adjust for better fit on tablets */
             }
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
+        @media (max-width: 768px) { /* Mobile */
+            .navbar {
+                padding: 1rem 1.5rem;
+                background-color: rgba(0, 0, 0, 0.4); /* Reverting mobile navbar background too */
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                display: none; /* Hide by default on mobile */
                 flex-direction: column;
-                background: #fff;
                 position: absolute;
                 top: 100%;
-                right: 0;
+                left: 0;
                 width: 100%;
-                padding: 1em;
-                box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+                background-color: rgba(0, 0, 0, 0.9); /* Darker for mobile menu background */
+                backdrop-filter: blur(15px); /* Apply blur to mobile menu too */
+                -webkit-backdrop-filter: blur(15px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                padding: 1rem 0;
             }
-
-            .nav-links.show {
-                display: flex;
+            .nav-links.active {
+                display: flex; /* Show when active */
             }
-
-            .mobile-menu {
+            .nav-item {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+            .nav-item > a {
+                padding: 0.75rem 0;
                 display: block;
             }
-
-            .navbar {
-                flex-direction: row; /* Changed back to row for mobile */
-                align-items: center;
-                justify-content: space-between; /* Space out logo and menu button */
-                padding: 0.7em 1em; /* Adjust padding for mobile */
+            .dropdown-menu {
+                position: static; /* Allows dropdown to flow in mobile menu */
+                transform: none;
+                box-shadow: none;
+                margin-top: 0;
+                border-radius: 0;
+                background-color: rgba(0, 0, 0, 0.8); /* Slightly less opaque for sub-menu */
+                border: none; /* Remove border for static dropdown */
+            }
+            .nav-item.dropdown:hover .dropdown-menu {
+                transform: none;
+            }
+            .dropdown-menu li a {
+                padding-left: 2rem; /* Indent dropdown items */
+            }
+            .hamburger-menu {
+                display: block; /* Show hamburger on mobile */
             }
 
-            .fullscreen-image {
-                padding-top: 0; /* Remove top padding on smaller screens if not needed with hero-content's top margin */
+            .hero-section {
+                padding-top: 60px; /* Adjust for mobile navbar height */
+                height: auto; /* Allow height to adjust based on content */
+                min-height: 50vh; /* Minimum height for hero on mobile */
+            }
+            .hero-content {
+                flex-direction: column; /* Stack content vertically */
+                align-items: center; /* Center content horizontally in column flow */
+                text-align: center; /* Center text within the column */
+                padding-left: 5vw;
+                padding-right: 5vw;
+                height: auto; /* Allow height to adjust based on content */
+            }
+            .hero-text-column {
+                flex: none; /* Don't flex grow/shrink */
+                width: 100%;
+                max-width: 90%; /* Max width for text on mobile */
+                margin-bottom: 2rem;
+                padding-left: 0; /* Remove specific left padding */
+            }
+            .hero-text-column p {
+                font-size: 1rem;
+            }
+            .hero-text-column .title {
+                font-size: 3rem;
+            }
+            .footer {
+                padding: 3rem 1.5rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr; /* Stack columns on mobile */
+                text-align: center;
+            }
+            .footer-section h4 {
+                margin-top: 1.5rem;
+            }
+            .social-links {
+                justify-content: center; /* Center social links on mobile */
             }
 
-            .hero-content .about-heading {
-                font-size: 2.5em; /* Smaller font size for mobile */
+            /* Smart Conf Carousel Mobile Adjustments */
+            .smart-conf-title {
+                font-size: 3em; /* Smaller title on mobile */
             }
-            .hero-content .arrow-down {
-                margin-top: 3em; /* Adjust top margin for mobile */
+            .smart-conf-subtitle {
+                font-size: 1.2em; /* Smaller subtitle on mobile */
             }
-
-            .about-content {
-                padding: 2em 1em; /* Adjust padding for smaller screens */
-            }
-            .about-heading-box {
-                padding: 1em 1.5em; /* Smaller padding for mobile box */
-                margin-bottom: 1.5em;
-                width: 100%; /* Make box full width on mobile */
-            }
-            .about-heading-box h2 {
-                font-size: 1.5em; /* Smaller font for mobile box heading */
-            }
-            .about-content h2 {
-                font-size: 2em; /* Smaller font for main heading */
-            }
-            .about-content p {
-                font-size: 1em; /* Smaller font for paragraph */
+            .smart-conf-nav-btn {
+                font-size: 1.2em; /* Smaller arrows on mobile */
+                padding: 0.8em 0.6em;
             }
 
-            .water-conservation-section .content-wrapper {
-                margin-left: auto; /* Center the block on mobile */
-                margin-right: auto; /* Center the block on mobile */
-                padding: 2rem 1.5rem; /* Adjust padding for mobile */
-                text-align: center; /* Center text on mobile */
+            /* Upcoming Events Mobile Adjustments (Static List) */
+            .upcoming-events-section {
+                padding: 2em 1em;
             }
-            .water-conservation-section .content-wrapper h1 {
-                font-size: 3.5em; /* Smaller font size for mobile heading */
+            .events-header {
+                padding: 0 0 1em 0;
             }
-            .water-conservation-section .content-wrapper p {
-                font-size: 1em; /* Smaller font size for mobile paragraphs */
+            .event-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8em;
+                padding: 1em 0;
+                border-bottom: 1px solid #eee;
             }
-            .water-conservation-section .content-wrapper .read-more-link,
-            .water-conservation-section .content-wrapper .download-button {
-                justify-content: center; /* Center the links/buttons */
+
+            .event-item:last-child {
+                border-bottom: none;
             }
-        }
-        /* Tablet responsiveness */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .navbar {
-                padding: 0.7em 1.5em;
+
+            .event-date-box {
+                flex-direction: row;
+                width: auto;
+                gap: 0.5em;
+                margin-bottom: 0.5em;
             }
-            .fullscreen-image {
-                padding-top: 80px; /* Adjust padding for fixed navbar on tablet */
+            .event-date-box .day {
+                font-size: 2.5em;
             }
-            .hero-content .about-heading {
-                font-size: 3.5em;
+            .event-date-box .month, .event-date-box .year {
+                font-size: 0.9em;
             }
-            .about-content {
-                max-width: 760px;
-                padding: 0 1.5em;
+
+            .event-thumbnail {
+                width: 100%;
+                height: 150px;
             }
-            .about-heading-box {
-                padding: 1.2em 1.8em;
+            .event-details {
+                width: 100%;
             }
-            .about-heading-box h2 {
-                font-size: 1.8em;
-            }
-            .about-content h2 {
-                font-size: 2.2em;
-            }
-            .about-content p {
-                font-size: 1.1em;
-            }
-            .water-conservation-section .content-wrapper {
-                margin-left: 8%; /* Keep left alignment for larger screens */
-                margin-right: auto; /* To push it to left */
-                text-align: left; /* Align text to left on larger screens */
-            }
-            .water-conservation-section .content-wrapper h1 {
-                font-size: 4.5em;
-            }
-            .water-conservation-section .content-wrapper .read-more-link,
-            .water-conservation-section .content-wrapper .download-button {
-                justify-content: flex-start; /* Align to left on larger screens */
-            }
-        }
-        /* Desktop responsiveness */
-        @media (min-width: 1025px) {
-            .fullscreen-image {
-                padding-top: 80px; /* Adjust padding for fixed navbar on desktop */
-            }
-            .water-conservation-section .content-wrapper {
-                margin-left: 10%; /* Original desktop margin */
-                margin-right: auto; /* To push it to left */
-                text-align: left; /* Align text to left on desktop */
-            }
-            .water-conservation-section .content-wrapper .read-more-link,
-            .water-conservation-section .content-wrapper .download-button {
-                justify-content: flex-start; /* Align to left on desktop */
+            .rsvp-button {
+                margin-top: 0.5em;
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -529,7 +701,7 @@
         <i class="fas fa-bars"></i>
     </div>
     <ul class="nav-links" id="navLinks">
-        <li class="nav-item"><a href="main.html">Home</a></li>
+        <li class="nav-item"><a href="#hero-section">Home</a></li>
         <li class="nav-item"><a href="about.html">About</a></li>
         <li class="nav-item"><a href="amenities.html">Amenities</a></li>
         <li class="nav-item"><a href="events.html">Events</a></li>
@@ -541,87 +713,242 @@
                 <li><a href="#">Downloads</a></li>
             </ul>
         </li>
-        <li class="nav-item"><a href="#">Contact</a></li>
+        <li class="nav-item"><a href="#footer-section">Contact</a></li>
     </ul>
 </nav>
 
-<section class="fullscreen-image">
-    <!-- Overlay and Hero Content added here -->
-    <div class="overlay"></div>
-
-    <!-- Center Content -->
-    <div class="hero-content">
-        <div class="about-heading">About Us</div>
-        <div class="arrow-down"><i class="fas fa-arrow-down"></i></div>
-    </div>
-</section>
-
-<section class="about-fullscreen">
-    <div class="overlay">
-        <div class="about-content" id="about-section">
-            <div class="about-heading-box">
-                <h2>ABOUT BRIGADE MEADOWS</h2>
+<section class="smart-conf-carousel-section" id="smartConfSection">
+    <div class="smart-conf-carousel-inner" id="smartConfCarouselInner">
+        <div class="smart-conf-slide slide-1">
+            <div class="smart-conf-overlay"></div>
+            <div class="smart-conf-content">
+                <h2 class="smart-conf-title">Yoga Day</h2>
+                <p class="smart-conf-subtitle">
+                    Excercise for Healthy Mind | Clubhouse | July 10-12, 2018
+                </p>
+                <a href="#" class="watch-video-btn">
+                    <i class="fas fa-envelope"></i> RSVP
+                </a>
             </div>
-            <p>
-                Brigade Meadows is not just a residential community — it's a lifestyle destination that blends greenery, modern infrastructure, and community-focused living. With thoughtfully designed amenities and a commitment to sustainability, we aim to provide an environment that supports healthy, secure, and fulfilling urban life for all residents.
-            </p>
+        </div>
+
+        <div class="smart-conf-slide slide-2">
+            <div class="smart-conf-overlay"></div>
+            <div class="smart-conf-content">
+                <h2 class="smart-conf-title">Diwali Celebration</h2>
+                <p class="smart-conf-subtitle">
+                    Victory of good over Evil | Open Garden | August 5-7, 2019
+                </p>
+                <a href="#" class="watch-video-btn">
+                    <i class="fas fa-envelope"></i> RSVP
+                </a>
+            </div>
+        </div>
+
+        <div class="smart-conf-slide slide-3">
+            <div class="smart-conf-overlay"></div>
+            <div class="smart-conf-content">
+                <h2 class="smart-conf-title">Independence Day</h2>
+                <p class="smart-conf-subtitle">
+                    78th Year of Independence | Flag Post | August 15, 2025
+                </p>
+                <a href="#" class="watch-video-btn">
+                    <i class="fas fa-envelope"></i> RSVP
+                </a>
+            </div>
         </div>
     </div>
-</section>
-<section class="water-conservation-section">
-    <div class="content-wrapper">
-        <!-- Adjusted text color for the subheading for better contrast -->
-        <p class="text-gray-400 text-lg font-light mb-2">Preserving our most vital resource</p>
-        <!-- Adjusted tracking for the main heading to match image's kerning -->
-        <h1 class="text-5xl md:text-6xl tracking-normal leading-tight mb-8">Water Conservation</h1>
 
-        <!-- Adjusted text color and line height for paragraphs -->
-        <p class="text-gray-300 text-lg md:text-xl leading-snug mb-6">
-            At our core, we are dedicated to pioneering sustainable water management practices. We believe in
-            redefining how water is used, treated, and conserved, setting new benchmarks for environmental
-            responsibility and addressing the critical challenges of water scarcity globally.
-        </p>
-
-        <p class="text-gray-300 text-lg md:text-xl leading-snug mb-8">
-            Our commitment extends to implementing advanced wastewater treatment systems and promoting water-efficient
-            technologies across all our operations. We strive to educate and empower communities and stakeholders
-            to embrace water-saving habits, fostering a collective endeavor towards a greener future.
-        </p>
-
-        <a href="#" class="read-more-link mb-6">
-            <span>READ MORE</span>
-            <span class="text-2xl">→</span>
-        </a>
-
-        <a href="#" download="Our_Water_Strategy.pdf" class="download-button">
-            OUR WATER STRATEGY
-        </a>
-    </div>
+    <button class="smart-conf-nav-btn smart-conf-prev" id="smartConfCarouselPrev">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="smart-conf-nav-btn smart-conf-next" id="smartConfCarouselNext">
+        <i class="fas fa-chevron-right"></i>
+    </button>
 </section>
 
-<!-- Footer -->
-<footer class="site-footer">
-    <div class="footer-links">
-        <a href="index.html">Home</a> |
-        <a href="about.html">About</a> |
-        <a href="amenities.html">Amenities</a> |
-        <a href="events.html">Events</a> |
-        <a href="pet.html">Pet Policy</a>
+<section class="upcoming-events-section">
+    <div class="events-header">
+        <h2>Upcoming Events</h2>
     </div>
-    <div class="footer-social">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+
+    <div class="event-item">
+        <div class="event-thumbnail">
+            <img src="https://placehold.co/120x80/cccccc/333333?text=Event+1" alt="Event Thumbnail 1">
+        </div>
+        <div class="event-date-box">
+            <span class="day">17</span>
+            <span class="month">May</span>
+            <span class="year">2018</span>
+        </div>
+        <div class="event-details">
+            <div class="title">Yoga Day</div>
+            <div class="info">
+                <span><i class="fas fa-map-marker-alt"></i> Clubhouse</span>
+                <span><i class="fas fa-clock"></i> 5pm-8pm</span>
+            </div>
+        </div>
+        <a href="#" class="rsvp-button">RSVP</a>
     </div>
-    <div>© 2025 Brigade Meadows Phase-1. All rights reserved.</div>
+
+    <div class="event-item">
+        <div class="event-thumbnail">
+            <img src="https://placehold.co/120x80/cccccc/333333?text=Event+2" alt="Event Thumbnail 2">
+        </div>
+        <div class="event-date-box">
+            <span class="day">21</span>
+            <span class="month">May</span>
+            <span class="year">2018</span>
+        </div>
+        <div class="event-details">
+            <div class="title">Diwali Celebration</div>
+            <div class="info">
+                <span><i class="fas fa-map-marker-alt"></i> Clubhouse</span>
+                <span><i class="fas fa-clock"></i> 5pm-8pm</span>
+            </div>
+        </div>
+        <a href="#" class="rsvp-button">RSVP</a>
+    </div>
+
+    <div class="event-item">
+        <div class="event-thumbnail">
+            <img src="https://placehold.co/120x80/cccccc/333333?text=Event+3" alt="Event Thumbnail 3">
+        </div>
+        <div class="event-date-box">
+            <span class="day">03</span>
+            <span class="month">April</span>
+            <span class="year">2018</span>
+        </div>
+        <div class="event-details">
+            <div class="title">Independence Day</div>
+            <div class="info">
+                <span><i class="fas fa-map-marker-alt"></i> Clubhouse</span>
+                <span><i class="fas fa-clock"></i> 5pm-8pm</span>
+            </div>
+        </div>
+        <a href="#" class="rsvp-button">RSVP</a>
+    </div>
+</section>
+
+<footer class="footer" id="footer-section">
+    <div class="footer-grid">
+        <div class="footer-section">
+            <div class="footer-brand">BRIGADE MEADOWS</div>
+            <p>A thriving community designed for modern living.</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-list">
+                <li><a href="#hero-section">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="amenities.html">Amenities</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="#footer-section">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Policy</h4>
+            <ul class="footer-list">
+                <li><a href="#">SOPs</a></li>
+                <li><a href="pet.html">Pet Policy</a></li>
+                <li><a href="#">Downloads</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p>123 Brigade Road, Bangalore, India</p>
+            <p>+91 98765 43210</p>
+            <p>info@brigademeadows.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2023 Brigade Meadows. All rights reserved.
+    </div>
 </footer>
-
-<!-- Scripts -->
 <script>
-    document.getElementById('mobile-menu-btn').onclick = function () {
-        document.getElementById('nav-links').classList.toggle('show');
-    };
+    // Hamburger Menu functionality
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navLinks = document.getElementById('navLinks');
+
+    if (hamburgerMenu && navLinks) {
+        hamburgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // Optional: Close mobile menu when a nav link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+
+    // Smart Conf Carousel functionality (Auto-playing)
+    const smartConfCarouselInner = document.getElementById('smartConfCarouselInner');
+    const smartConfSlides = document.querySelectorAll('.smart-conf-slide');
+    const smartConfCarouselPrev = document.getElementById('smartConfCarouselPrev');
+    const smartConfCarouselNext = document.getElementById('smartConfCarouselNext');
+    const smartConfSection = document.getElementById('smartConfSection');
+
+    let smartConfCurrentIndex = 0;
+    const smartConfTotalSlides = smartConfSlides.length;
+    let smartConfInterval;
+    const autoPlayDelay = 5000; // 5 seconds
+
+    function showSmartConfSlide(index) {
+        if (index < 0) {
+            smartConfCurrentIndex = smartConfTotalSlides - 1; // Loop to the last slide
+        } else if (index >= smartConfTotalSlides) {
+            smartConfCurrentIndex = 0; // Loop to the first slide
+        } else {
+            smartConfCurrentIndex = index;
+        }
+        const offset = -smartConfCurrentIndex * 100; // Calculate offset for translateX
+        smartConfCarouselInner.style.transform = `translateX(${offset}%)`;
+    }
+
+    function startSmartConfAutoPlay() {
+        stopSmartConfAutoPlay(); // Clear any existing interval before starting a new one
+        smartConfInterval = setInterval(() => {
+            showSmartConfSlide(smartConfCurrentIndex + 1);
+        }, autoPlayDelay);
+    }
+
+    function stopSmartConfAutoPlay() {
+        clearInterval(smartConfInterval); // Stop the auto-play interval
+    }
+
+    // Event listeners for navigation buttons
+    smartConfCarouselPrev.addEventListener('click', () => {
+        stopSmartConfAutoPlay(); // Stop auto-play on manual interaction
+        showSmartConfSlide(smartConfCurrentIndex - 1);
+        startSmartConfAutoPlay(); // Restart auto-play after a brief pause
+    });
+
+    smartConfCarouselNext.addEventListener('click', () => {
+        stopSmartConfAutoPlay(); // Stop auto-play on manual interaction
+        showSmartConfSlide(smartConfCurrentIndex + 1);
+        startSmartConfAutoPlay(); // Restart auto-play after a brief pause
+    });
+
+    // Pause auto-play when mouse enters the carousel area, resume when it leaves
+    smartConfSection.addEventListener('mouseenter', stopSmartConfAutoPlay);
+    smartConfSection.addEventListener('mouseleave', startSmartConfAutoPlay);
+
+    // Initialize the carousel and start auto-play when the page loads
+    showSmartConfSlide(0);
+    startSmartConfAutoPlay();
 </script>
 </body>
 </html>
