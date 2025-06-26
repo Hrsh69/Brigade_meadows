@@ -1,224 +1,423 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brigade Meadows - Penalties</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <title>Brigade Meadows - [Page Title]</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f8fafc;
-      color: #222;
-      margin: 0;
-      padding-top: 70px; /* Height of navbar */
-    }
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.97);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.7em 2em;
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.5em;
-      color: #0077b6;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 2em;
-      margin: 0;
-      align-items: center;
-    }
-    .nav-links li a {
-      text-decoration: none;
-      color: #222;
-      font-weight: 500;
-      padding: 0.3em 0.6em;
-      border-radius: 4px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .nav-links li a:hover, .nav-links li a:focus {
-      background: #0077b6;
-      color: #fff;
-    }
-    .mobile-menu {
-      display: none;
-      font-size: 1.8em;
-      color: #0077b6;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    .penalties-hero {
-      position: relative;
-      width: 100vw;
-      min-height: 220px;
-      background-image: url('assets/Whimsical Suburban Street Scene.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 2em;
-    }
-    .penalties-hero-overlay {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.35);
-      z-index: 1;
-    }
-    .penalties-hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      color: #fff;
-      padding: 2em 1em;
-    }
-    .penalties-hero-content h1 {
-      font-size: 2.2em;
-      font-weight: 700;
-      margin-bottom: 0.3em;
-      letter-spacing: 1px;
-    }
-    .penalties-hero-content p {
-      font-size: 1.1em;
-      color: #e0f7fa;
-      margin: 0;
-    }
-    .penalty-cards {
-      max-width: 700px;
-      margin: 0 auto 2em auto;
-      display: flex;
-      flex-direction: column;
-      gap: 2em;
-    }
-    .penalty-card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-      padding: 2em 2em 1.5em 2em;
-      border-left: 6px solid #e0e0e0;
-      transition: box-shadow 0.2s;
-    }
-    .penalty-card.low {
-      border-color: #ffe066;
-    }
-    .penalty-card.medium {
-      border-color: #ffb347;
-    }
-    .penalty-card.high {
-      border-color: #e63946;
-    }
-    .penalty-title {
-      font-weight: 700;
-      font-size: 1.2em;
-      margin-bottom: 1em;
-      display: flex;
-      align-items: center;
-      gap: 0.6em;
-    }
-    .penalty-card.low .penalty-title {
-      color: #bfa600;
-    }
-    .penalty-card.medium .penalty-title {
-      color: #e67e22;
-    }
-    .penalty-card.high .penalty-title {
-      color: #e63946;
-    }
-    .penalty-card ul {
-      margin: 0;
-      padding-left: 1.2em;
-      color: #222;
-      font-size: 1em;
-    }
-    @media (max-width: 900px) {
+      body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Inter', sans-serif;
+          overflow-x: hidden;
+          color: #fff;
+          background: #181c24;
+          min-height: 100vh;
+      }
       .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.5em 1em;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1.5rem 3rem;
+          background-color: rgba(0, 0, 0, 0.4);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+          z-index: 100;
+      }
+      .navbar-brand {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: #fff;
+          text-decoration: none;
       }
       .nav-links {
-        flex-direction: column;
-        width: 100%;
-        gap: 1em;
-        margin-top: 1em;
+          display: flex;
+          gap: 2rem;
+          list-style: none;
+          margin: 0;
+          padding: 0;
       }
-      .penalties-hero-content h1 {
-        font-size: 1.3em;
+      .nav-item {
+          position: relative;
       }
-      .penalty-card {
-        padding: 1.2em 0.7em 1em 0.7em;
+      .nav-item > a {
+          color: #fff;
+          text-decoration: none;
+          font-weight: 500;
+          padding: 0.5rem 0;
+          transition: color 0.3s ease;
       }
-    }
+      .nav-item > a:hover {
+          color: rgba(255,255,255,0.7);
+      }
+      .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: rgba(0, 0, 0, 0.6);
+          backdrop-filter: blur(15px);
+          -webkit-backdrop-filter: blur(15px);
+          min-width: 150px;
+          border-radius: 0.5rem;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+          list-style: none;
+          padding: 0.5rem 0;
+          margin-top: 0.5rem;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      }
+      .nav-item.dropdown:hover .dropdown-menu {
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(-50%) translateY(0);
+      }
+      .dropdown-menu li a {
+          display: block;
+          padding: 0.75rem 1rem;
+          color: #fff;
+          text-decoration: none;
+          transition: background-color 0.2s ease;
+      }
+      .dropdown-menu li a:hover {
+          background-color: rgba(255,255,255,0.1);
+      }
+      .hamburger-menu {
+          display: none;
+          font-size: 2rem;
+          color: #fff;
+          cursor: pointer;
+      }
+      .main-content {
+          max-width: 800px;
+          margin: 2em auto;
+          padding: 0 1.5em;
+          text-align: left;
+          color: #222;
+          background: #fff;
+          border-radius: 1rem;
+          box-shadow: 0 4px 32px rgba(0,119,182,0.07);
+          padding: 2.5em 2em;
+          margin-top: 120px;
+      }
+      .section-heading {
+          color: #0077b6;
+          font-size: 1.35em;
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+          border-left: 4px solid #00b4d8;
+          padding-left: 0.7em;
+          margin-bottom: 0.7em;
+          background: linear-gradient(90deg, #e0f7fa 60%, transparent 100%);
+          text-align: left;
+          margin-top: 2em;
+          font-weight: 600;
+      }
+      .hero-section {
+          background: linear-gradient(120deg, #f0fcfd 0%, #e2f8fa 100%);
+          color: #0077b6;
+          padding: 1.2em 1em 1em 1em;
+          text-align: center;
+          position: relative;
+          border-bottom: 1px solid #e0e0e0;
+          min-height: 40vh;
+          margin-top: 80px;
+      }
+      .hero-section h1 {
+          font-size: 1.1em;
+          margin-bottom: 0.15em;
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+          justify-content: center;
+      }
+      .hero-section p {
+          font-size: 0.95em;
+          margin-bottom: 0.5em;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+      .sop-button {
+          display: inline-block;
+          background: #0077b6;
+          color: #fff;
+          padding: 0.7em 1.5em;
+          border-radius: 2em;
+          text-decoration: none;
+          font-weight: 600;
+          margin-top: 1em;
+          transition: background 0.2s, box-shadow 0.2s;
+          box-shadow: 0 2px 8px rgba(0,119,182,0.08);
+      }
+      .sop-button:hover {
+          background: #023e8a;
+          box-shadow: 0 4px 16px rgba(0,62,138,0.12);
+      }
+      .footer {
+          background-color: #1a202c;
+          color: #a0aec0;
+          padding: 4rem 2rem;
+          font-size: 0.9rem;
+          margin-top: 3rem;
+      }
+      .footer-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 2rem;
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+      .footer-brand {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #fff;
+          margin-bottom: 1rem;
+      }
+      .footer-section h4 {
+          font-weight: 600;
+          color: #fff;
+          margin-bottom: 1rem;
+          font-size: 1.1rem;
+      }
+      .footer-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+      }
+      .footer-list li {
+          margin-bottom: 0.5rem;
+      }
+      .footer-list a {
+          color: #a0aec0;
+          text-decoration: none;
+          transition: color 0.3s ease;
+      }
+      .footer-list a:hover {
+          color: #fff;
+      }
+      .footer-bottom {
+          text-align: center;
+          margin-top: 3rem;
+          padding-top: 1.5rem;
+          border-top: 1px solid rgba(255,255,255,0.1);
+          color: #718096;
+      }
+      @media (max-width: 768px) {
+          .navbar {
+              padding: 1rem 1.5rem;
+          }
+          .nav-links {
+              display: none;
+              flex-direction: column;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 100%;
+              background-color: rgba(0, 0, 0, 0.9);
+              backdrop-filter: blur(15px);
+              -webkit-backdrop-filter: blur(15px);
+              box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+              padding: 1rem 0;
+          }
+          .nav-links.active {
+              display: flex;
+          }
+          .nav-item {
+              width: 100%;
+              text-align: center;
+              margin-bottom: 0.5rem;
+          }
+          .nav-item > a {
+              padding: 0.75rem 0;
+              display: block;
+          }
+          .dropdown-menu {
+              position: static;
+              transform: none;
+              box-shadow: none;
+              margin-top: 0;
+              border-radius: 0;
+              background-color: rgba(0, 0, 0, 0.8);
+              border: none;
+          }
+          .nav-item.dropdown:hover .dropdown-menu {
+              transform: none;
+          }
+          .dropdown-menu li a {
+              padding-left: 2rem;
+          }
+          .hamburger-menu {
+              display: block;
+          }
+          .main-content {
+              margin-top: 100px;
+              padding: 1.5em 1em;
+          }
+          .hero-section {
+              margin-top: 60px;
+              padding: 0.7em 0.5em 0.5em 0.5em;
+          }
+          .hero-section h1 {
+              font-size: 1em;
+          }
+      }
   </style>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <nav class="navbar">
-    <a href="index.html" class="logo"><i class="fa-solid fa-building"></i> BRIGADE MEADOWS</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="amenities.html">Amenities</a></li>
-      <li><a href="events.html">Events</a></li>
-      <li><a href="penalties.html">Penalties</a></li>
-    </ul>
-  </nav>
-  <div class="penalties-hero">
-    <div class="penalties-hero-overlay"></div>
-    <div class="penalties-hero-content">
-      <h1><i class="fa-solid fa-scale-balanced"></i> Rule Violations & Penalties</h1>
-      <p>Maintaining harmony and safety in Brigade Meadows through clear, fair penalties.</p>
+    <nav class="navbar" data-aos="fade-down">
+        <a href="main.html" class="logo"><i class="fa-solid fa-shield-alt"></i> BRIGADE MEADOWS</a>
+        <button class="mobile-menu" id="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="main.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="amenities.html">Amenities</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Policy <i class="fa fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="security-policy.html">Security Policies</a></li>
+                    <li><a href="interior-guidelines.html">Interior Work</a></li>
+                    <li><a href="housekeeping.html">Housekeeping & Waste</a></li>
+                    <li><a href="pet.html">Pet Policy</a></li>
+                    <li><a href="party.html">Party Hall</a></li>
+                    <li><a href="pool.html">Swimming Pool</a></li>
+                    <li><a href="gym.html">Gym</a></li>
+                    <li><a href="play.html">Children's Play Area</a></li>
+                    <li><a href="penalties.html">Rule Violation & Penalty</a></li>
+                    <li><a href="move.html">Move-In / Move-Out</a></li>
+                </ul>
+            </li>
+        </nav>
+    </nav>
+</head>
+
+  <header class="hero-section" data-aos="fade-up">
+    <h1><i class="fa-solid fa-scale-balanced"></i> Rule Violations & Penalties</h1>
+    <p>Maintaining harmony and safety in Brigade Meadows through clear, fair penalties.</p>
+  </header>
+  <main class="main-content">
+    <section data-aos="fade-right">
+      <div class="section-heading"><i class="fa-solid fa-circle-info"></i> Penalty Structure</div>
+      <div class="penalty-card low">
+        <div class="penalty-title"><i class="fa-solid fa-circle-info"></i> Low Severity – ₹500 Fine</div>
+        <ul>
+          <li>Smoking in public areas (1st time)</li>
+          <li>Walking pets without leash or poop scooper</li>
+          <li>Honking after 10 PM</li>
+          <li>Loud noise/music disturbances</li>
+          <li>Throwing garbage in public areas</li>
+          <li>Keeping items/footwear in lobbies</li>
+        </ul>
+      </div>
+      <div class="penalty-card medium">
+        <div class="penalty-title"><i class="fa-solid fa-triangle-exclamation"></i> Medium Severity – ₹1000 Fine</div>
+        <ul>
+          <li>Repeat of low violations</li>
+          <li>Using altered silencers (1st or 2nd time)</li>
+          <li>Alcohol consumption in public areas</li>
+          <li>Driving through no-entry zones</li>
+          <li>Violation of facility rules (pool, gym, etc.)</li>
+          <li>Move-in/out after 6 PM or on holidays</li>
+        </ul>
+      </div>
+      <div class="penalty-card high">
+        <div class="penalty-title"><i class="fa-solid fa-skull-crossbones"></i> Critical Violations – ₹5000+ & Legal Action</div>
+        <ul>
+          <li>Manhandling / physical assault</li>
+          <li>Sexual harassment or abuse of minors</li>
+          <li>Major property damage</li>
+          <li>Repeat of medium violations</li>
+          <li>Any act endangering safety of residents</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="footer-brand">BRIGADE MEADOWS</div>
+        <p>A thriving community designed for modern living.</p>
+      </div>
+  
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="main.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="ameneties.html">Amenities</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contacts.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>123 Brigade Road, Bangalore, India</p>
+        <p>+91 98765 43210</p>
+        <p>info@brigademeadows.com</p>
+      </div>
     </div>
-  </div>
-  <div class="penalty-cards">
-    <div class="penalty-card low">
-      <div class="penalty-title"><i class="fa-solid fa-circle-info"></i> Low Severity – ₹500 Fine</div>
-      <ul>
-        <li>Smoking in public areas (1st time)</li>
-        <li>Walking pets without leash or poop scooper</li>
-        <li>Honking after 10 PM</li>
-        <li>Loud noise/music disturbances</li>
-        <li>Throwing garbage in public areas</li>
-        <li>Keeping items/footwear in lobbies</li>
-      </ul>
+    <div class="footer-bottom">
+      &copy; 2023 Brigade Meadows. All rights reserved.
     </div>
-    <div class="penalty-card medium">
-      <div class="penalty-title"><i class="fa-solid fa-triangle-exclamation"></i> Medium Severity – ₹1000 Fine</div>
-      <ul>
-        <li>Repeat of low violations</li>
-        <li>Using altered silencers (1st or 2nd time)</li>
-        <li>Alcohol consumption in public areas</li>
-        <li>Driving through no-entry zones</li>
-        <li>Violation of facility rules (pool, gym, etc.)</li>
-        <li>Move-in/out after 6 PM or on holidays</li>
-      </ul>
-    </div>
-    <div class="penalty-card high">
-      <div class="penalty-title"><i class="fa-solid fa-skull-crossbones"></i> Critical Violations – ₹5000+ & Legal Action</div>
-      <ul>
-        <li>Manhandling / physical assault</li>
-        <li>Sexual harassment or abuse of minors</li>
-        <li>Major property damage</li>
-        <li>Repeat of medium violations</li>
-        <li>Any act endangering safety of residents</li>
-      </ul>
-    </div>
-  </div>
+  </footer>
+  <!-- Footer End -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
+<script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').onclick = function() {
+        var nav = document.getElementById('nav-links');
+        nav.classList.toggle('show');
+    };
+    // AOS animation
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+    // Admin link logic
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+            if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                    document.getElementById("admin-link").style.display = "inline-block";
+                });
+            } else {
+                document.getElementById("admin-link").style.display = "inline-block";
+            }
+        });
+    }
+    document.querySelectorAll('.dropbtn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var menu = this.parentElement.querySelector('.dropdown-menu');
+            if(menu) menu.style.display = (menu.style.display === 'block' ? 'none' : 'block');
+        });
+    });
+    
+</script>
+<script>
+    // Hamburger menu for mobile
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navLinks = document.getElementById('navLinks');
+    
+    hamburgerMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+</script>
 </body>
 </html>

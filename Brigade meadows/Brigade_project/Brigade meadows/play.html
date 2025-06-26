@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -281,18 +279,16 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="main.html" class="navbar-brand">BRIGADE MEADOWS</a>
-        <div class="hamburger-menu" id="hamburgerMenu">
-            <i class="fas fa-bars"></i>
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li class="nav-item"><a href="main.html">Home</a></li>
-            <li class="nav-item"><a href="about.html">About</a></li>
-            <li class="nav-item"><a href="amenities.html">Amenities</a></li>
-            <li class="nav-item"><a href="events.html">Events</a></li>
-            <li class="nav-item dropdown">
-                <a href="#">Policy <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+    <nav class="navbar" data-aos="fade-down">
+        <a href="main.html" class="logo"><i class="fa-solid fa-shield-alt"></i> BRIGADE MEADOWS</a>
+        <button class="mobile-menu" id="mobile-menu-btn" aria-label="Open Menu"><i class="fa fa-bars"></i></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="main.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="amenities.html">Amenities</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Policy <i class="fa fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="security-policy.html">Security Policies</a></li>
                     <li><a href="interior-guidelines.html">Interior Work</a></li>
@@ -306,154 +302,112 @@
                     <li><a href="move.html">Move-In / Move-Out</a></li>
                 </ul>
             </li>
-            <li class="nav-item"><a href="contact.html">Contact</a></li>
-        </ul>
+        </nav>
     </nav>
-    <header class="hero-section" data-aos="fade-up">
-        <h1><i class="fa-solid fa-ruler-combined"></i> Interior Work Guidelines</h1>
-        <p>Essential rules and procedures for safe, compliant, and neighbor-friendly interior work.</p>
-        <a href="#guidelines" class="sop-button">View Guidelines</a>
-        <div class="scroll-down-arrow">
-            <i class="fa-solid fa-angle-down"></i>
-        </div>
-    </header>
-    <main class="main-content">
-        <section id="guidelines" data-aos="fade-right">
-            <div class="section-heading"><i class="fa-solid fa-hammer"></i> Interior Work Policy</div>
-            <h3>1. Work Timings</h3>
-            <ul>
-                <li>Interior work is strictly permitted only between <strong>9:00 AM to 6:00 PM</strong> on working days.</li>
-                <li><strong>No work is allowed</strong> on <strong>Sundays and public holidays</strong>.</li>
-                <li>Violation of timings (e.g., drilling or hammering after hours) will lead to <strong>power disconnection</strong> without further notice.</li>
-            </ul>
-            <h3>2. Labor Stay and Conduct</h3>
-            <ul>
-                <li><strong>Laborers must not stay inside flats</strong> beyond 6:00 PM under any circumstance.</li>
-                <li>Workers are not allowed to loiter or use common amenities during or after work hours.</li>
-                <li>Chewing tobacco or spitting in premises is strictly prohibited.</li>
-                <li>Smoking is not allowed inside units or common areas — the society is a <strong>No Smoking Zone</strong>.</li>
-            </ul>
-            <h3>3. Worker Identification & Contractor Documentation</h3>
-            <ul>
-                <li>All workers must carry valid ID (Aadhaar, PAN, Voter ID, or Driving License).</li>
-                <li>Contractors must submit:
-                    <ul>
-                        <li>Photo ID proof and photographs of all laborers</li>
-                        <li>A copy of the <strong>Work Permit</strong> to security at Gate A or B</li>
-                    </ul>
-                </li>
-            </ul>
-            <h3>4. Common Area Usage Restrictions</h3>
-            <ul>
-                <li>Work must be strictly confined to the designated flat.</li>
-                <li>No items, tools, debris, or materials should block staircases, lifts, or corridors.</li>
-                <li>Workers are <strong>not allowed</strong> to tamper with common-area water valves or electrical boards.</li>
-                <li><strong>Use of passenger lifts</strong> for moving heavy materials or during move-in/move-out is prohibited — only service lifts or stairs must be used.</li>
-            </ul>
-            <h3>5. Debris & Waste Disposal</h3>
-            <ul>
-                <li>Contractors and owners are fully responsible for proper disposal of interior debris or leftover construction material.</li>
-                <li>Housekeeping staff will <strong>not collect renovation debris</strong> or accidental construction waste.</li>
-                <li>No waste should be dumped in corridors, near lifts, or public areas.</li>
-            </ul>
-            <h3>6. Advance Notice & Formalities</h3>
-            <ul>
-                <li>All interior work formalities must be completed <strong>at least one day in advance</strong>.</li>
-                <li>Permission must be obtained from the Estate Office and relevant documents submitted.</li>
-            </ul>
-            <h3>7. Security Deposit Policy</h3>
-            <ul>
-                <li>A <strong>refundable caution deposit of ₹15,000</strong> (by cheque only) is mandatory before starting interior work.</li>
-                <li>Cheque should be payable to: <em>"Brigade Meadows Apartment Owners Association Phase-1"</em>.</li>
-                <li>This will only be returned after inspection, subject to no damage to common infrastructure.</li>
-            </ul>
-            <h3>8. Rules Linked with Penalties</h3>
-            <ul>
-                <li>Unauthorized work beyond allowed hours (6:00 PM) or on holidays will attract <strong>power disconnection and fines</strong>.</li>
-                <li>Any damage to lifts, walls, or shared infrastructure (due to negligence) will attract <strong>critical penalties</strong>.</li>
-                <li>Using common areas as temporary storerooms, drilling in shared walls, or using society electricity is punishable.</li>
-                <li><strong>Misuse of lifts</strong> or staining corridors will attract cleaning penalties or service charge deductions.</li>
-            </ul>
-            <h3>9. Electrical/Plumbing Work Specifics</h3>
-            <ul>
-                <li>Only licensed electricians or plumbers should perform modification work inside flats.</li>
-                <li>Switching off power/water for the building for private interior work is not permitted without prior written permission.</li>
-            </ul>
-            <h3>10. Noise and Nuisance Control</h3>
-            <ul>
-                <li>Contractors and workers must avoid loud machinery use or drilling during rest hours (especially before 9 AM or after 6 PM).</li>
-                <li>Persistent complaints from neighbors regarding dust, sound, or debris will lead to immediate suspension of work.</li>
-            </ul>
-            <h3>11. Legal and Safety Compliance</h3>
-            <ul>
-                <li>All interior works must comply with BBMP/local authority guidelines and fire safety regulations.</li>
-                <li>Unauthorized modifications (e.g., structural changes, balcony enclosures) are prohibited and subject to legal action.</li>
-            </ul>
-            <h3>12. Responsibilities of Residents & Owners</h3>
-            <ul>
-                <li>Owners are responsible for contractor behavior and restoration of damage caused to society property.</li>
-                <li>If tenants are performing interior work, the owner must coordinate and remain accountable for rule compliance.</li>
-            </ul>
-            <div class="pdf-download-container">
-                <a href="assets/SOP%2025-03-2025%20EC-6.pdf" download class="sop-button"><i class="fa fa-download"></i> Download </a>
-            </div>
-        </section>
-    </main>
-    <footer class="footer">
-        <div class="footer-grid">
-          <div class="footer-section">
-            <div class="footer-brand">BRIGADE MEADOWS</div>
-            <p>A thriving community designed for modern living.</p>
-          </div>
-      
-          <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul class="footer-list">
-              <li><a href="main.html">Home</a></li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="ameneties.html">Amenities</a></li>
-              <li><a href="events.html">Events</a></li>
-              <li><a href="contacts.html">Contact Us</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Contact Us</h4>
-            <p>123 Brigade Road, Bangalore, India</p>
-            <p>+91 98765 43210</p>
-            <p>info@brigademeadows.com</p>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          &copy; 2023 Brigade Meadows. All rights reserved.
-        </div>
-      </footer>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="script.js"></script>
-    <script>
-        // Hamburger menu for mobile
-        const hamburgerMenu = document.getElementById('hamburgerMenu');
-        const navLinks = document.getElementById('navLinks');
-        
-        hamburgerMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        // AOS animation
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-        // Admin link logic
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.getElementById("admin-link").style.display = "inline-block";
-                    });
-                } else {
+</head>
+
+<h1>Children's Play Area – Usage Guidelines</h1>
+
+    <p>Welcome to our Children's Play Area! To ensure a safe, clean, and fun environment for all our young visitors, please observe the following rules:</p>
+
+    <ol>
+        <li><strong>Age Restriction:</strong> The play area is strictly for **children under the age of 12**.</li>
+        <li><strong>No Throwing:</strong> Throwing sand on play equipment or footpaths is **prohibited**. Please keep sand in the designated areas.</li>
+        <li><strong>No Pets:</strong> For the safety and hygiene of all children, **pets are not allowed** in the play area.</li>
+        <li><strong>No Littering:</strong> **Littering is strictly prohibited**. Please help us keep the area clean by using the designated bins for all trash.</li>
+        <li><strong>Proper Equipment Use:</strong> Play equipment must be used **appropriately and as intended**. Misuse can lead to damage and injuries.</li>
+        <li><strong>Safe Play:</strong> **Running, pushing, or shoving is not allowed** to prevent accidents and ensure a safe play environment for everyone.</li>
+        <li><strong>No Smoking:</strong> **Smoking is strictly prohibited** within the entire play area.</li>
+        <li><strong>Adult Supervision:</strong> Children must be **supervised by a responsible adult at all times**. Adults are accountable for the behavior and safety of the children in their care.</li>
+        <li><strong>Toddler Swing Use:</strong> The toddler swing is specifically reserved for **children up to 4 years of age**.</li>
+    </ol>
+
+    <hr>
+
+    <h2>Important Notes:</h2>
+    <ul>
+        <li>**Strict action will be taken against unauthorized individuals** using the amenities.</li>
+        <li>The management is **not responsible for any injuries sustained** while using these facilities. Please ensure children play responsibly and adults supervise diligently.</li>
+    </ul>
+
+    <p>Thank you for helping us maintain a wonderful and safe play area for our community's children!</p>
+</body></div>
+<div class="pdf-download-container">
+    <a href="assets/SOP%2025-03-2025%20EC-6.pdf" download class="sop-button"><i class="fa fa-download"></i> Download Full Guidelines PDF</a>
+</div>
+</div>
+
+<footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="footer-brand">BRIGADE MEADOWS</div>
+        <p>A thriving community designed for modern living.</p>
+      </div>
+  
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="main.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="ameneties.html">Amenities</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contacts.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>123 Brigade Road, Bangalore, India</p>
+        <p>+91 98765 43210</p>
+        <p>info@brigademeadows.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2023 Brigade Meadows. All rights reserved.
+    </div>
+  </footer>
+  <!-- Footer End -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
+<script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').onclick = function() {
+        var nav = document.getElementById('nav-links');
+        nav.classList.toggle('show');
+    };
+    // AOS animation
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+    // Admin link logic
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+            if (!user) {
+                window.netlifyIdentity.on("login", () => {
                     document.getElementById("admin-link").style.display = "inline-block";
-                }
-            });
-        }
-    </script>
+                });
+            } else {
+                document.getElementById("admin-link").style.display = "inline-block";
+            }
+        });
+    }
+    document.querySelectorAll('.dropbtn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var menu = this.parentElement.querySelector('.dropdown-menu');
+            if(menu) menu.style.display = (menu.style.display === 'block' ? 'none' : 'block');
+        });
+    });
+    
+</script>
+<script>
+    // Hamburger menu for mobile
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navLinks = document.getElementById('navLinks');
+    
+    hamburgerMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+</script>
 </body>
 </html>
